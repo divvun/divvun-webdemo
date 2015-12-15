@@ -1,0 +1,32 @@
+/* indent-tabs-mode: nil; tab-width: 4; */
+
+* {
+    font-family: Times, serif;
+    color: #444;
+}
+body, div, p, html, button {
+    padding: 2%;
+}
+
+#outer {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin: 10px;
+}
+
+div#form {
+    border: thin dotted red;
+    padding: 1%;
+    margin: 5%;
+    min-height: 7em;
+}
+
+.error {
+    text-decoration: underline wavy red;
+    cursor: pointer;
+}
