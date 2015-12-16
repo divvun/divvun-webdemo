@@ -4,7 +4,7 @@
     font-family: Times, serif;
     color: #444;
 }
-body, div, p, html, button {
+body, html, button {
     padding: 2%;
 }
 
@@ -28,5 +28,31 @@ div#form {
 
 .error {
     text-decoration: underline wavy red;
+    cursor: pointer;
+}
+
+#suggmenu {
+    position: absolute;
+    /* js sets these: */
+    /* left: 221.5px; */
+    /* top: 330px; */
+    z-index: 200000;
+    outline: 0px none;
+    /* presumably js class for this one: */
+    display: block;
+    /* js sets these? */
+    width: 170px;
+    height: 91px;
+    background-color: white;
+}
+
+.suggmenu_title {
+    background-color: #eee;
+}
+.suggmenu_nonfirst:hover {
+    background-color: cyan;
+}
+.suggmenu_nonfirst {
+    padding-left: 2%;
     cursor: pointer;
 }

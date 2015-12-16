@@ -74,8 +74,11 @@
    * @param {Node} elt
    * @param {Array<string>} rep
    */
-  var sugg = function(elt, rep) {
-    console.log(elt);
+  var sugg = function(span, rep) {
+    var spanoff = $(span).offset();
+    $('#suggmenu').offset({ top: spanoff.top+20,
+                            left: spanoff.left });
+    console.log(span);
     console.log(rep);
   };
 
