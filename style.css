@@ -1,11 +1,36 @@
 /* indent-tabs-mode: nil; tab-width: 4; */
 
 * {
-    font-family: Times, serif;
-    color: #444;
+    font-family: "Source Sans Pro",sans-serif;
+    border: 0px none;
+    margin: 0px;
+    padding: 0px;
+    /* white-space: nowrap; */
+    background: transparent none repeat scroll 0% 0%;
+    text-decoration: none;
+    font-weight: normal;
+    cursor: default;
+    color: #000;
+    vertical-align: baseline;
+    width: auto;
+    border-collapse: separate;
+    text-align: left;
 }
+
+button#check_b {
+    background-color: #1A36D8;
+    color: #fff;
+    font-variant: small-caps;
+    padding: 8px;
+    cursor: pointer;
+}
+button#check_b:hover {
+    background-color: #152baa;
+}
+
 body, html, button {
     padding: 2%;
+    color: #777;
 }
 
 #outer {
@@ -24,6 +49,8 @@ div#form {
     padding: 1%;
     margin: 5%;
     min-height: 7em;
+    font-size: 18px;
+    line-height: 1.7em;
 }
 
 .error {
@@ -44,6 +71,14 @@ div#form {
     width: 170px;
     height: 91px;
     background-color: white;
+}
+#suggmenu_co {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    border: 1px solid #D4D0C8;
+    direction: ltr;
 }
 
 .suggmenu_title {

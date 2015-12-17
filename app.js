@@ -58,10 +58,9 @@
           span = document.createElement('span');
       form.appendChild(document.createTextNode(pre));
       span.textContent = err;
-      span.onclick = function(){ return sugg(this, rep); };
+      span.onclick = function(){ return showsugg(this, rep); };
       span.className += " error";
       form.appendChild(span);
-      //checked.push('<span onclick="sugg(this, ' + rep + ')" class="error" data-errtype="' + typ + '">' + err + '</span>');
       done = end;
     }
     form.appendChild(document.createTextNode(plaintext.slice(done)));
@@ -74,17 +73,17 @@
    * @param {Node} elt
    * @param {Array<string>} rep
    */
-  var sugg = function(span, rep) {
+  var showsugg = function(span, rep) {
     var spanoff = $(span).offset();
-    $('#suggmenu').offset({ top: spanoff.top+20,
+    var suggmenu = $('#suggmenu');
+    suggmenu.offset({ top: spanoff.top+20,
                             left: spanoff.left });
-    console.log(span);
-    console.log(rep);
+    suggmenu.toggle(true);
   };
 
   var init = function () {
     $("#check_b").click(checkit);
-    //checkit();
+    checkit();
   };
   window.onload=init;
 
