@@ -1,6 +1,12 @@
 // -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8 -*-
 /* global $, history, console, repl, external */
 
+/**
+ * TODO:
+ * - Add an 'errorclass'-parameter to the list of errors/API? (for highlighting colours)
+ * - Actual xhr call on server :)
+ */
+
 (function(){
   "use strict";
 
@@ -8,9 +14,27 @@
    * @param {string} plaintext
    * @return {{text: string, errs: Array}}
    */
-  var servercheck = function(plaintext) {
+  var servercheck = function(plaintext, cb) {
+    // TODO: Is post going to be syncronous? We can't really change
+    // the text after the user has typed unless the text still
+    // matches what we sent.
+    console.log("$.post = ");
+    var res = $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/check",
+      data: { "q": "kakxe"},
+      success: function(errors){
+        // since test server only returns errors array:
+        cb({text: plaintext, errs: errors});
+      },
+      dataType: "json"
+    });
+    console.log(res);
+    console.log(res.statusText);
+
     // TODO: this is a mock, should send plaintext to server
-    return {
+    if(false) {
+      cb({
       // Server has to send back what it considers the plaintext,
       // since we can't trust that the exact plaintext fully survives
       // the pipeline (and we don't want the squiggles to stop in the
@@ -26,7 +50,8 @@
                                                 "gáranasruitui",
                                                 "gáranasbáhti"]],
       ]
-    };
+      });
+    }
   };
 
   /**
@@ -44,11 +69,10 @@
   var checkit = function() {
     //console.log("checkit");
     var plaintext = preclean($("#form").text());
-    var res = servercheck(plaintext);
-    // TODO: worth looking into doing it async? We can't really change
-    // the text after the user has typed unless the text still
-    // matches what we sent.
-    squiggle(res.text, res.errs);
+    servercheck(plaintext, function(res) {
+      squiggle(res.text, res.errs);
+      $('.error')[0].click(); // DEBUG
+    });
   };
 
   /**
@@ -207,9 +231,7 @@
     $("#check_b").click(checkit);
     $("#form").click(hiderep);
 
-    // DEBUG:
-    checkit();
-    $('.error')[0].click();
+    checkit(); // DEBUG
 
   };
   window.onload=init;
