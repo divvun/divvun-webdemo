@@ -16,10 +16,12 @@
       // the pipeline (and we don't want the squiggles to stop in the
       // middle of words etc.)
       text: plaintext,
-      errs: [[4,10,"boasttuvuohta",["gáranasruitu",
-                                    "gáranasbáhti"]],
-             [30,40,"boasttu kásushápmi",["meahccespiidni",
-                                          "meahccespiidnii"]]]
+      errs: [
+        [28,46,"boasttu kásushápmi",["meahccespiidni",
+                                     "meahccespiidnii"]],
+        [4,11,"boasttuvuohta",["gáranasruitu",
+                               "gáranasbáhti"]],
+      ]
     };
   };
 
@@ -54,9 +56,10 @@
    * @param {string} text
    * @param {Array} errs
    */
-  var squiggle = function(text, errs) {
+  var squiggle = function(text, errors) {
     //console.log("squiggle");
-    var errors = Array.sort(errs);
+    // Ensure the first error (by start-offset) is first:
+    errors.sort(function(a,b){return a[0] - b[0];});
 
     var form = document.getElementById('form');
     $('#form').empty();
@@ -69,6 +72,11 @@
           pre = text.slice(done, beg),
           err = text.slice(beg, end),
           span = document.createElement('span');
+      if(beg < done) {
+        console.log("Overlapping (or unsorted) errors! Skipping error "+errors[i]);
+        continue;
+      }
+      console.log(done,beg,end,typ,pre,"←pre,err→",err);
       form.appendChild(document.createTextNode(pre));
       span.textContent = err;
       $(span).click({typ:typ, rep:rep},
