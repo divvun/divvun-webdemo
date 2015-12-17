@@ -74,15 +74,26 @@ div#form {
 }
 #suggmenu_co {
     position: absolute;
+    width: 100%;
+    height: 100%;
     left: 0px;
     top: 0px;
     z-index: 1000;
     border: 1px solid #D4D0C8;
     direction: ltr;
 }
+#suggmenu_tbl {
+    width: 100%;
+    height: 100%;
+}
+#suggmenu_tbl td {
+    vertical-align: middle;
+    padding-left: 2%;
+}
 
 .suggmenu_title {
     background-color: #eee;
+    padding: 2px;
 }
 .suggmenu_nonfirst:hover {
     background-color: cyan;

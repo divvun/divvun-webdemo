@@ -27,7 +27,7 @@
    * Gather plaintext, call server, change DOM
    */
   var checkit = function() {
-    console.log("Checking");
+    console.log("checkit");
     var plaintext = preclean($("#form").text());
     var res = servercheck(plaintext);
     // TODO: worth looking into doing it async? We can't really change
@@ -43,6 +43,7 @@
    * @param {Array} res
    */
   var squiggle = function(plaintext, res) {
+    console.log("squiggle");
     var errors = Array.sort(res);
 
     var form = document.getElementById('form');
@@ -58,7 +59,9 @@
           span = document.createElement('span');
       form.appendChild(document.createTextNode(pre));
       span.textContent = err;
-      span.onclick = function(){ return showsugg(this, rep); };
+      $(span).click( function (e) { console.log("spanclick");
+                                    e.stopPropagation();
+                                    return showsugg(this, rep); });
       span.className += " error";
       form.appendChild(span);
       done = end;
@@ -68,21 +71,42 @@
 
   /**
    * Changes DOM
-   * TODO: should show menu
+   */
+  var hidesugg = function() {
+    console.log("hidesugg");
+    var suggmenu = $('#suggmenu');
+    suggmenu.offset({top:0, left:0}); // avoid some potential bugs with misplacement
+    suggmenu.hide();
+  };
+  /**
+   * Changes DOM
+   * TODO: populate menu
    *
    * @param {Node} elt
    * @param {Array<string>} rep
    */
   var showsugg = function(span, rep) {
+    console.log("showsugg");
     var spanoff = $(span).offset();
+    var newoff = { top:  spanoff.top+20,
+                   left: spanoff.left };
     var suggmenu = $('#suggmenu');
-    suggmenu.offset({ top: spanoff.top+20,
-                            left: spanoff.left });
-    suggmenu.toggle(true);
+    if(suggmenu.is(":visible")
+       &&
+       suggmenu.offset().top == newoff.top
+       &&
+       suggmenu.offset().left == newoff.left) {
+      hidesugg();
+    }
+    else {
+      suggmenu.show();
+      suggmenu.offset(newoff);
+    }
   };
 
   var init = function () {
     $("#check_b").click(checkit);
+    $("#form").click(hidesugg);
     checkit();
   };
   window.onload=init;
