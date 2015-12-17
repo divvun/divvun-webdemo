@@ -6,12 +6,19 @@
 
   /**
    * @param {string} plaintext
-   * @return {Array}
+   * @return {{text: string, errs:Array}}
    */
   var servercheck = function(plaintext) {
     // TODO: this is a mock, should send plaintext to server
-    return [[0,4,"fail",["cake","cheese"]],
-            [10,20,"weak",["coffee","armadillo"]]];
+    return {
+      // Server has to send back what it considers the plaintext,
+      // since we can't trust that the exact plaintext fully survives
+      // the pipeline (and we don't want the squiggles to stop in the
+      // middle of words etc.)
+      text: plaintext,
+      errs: [[0,4,"fail",["cake","cheese"]],
+             [10,20,"weak",["coffee","armadillo"]]]
+    };
   };
 
   /**
@@ -27,13 +34,13 @@
    * Gather plaintext, call server, change DOM
    */
   var checkit = function() {
-    console.log("checkit");
+    //console.log("checkit");
     var plaintext = preclean($("#form").text());
     var res = servercheck(plaintext);
     // TODO: worth looking into doing it async? We can't really change
     // the text after the user has typed unless the text still
     // matches what we sent.
-    squiggle(plaintext, res);
+    squiggle(res.text, res.errs);
   };
 
   /**
@@ -43,7 +50,7 @@
    * @param {Array} res
    */
   var squiggle = function(plaintext, res) {
-    console.log("squiggle");
+    //console.log("squiggle");
     var errors = Array.sort(res);
 
     var form = document.getElementById('form');
@@ -59,7 +66,7 @@
           span = document.createElement('span');
       form.appendChild(document.createTextNode(pre));
       span.textContent = err;
-      $(span).click( function (e) { console.log("spanclick");
+      $(span).click( function (e) { //console.log("spanclick");
                                     e.stopPropagation();
                                     return showsugg(this, rep); });
       span.className += " error";
@@ -73,7 +80,7 @@
    * Changes DOM
    */
   var hidesugg = function() {
-    console.log("hidesugg");
+    //console.log("hidesugg");
     var suggmenu = $('#suggmenu');
     suggmenu.offset({top:0, left:0}); // avoid some potential bugs with misplacement
     suggmenu.hide();
@@ -82,11 +89,11 @@
    * Changes DOM
    * TODO: populate menu
    *
-   * @param {Node} elt
-   * @param {Array<string>} rep
+   * @param {Node} span
+   * @param {Array} rep
    */
   var showsugg = function(span, rep) {
-    console.log("showsugg");
+    //console.log("showsugg");
     var spanoff = $(span).offset();
     var newoff = { top:  spanoff.top+20,
                    left: spanoff.left };
