@@ -45,7 +45,9 @@ button {
 }
 
 div#form {
-    border: thin dotted red;
+    border-style: double;
+    border-color: #abc;
+    border-width: 5px;
     padding: 1%;
     margin: 5%;
     min-height: 7em;
@@ -54,11 +56,16 @@ div#form {
 }
 
 .error {
-    text-decoration: underline wavy red;
+    /* Old browsers get this: */
+    text-decoration: underline;
+    /* Modern browsers override to this: */
+    text-decoration-color: #F00;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
     cursor: pointer;
 }
 
-#suggmenu {
+#repmenu {
     position: absolute;
     /* js sets these: */
     /* left: 221.5px; */
@@ -72,7 +79,7 @@ div#form {
     height: 91px;
     background-color: white;
 }
-#suggmenu_co {
+#repmenu_co {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -82,23 +89,22 @@ div#form {
     border: 1px solid #D4D0C8;
     direction: ltr;
 }
-#suggmenu_tbl {
+#repmenu_tbl {
     width: 100%;
     height: 100%;
 }
-#suggmenu_tbl td {
+#repmenu_tbl td, .repmenu_nonfirst {
     vertical-align: middle;
     padding-left: 2%;
 }
 
-.suggmenu_title {
+.repmenu_title {
     background-color: #eee;
     padding: 2px;
 }
-.suggmenu_nonfirst:hover {
-    background-color: cyan;
+.repmenu_nonfirst:hover {
+    background-color: #abc;
 }
-.suggmenu_nonfirst {
-    padding-left: 2%;
+.repmenu_nonfirst, .repmenu_nonfirst td, .repmenu_nonfirst a {
     cursor: pointer;
 }
