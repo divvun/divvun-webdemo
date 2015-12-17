@@ -66,6 +66,7 @@ div#form {
 }
 
 #repmenu {
+    font-size: 92%;
     position: absolute;
     /* js sets these: */
     /* left: 221.5px; */
@@ -107,4 +108,8 @@ div#form {
 }
 .repmenu_nonfirst, .repmenu_nonfirst td, .repmenu_nonfirst a {
     cursor: pointer;
+}
+
+.repmenu_ign {
+    border-top: 1px solid #D4D0C8;
 }

@@ -21,6 +21,10 @@
                                      "meahccespiidnii"]],
         [4,11,"boasttuvuohta",["gáranasruitu",
                                "gáranasbáhti"]],
+        [140,150,"boasttuvuohta boasttuvuohta",["gáranasruitu",
+                                                "gáranasbáhtii",
+                                                "gáranasruitui",
+                                                "gáranasbáhti"]],
       ]
     };
   };
@@ -74,6 +78,10 @@
           span = $(document.createElement('span'));
       if(beg < done) {
         console.log("Overlapping (or unsorted) errors! Skipping error "+errors[i]);
+        continue;
+      }
+      if(end < beg) {
+        console.log("Impossible offsets! Skipping error "+errors[i]);
         continue;
       }
       // console.log("!",done,beg,end,typ,pre,"←pre,err→",err);
@@ -146,6 +154,7 @@
         a_title =  $(document.createElement('a'));
     a_title.text(typ);
     a_title.attr("aria-disabled", "true");
+    a_title.attr("role", "option");
     td_title.append(a_title);
     td_title.addClass("repmenu_title");
     tr_title.append(td_title);
@@ -156,6 +165,8 @@
           td_rep =  $(document.createElement('td')),
           a_rep =  $(document.createElement('a'));
       a_rep.text(r);
+      a_rep.attr("aria-disabled", "true");
+      a_rep.attr("role", "option");
       td_rep.append(a_rep);
       td_rep.addClass("repmenu_rep");
       td_rep.addClass("repmenu_nonfirst");
@@ -170,6 +181,24 @@
       tr_rep.append(td_rep);
       tbody.append(tr_rep);
     });
+
+    var tr_ign =  $(document.createElement('tr')),
+        td_ign =  $(document.createElement('td')),
+        a_ign =  $(document.createElement('a'));
+    a_ign.text("Ignorer feiltypen");
+    a_ign.attr("aria-disabled", "true");
+    a_ign.attr("role", "option");
+    td_ign.append(a_ign);
+    td_ign.addClass("repmenu_ign");
+    td_ign.addClass("repmenu_nonfirst");
+    tr_ign.append(td_ign);
+    tbody.append(tr_ign);
+
+    // This seems to be similar to what TinyMCE do; but can we do it
+    // safely (cross-browser) with CSS instead? TODO
+    var fontsize = $('#repmenu').css('font-size');
+    var lineheight = Math.floor(parseInt(fontsize.replace('px','')) * 1.5);
+    $('#repmenu').css('height', lineheight * (rep.length + 2));
 
     $("#repmenu_tbl").append(tbody);
   };
