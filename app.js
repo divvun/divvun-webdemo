@@ -6,7 +6,7 @@
 
   /**
    * @param {string} plaintext
-   * @return {{text: string, errs:Array}}
+   * @return {{text: string, errs: Array}}
    */
   var servercheck = function(plaintext) {
     // TODO: this is a mock, should send plaintext to server
@@ -16,8 +16,10 @@
       // the pipeline (and we don't want the squiggles to stop in the
       // middle of words etc.)
       text: plaintext,
-      errs: [[0,4,"fail",["cake","cheese"]],
-             [10,20,"weak",["coffee","armadillo"]]]
+      errs: [[4,10,"boasttuvuohta",["gáranasruitu",
+                                    "gáranasbáhti"]],
+             [30,40,"boasttu kásushápmi",["meahccespiidni",
+                                          "meahccespiidnii"]]]
     };
   };
 
@@ -46,12 +48,15 @@
   /**
    * Changes DOM
    *
-   * @param {string} plaintext
-   * @param {Array} res
+   * The text replaces the content of #form, and adds spans to errors
+   * of errs.
+   *
+   * @param {string} text
+   * @param {Array} errs
    */
-  var squiggle = function(plaintext, res) {
+  var squiggle = function(text, errs) {
     //console.log("squiggle");
-    var errors = Array.sort(res);
+    var errors = Array.sort(errs);
 
     var form = document.getElementById('form');
     $('#form').empty();
@@ -61,19 +66,21 @@
           end = errors[i][1],
           typ = errors[i][2],
           rep = errors[i][3],
-          pre = plaintext.slice(done, beg),
-          err = plaintext.slice(beg, end),
+          pre = text.slice(done, beg),
+          err = text.slice(beg, end),
           span = document.createElement('span');
       form.appendChild(document.createTextNode(pre));
       span.textContent = err;
-      $(span).click( function (e) { //console.log("spanclick");
-                                    e.stopPropagation();
-                                    return showsugg(this, rep); });
-      span.className += " error";
+      $(span).click({typ:typ, rep:rep},
+                    function (e) {
+                      e.stopPropagation();
+                      return showsugg(this, e.data.typ, e.data.rep);
+                    });
+      span.className += " error "+typ;
       form.appendChild(span);
       done = end;
     }
-    form.appendChild(document.createTextNode(plaintext.slice(done)));
+    form.appendChild(document.createTextNode(text.slice(done)));
   };
 
   /**
@@ -87,27 +94,29 @@
   };
   /**
    * Changes DOM
-   * TODO: populate menu
+   * TODO: populate menu, handle replacement
    *
    * @param {Node} span
+   * @param {string} typ
    * @param {Array} rep
    */
-  var showsugg = function(span, rep) {
+  var showsugg = function(span, typ, rep) {
     //console.log("showsugg");
     var spanoff = $(span).offset();
     var newoff = { top:  spanoff.top+20,
                    left: spanoff.left };
     var suggmenu = $('#suggmenu');
-    if(suggmenu.is(":visible")
-       &&
-       suggmenu.offset().top == newoff.top
-       &&
-       suggmenu.offset().left == newoff.left) {
+    var at_same_err = suggmenu.offset().top == newoff.top && suggmenu.offset().left == newoff.left;
+    if(suggmenu.is(":visible") && at_same_err) {
       hidesugg();
     }
     else {
       suggmenu.show();
       suggmenu.offset(newoff);
+      console.log(typ);
+      if(!at_same_err) {
+        $("#suggmenu_tbl").html(typ);
+      }
     }
   };
 
