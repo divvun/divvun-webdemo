@@ -42,6 +42,7 @@ body, html, button {
 
 button {
     margin: 10px;
+    border-radius: 10px;
 }
 
 div#form {
@@ -49,7 +50,7 @@ div#form {
     border-color: #abc;
     border-width: 5px;
     padding: 1%;
-    margin: 5%;
+    margin: 10%;
     min-height: 7em;
     font-size: 18px;
     line-height: 1.7em;

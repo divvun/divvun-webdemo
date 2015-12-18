@@ -4,7 +4,6 @@
 /**
  * TODO:
  * - Add an 'errorclass'-parameter to the list of errors/API? (for highlighting colours)
- * - Actual xhr call on server :)
  */
 
 (function(){
@@ -25,7 +24,7 @@
     var res = $.ajax({
       type: "POST",
       url: "http://localhost:8080/check",
-      data: { "q": "kakxe"},
+      data: { q: plaintext },
       success: function(errors){
         // wrapper since test server only returns errors array:
         cb({text: plaintext,
