@@ -1,4 +1,4 @@
-// -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8 -*-
+// @flow -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8 -*-
 /* global $, history, console, repl, external */
 
 /**
@@ -10,11 +10,14 @@
 (function(){
   "use strict";
 
-  /**
-   * @param {string} plaintext
-   * @return {{text: string, errs: Array}}
-   */
-  var servercheck = function(plaintext, cb) {
+  /* :: type reps = Array<string> */
+  /* :: type errlist = Array<[number, number, string, Array<string>]> */
+  /* :: type result = {text: string, errs: errlist}                   */
+  /* :: type cb = (X:result) => void */
+
+  var servercheck = function(plaintext/*:string*/,
+                             cb/*:cb*/
+                            )/*:void*/ {
     // TODO: Is post going to be syncronous? We can't really change
     // the text after the user has typed unless the text still
     // matches what we sent.
@@ -24,8 +27,9 @@
       url: "http://localhost:8080/check",
       data: { "q": "kakxe"},
       success: function(errors){
-        // since test server only returns errors array:
-        cb({text: plaintext, errs: errors});
+        // wrapper since test server only returns errors array:
+        cb({text: plaintext,
+            errs: errors});
       },
       dataType: "json"
     });
@@ -48,17 +52,13 @@
         [140,150,"boasttuvuohta boasttuvuohta",["gáranasruitu",
                                                 "gáranasbáhtii",
                                                 "gáranasruitui",
-                                                "gáranasbáhti"]],
+                                                "gáranasbáhti"]]
       ]
       });
     }
   };
 
-  /**
-   * @param {string} plaintext
-   * @return {string}
-   */
-  var preclean = function(plaintext) {
+  var preclean = function(plaintext/*:string*/)/*:string*/ {
     // TODO: maybe keep \n\n?
     return plaintext.replace(/\s\s+/g, " ").trim();
   };
@@ -66,13 +66,14 @@
   /**
    * Gather plaintext, call server, change DOM
    */
-  var checkit = function() {
+  var checkit = function()/*:void*/ {
     //console.log("checkit");
     var plaintext = preclean($("#form").text());
-    servercheck(plaintext, function(res) {
-      squiggle(res.text, res.errs);
-      $('.error')[0].click(); // DEBUG
-    });
+    servercheck(plaintext,
+                function(res) {
+                  squiggle(res.text, res.errs);
+                  $('.error')[0].click(); // DEBUG
+                });
   };
 
   /**
@@ -84,7 +85,9 @@
    * @param {string} text
    * @param {Array} errs
    */
-  var squiggle = function(text, errors) {
+  var squiggle = function(text/*:string*/,
+                          errors/*:errlist*/
+                         )/*:void*/  {
     //console.log("squiggle");
     // Ensure the first error (by start-offset) is first:
     errors.sort(function(a,b){return a[0] - b[0];});
@@ -101,11 +104,11 @@
           err = text.slice(beg, end),
           span = $(document.createElement('span'));
       if(beg < done) {
-        console.log("Overlapping (or unsorted) errors! Skipping error "+errors[i]);
+        console.log("Overlapping (or unsorted) errors! Skipping error ", errors[i]);
         continue;
       }
       if(end < beg) {
-        console.log("Impossible offsets! Skipping error "+errors[i]);
+        console.log("Impossible offsets! Skipping error ", errors[i]);
         continue;
       }
       // console.log("!",done,beg,end,typ,pre,"←pre,err→",err);
@@ -126,7 +129,7 @@
   /**
    * Changes DOM
    */
-  var hiderep = function() {
+  var hiderep = function()/*:void*/ {
     //console.log("hiderep");
     var repmenu = $('#repmenu');
     repmenu.offset({top:0, left:0}); // avoid some potential bugs with misplacement
@@ -136,12 +139,11 @@
   /**
    * Changes DOM
    * TODO: populate menu, handle replacement
-   *
-   * @param {Node} span
-   * @param {string} typ
-   * @param {Array} rep
    */
-  var showrep = function(span, typ, rep) {
+  var showrep = function(span/*:Node*/,
+                         typ/*:string*/,
+                         rep/*:reps*/
+                        )/*:void*/  {
     //console.log("showrep");
     var spanoff = $(span).offset();
     var newoff = { top:  spanoff.top+20,
@@ -164,12 +166,11 @@
    * Changes DOM
    * Populates menu.
    * TODO: ignore-button
-   *
-   * @param {Node} span
-   * @param {string} typ
-   * @param {Array} rep
    */
-  var makerepmenu = function(span, typ, rep) {
+  var makerepmenu = function(span/*:Node*/,
+                             typ/*:string*/,
+                             rep/*:reps*/
+                            )/*:void*/  {
     // We're looking at a new error, populate the table anew:
     $("#repmenu_tbl").empty();
     var tbody = $(document.createElement('tbody')),
@@ -227,11 +228,11 @@
     $("#repmenu_tbl").append(tbody);
   };
 
-  var init = function () {
+  var init = function ()/*:void*/ {
     $("#check_b").click(checkit);
     $("#form").click(hiderep);
 
-    checkit(); // DEBUG
+    checkit(1); // DEBUG
 
   };
   window.onload=init;

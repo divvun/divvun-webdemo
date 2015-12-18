@@ -1,12 +1,14 @@
 TARGETS = build/app.js build/style.css build/index.html
 
 all: $(TARGETS)
+	flow
 
 build/.d:
 	test -d build || mkdir build
 	touch "$@"
 
 build/app.js: app.js build/.d
+	flow check app.js
 	closure-compiler \
 			 --warning_level VERBOSE			\
 			 --js "$<"					\
