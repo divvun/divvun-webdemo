@@ -4,6 +4,8 @@
 /**
  * TODO:
  * - Add an 'errorclass'-parameter to the list of errors/API? (for highlighting colours)
+ * - Make «ignore» function actually work (localStorage?)
+ * - Prettier
  */
 
 (function(){
