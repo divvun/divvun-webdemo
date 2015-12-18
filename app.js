@@ -25,11 +25,7 @@
       type: "POST",
       url: "http://localhost:8080/check",
       data: { q: plaintext },
-      success: function(errors){
-        // wrapper since test server only returns errors array:
-        cb({text: plaintext,
-            errs: errors});
-      },
+      success: cb,
       dataType: "json"
     });
     console.log(res);
