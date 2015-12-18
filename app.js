@@ -20,7 +20,6 @@
     // TODO: Is post going to be syncronous? We can't really change
     // the text after the user has typed unless the text still
     // matches what we sent.
-    console.log("$.post = ");
     var res = $.ajax({
       type: "POST",
       url: "http://localhost:8080/check",
@@ -53,9 +52,35 @@
     }
   };
 
-  var preclean = function(plaintext/*:string*/)/*:string*/ {
-    // TODO: maybe keep \n\n?
-    return plaintext.replace(/\s\s+/g, " ").trim();
+  /**
+   * Get plaintext while preserving line breaks; might break on some browsers? TODO test
+   * http://stackoverflow.com/a/3813520/69663
+   */
+  var getInnerText = function(el/*:Node*/)/*:string*/ {
+    var sel, range, innerText = "";
+    if (typeof document.selection != "undefined" && typeof document.body.createTextRange != "undefined") {
+      range = document.body.createTextRange();
+      range.moveToElementText(el);
+      innerText = range.text;
+    }
+    else if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+      sel = window.getSelection();
+      sel.selectAllChildren(el);
+      innerText = "" + sel;
+      sel.removeAllRanges();
+    }
+    return innerText;
+  };
+
+  /**
+   * Get plain text of element
+   */
+  var toPlainText = function(el/*:Node*/)/*:string*/ {
+    return getInnerText(el)
+      .replace(/\n\n+/, "\n☃\n") // preserve double line breaks, but
+      .replace(/\s\s+/g, " ")    // turn any other multi-space into single-space
+      .replace(/☃/,"")           // (assuming no snowmen in input)
+      .trim();
   };
 
   /**
@@ -63,12 +88,27 @@
    */
   var checkit = function()/*:void*/ {
     //console.log("checkit");
-    var plaintext = preclean($("#form").text());
+    var plaintext = toPlainText($("#form").get(0));
+    console.log(plaintext);
     servercheck(plaintext,
                 function(res) {
                   squiggle(res.text, res.errs);
                   $('.error')[0].click(); // DEBUG
                 });
+  };
+
+  var appendText = function(el, text/*:string*/) {
+    // console.log(text);
+    var s = text.split(/\n/g);
+    // console.log(s);
+    for(var i=0; i<s.length; i++) {
+      if(i>0) {
+        // console.log("br");
+        el.append($(document.createElement('br')));
+      }
+      // console.log("s",s[i]);
+      el.append($(document.createTextNode(s[i])));
+    }
   };
 
   /**
@@ -80,17 +120,14 @@
    * @param {string} text
    * @param {Array} errs
    */
-  var squiggle = function(text/*:string*/,
-                          errors/*:errlist*/
-                         )/*:void*/  {
+  var squiggle = function(text/*:string*/, errors/*:errlist*/)/*:void*/  {
     //console.log("squiggle");
     // Ensure the first error (by start-offset) is first:
     errors.sort(function(a,b){return a[0] - b[0];});
 
     var form = $('#form');
     form.empty();
-    for(var i=0, done=0; i < errors.length; i++)
-    {
+    for(var i=0, done=0; i < errors.length; i++) {
       var beg = errors[i][0],
           end = errors[i][1],
           typ = errors[i][2],
@@ -107,8 +144,8 @@
         continue;
       }
       // console.log("!",done,beg,end,typ,pre,"←pre,err→",err);
-      form.append($(document.createTextNode(pre)));
-      span.text(err);
+      appendText(form, pre);
+      appendText(span, err);
       span.click({typ:typ, rep:rep},
                     function (e) {
                       e.stopPropagation();
@@ -118,7 +155,7 @@
       form.append(span);
       done = end;
     }
-    form.append($(document.createTextNode(text.slice(done))));
+    appendText(form, text.slice(done));
   };
 
   /**
@@ -226,6 +263,16 @@
   var init = function ()/*:void*/ {
     $("#check_b").click(checkit);
     $("#form").click(hiderep);
+
+    $(document)
+      .ajaxStart(function () {
+        $("#spinner").show();
+        $("#form").addClass("loading");
+      })
+      .ajaxStop(function () {
+        $("#spinner").hide();
+        $("#form").removeClass("loading");
+      });
 
     checkit(1); // DEBUG
 
