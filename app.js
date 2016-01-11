@@ -12,19 +12,19 @@
   "use strict";
 
   /* :: type reps = Array<string> */
-  /* :: type errlist = Array<[number, number, string, Array<string>]> */
+  /* :: type errlist = Array<[string, number, number, string, Array<string>]> */
   /* :: type result = {text: string, errs: errlist}                   */
   /* :: type cb = (X:result) => void */
 
   var servercheck = function(plaintext/*:string*/,
                              cb/*:cb*/
                             )/*:void*/ {
-    // TODO: Is post going to be syncronous? We can't really change
+    // TODO: Is post going to be synchronous? We can't really change
     // the text after the user has typed unless the text still
     // matches what we sent.
     var res = $.ajax({
       type: "POST",
-      url: "http://localhost:8080/check",
+      url: "http://localhost:8081/check",
       data: { q: plaintext },
       success: cb,
       dataType: "json"
@@ -41,14 +41,14 @@
       // middle of words etc.)
       text: plaintext,
       errs: [
-        [28,46,"boasttu kásushápmi",["meahccespiidni",
-                                     "meahccespiidnii"]],
-        [4,11,"boasttuvuohta",["gáranasruitu",
-                               "gáranasbáhti"]],
-        [140,150,"boasttuvuohta boasttuvuohta",["gáranasruitu",
-                                                "gáranasbáhtii",
-                                                "gáranasruitui",
-                                                "gáranasbáhti"]]
+        ["meahccespiidni", 28,46,"boasttu kásushápmi",["meahccespiidni",
+                                                       "meahccespiidnii"]],
+        ["gáranasbuitu", 4,11,"boasttuvuohta",["gáranasruitu",
+                                               "gáranasbáhti"]],
+        ["gáranasbuitu", 140,150,"boasttuvuohta boasttuvuohta",["gáranasruitu",
+                                                                "gáranasbáhtii",
+                                                                "gáranasruitui",
+                                                                "gáranasbáhti"]]
       ]
       });
     }
@@ -125,15 +125,16 @@
   var squiggle = function(text/*:string*/, errors/*:errlist*/)/*:void*/  {
     //console.log("squiggle");
     // Ensure the first error (by start-offset) is first:
-    errors.sort(function(a,b){return a[0] - b[0];});
+    errors.sort(function(a,b){return a[1] - b[1];});
 
     var form = $('#form');
     form.empty();
     for(var i=0, done=0; i < errors.length; i++) {
-      var beg = errors[i][0],
-          end = errors[i][1],
-          typ = errors[i][2],
-          rep = errors[i][3],
+      var str = errors[i][0],
+          beg = errors[i][1],
+          end = errors[i][2],
+          typ = errors[i][3],
+          rep = errors[i][4],
           pre = text.slice(done, beg),
           err = text.slice(beg, end),
           span = $(document.createElement('span'));
