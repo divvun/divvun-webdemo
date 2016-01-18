@@ -27,6 +27,9 @@
       url: "http://localhost:8081/check",
       data: { q: plaintext },
       success: cb,
+      complete: function(jqXHR, textStatus/*:string*/) {
+        console.log(textStatus);
+      },
       dataType: "json"
     });
     console.log(res);
@@ -95,7 +98,9 @@
     servercheck(plaintext,
                 function(res) {
                   squiggle(res.text, res.errs);
-                  $('.error')[0].click(); // DEBUG
+                  if($('.error').length > 0) {
+                    $('.error')[0].click(); // DEBUG
+                  }
                 });
   };
 
