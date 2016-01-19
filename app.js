@@ -19,7 +19,19 @@
   var port/*:number*/ = 8081;
   var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window.location.hostname;
   var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
-  var checkUrl/*:string*/ = protocol+"//"+host+":"+(port.toString())+"/check";
+  var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+"/check";
+  console.log(checkUrl);
+
+  window.divvun_globals = {     // TODO: ask
+    username: "okta",
+    password: "guokte"
+  }
+
+  var basicAuthHeader = function () {
+    return "Basic " + btoa(window.divvun_globals.username
+                           + ":"
+                           + window.divvun_globals.password);
+  }
 
   var servercheck = function(plaintext/*:string*/,
                              cb/*:cb*/
@@ -28,6 +40,9 @@
     // the text after the user has typed unless the text still
     // matches what we sent.
     var res = $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", basicAuthHeader());
+      },
       type: "POST",
       url: checkUrl,
       data: { q: plaintext },
