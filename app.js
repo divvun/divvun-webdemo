@@ -17,7 +17,7 @@
   /* :: type cb = (X:result) => void */
 
   var port/*:number*/ = 8081;
-  var host/*:string*/ = window.location.host === "" ? "localhost" : window.location.host;
+  var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window.location.hostname;
   var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
   var checkUrl/*:string*/ = protocol+"//"+host+":"+(port.toString())+"/check";
 
