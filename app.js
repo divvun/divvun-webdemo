@@ -22,15 +22,9 @@
   var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+"/check";
   console.log(checkUrl);
 
-  window.divvun_globals = {     // TODO: ask
-    username: "okta",
-    password: "guokte"
-  }
-
   var basicAuthHeader = function () {
-    return "Basic " + btoa(window.divvun_globals.username
-                           + ":"
-                           + window.divvun_globals.password);
+    var userpass = $("#username").val() + ":" + $("#password").val();
+    return "Basic " + btoa(userpass);
   }
 
   var servercheck = function(plaintext/*:string*/,
@@ -47,38 +41,14 @@
       url: checkUrl,
       data: { q: plaintext },
       success: cb,
-      complete: function(jqXHR, textStatus/*:string*/) {
-        if(textStatus==="error") {
-          $("#serverfault").text("Klarte ikkje få kontakt med tenaren 😦");
-          $("#serverfault").show();
-        }
-        console.log(textStatus);
+      error: function(jqXHR, textStatus/*:string*/, err/*:string*/) {
+        $("#serverfault").html("Ånei! Fekk<div>"+textStatus+": "+err+"</div>frå tenaren");
+        $("#serverfault").show();
       },
       dataType: "json"
     });
     console.log(res);
     console.log(res.statusText);
-
-    // TODO: this is a mock, should send plaintext to server
-    if(false) {
-      cb({
-      // Server has to send back what it considers the plaintext,
-      // since we can't trust that the exact plaintext fully survives
-      // the pipeline (and we don't want the squiggles to stop in the
-      // middle of words etc.)
-      text: plaintext,
-      errs: [
-        ["meahccespiidni", 28,46,"boasttu kásushápmi",["meahccespiidni",
-                                                       "meahccespiidnii"]],
-        ["gáranasbuitu", 4,11,"boasttuvuohta",["gáranasruitu",
-                                               "gáranasbáhti"]],
-        ["gáranasbuitu", 140,150,"boasttuvuohta boasttuvuohta",["gáranasruitu",
-                                                                "gáranasbáhtii",
-                                                                "gáranasruitui",
-                                                                "gáranasbáhti"]]
-      ]
-      });
-    }
   };
 
   /**
@@ -115,16 +85,21 @@
   /**
    * Gather plaintext, call server, change DOM
    */
-  var checkit = function()/*:void*/ {
+  var checkit = function(e)/*:void*/ {
     //console.log("checkit");
+    e.stopPropagation();
     $("#serverfault").hide();
     var plaintext = toPlainText($("#form").get(0));
     console.log(plaintext);
     servercheck(plaintext,
                 function(res) {
+                  // If we got this far, then username and password must be correct:
+                  $("#username").hide();
+                  $("#password").hide();
                   squiggle(res.text, res.errs);
+                  // DEBUG:
                   if($('.error').length > 0) {
-                    $('.error')[0].click(); // DEBUG
+                    $('.error')[0].click();
                   }
                 });
   };
@@ -180,10 +155,10 @@
       appendText(form, pre);
       appendText(span, err);
       span.click({typ:typ, rep:rep},
-                    function (e) {
-                      e.stopPropagation();
-                      return showrep(this, e.data.typ, e.data.rep);
-                    });
+                 function (e) {
+                   e.stopPropagation();
+                   return showrep(this, e.data.typ, e.data.rep);
+                 });
       span.addClass("error");
       form.append(span);
       done = end;
@@ -307,7 +282,7 @@
         $("#form").removeClass("loading");
       });
 
-    checkit(1); // DEBUG
+    $("#check_b").trigger("click"); // DEBUG
 
   };
   window.onload=init;

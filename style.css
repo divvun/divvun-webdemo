@@ -28,6 +28,13 @@ button#check_b:hover {
     background-color: #152baa;
 }
 
+#login {
+    margin: 1em;
+}
+input {
+    border: 1px solid #777;
+}
+
 body, html, button {
     padding: 2%;
     color: #777;
@@ -127,7 +134,10 @@ div#form {
     padding: 0.5em;
     font-style: italic;
 }
-
+#serverfault div {
+    margin: 1em;
+    font-family: monospace;
+}
 
 #spinner {
     position: absolute;

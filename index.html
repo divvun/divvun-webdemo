@@ -13,9 +13,10 @@
   <body>
     <div id="outer">
 
+
       <div id="spinner">
       </div>
-      
+
       <div id="serverfault" style="display:none">
       </div>
 
@@ -33,7 +34,14 @@
         dadjá eanandoallo- ja biebmoministtar Trygve Slagsvold Vedum.
       </div>
 
-      <button id="check_b">Divut</button>
+      <div id="login">
+        <form>
+            <input id="username" placeholder="dovddaldat" type="text" required/>
+            <input id="password" placeholder="beassansátni" type="password" required/>
+            <!-- Important: type=button to let js handle form: -->
+            <button type="button" id="check_b">Divut</button>
+        </form>
+      </div>
 
       <div id="repmenu" style="display:none" role="listbox">
         <div style="left: 0px;" id="repmenu_co" role="presentation">
