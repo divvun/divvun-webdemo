@@ -121,6 +121,12 @@ div#form {
 }
 
 
+#serverfault {
+    border: 1px solid #D4D0C8;
+    margin: 1em;
+    padding: 0.5em;
+    font-style: italic;
+}
 
 
 #spinner {

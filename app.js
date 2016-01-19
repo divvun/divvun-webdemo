@@ -32,6 +32,10 @@
       data: { q: plaintext },
       success: cb,
       complete: function(jqXHR, textStatus/*:string*/) {
+        if(textStatus==="error") {
+          $("#serverfault").text("Klarte ikkje få kontakt med tenaren 😦");
+          $("#serverfault").show();
+        }
         console.log(textStatus);
       },
       dataType: "json"
@@ -97,6 +101,7 @@
    */
   var checkit = function()/*:void*/ {
     //console.log("checkit");
+    $("#serverfault").hide();
     var plaintext = toPlainText($("#form").get(0));
     console.log(plaintext);
     servercheck(plaintext,
