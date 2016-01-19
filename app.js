@@ -16,6 +16,10 @@
   /* :: type result = {text: string, errs: errlist}                   */
   /* :: type cb = (X:result) => void */
 
+  var host/*:string*/ = window.location.host === "" ? "localhost:8081" : window.location.host;
+  var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
+  var checkUrl/*:string*/ = protocol+"//"+host+"/check";
+
   var servercheck = function(plaintext/*:string*/,
                              cb/*:cb*/
                             )/*:void*/ {
@@ -24,7 +28,7 @@
     // matches what we sent.
     var res = $.ajax({
       type: "POST",
-      url: "http://localhost:8081/check",
+      url: checkUrl,
       data: { q: plaintext },
       success: cb,
       complete: function(jqXHR, textStatus/*:string*/) {
