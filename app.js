@@ -16,9 +16,10 @@
   /* :: type result = {text: string, errs: errlist}                   */
   /* :: type cb = (X:result) => void */
 
-  var host/*:string*/ = window.location.host === "" ? "localhost:8081" : window.location.host;
+  var port/*:number*/ = 8081;
+  var host/*:string*/ = window.location.host === "" ? "localhost" : window.location.host;
   var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
-  var checkUrl/*:string*/ = protocol+"//"+host+"/check";
+  var checkUrl/*:string*/ = protocol+"//"+host+":"+(port.toString())+"/check";
 
   var servercheck = function(plaintext/*:string*/,
                              cb/*:cb*/
