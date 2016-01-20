@@ -303,6 +303,9 @@
     $("#password").keypress(check_on_enter);
     $("#form").click(hiderep);
 
+    $("#spinner").hide();
+    $("#form").removeClass("loading");
+
     $(document)
       .ajaxStart(function () {
         $("#spinner").show();
