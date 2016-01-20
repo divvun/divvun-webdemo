@@ -16,6 +16,7 @@
   /* :: type result = {text: string, errs: errlist}                   */
   /* :: type cb = (X:result) => void */
 
+  var debug = window.location.protocol === "file:";
   var port/*:number*/ = 8081;
   var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window.location.hostname;
   var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
@@ -50,8 +51,14 @@
       data: { q: plaintext },
       success: cb,
       error: function(jqXHR, textStatus/*:string*/, err/*:string*/) {
-        $("#serverfault").html("Ånei! Fekk<div>"+textStatus+": "+err+"</div>frå tenaren");
+        if(textStatus === "error" && err === "Unauthorized") {
+          $("#serverfault").html("Feil brukarnamn/passord; ver venleg og logg inn: ");
+        }
+        else{
+          $("#serverfault").html("Ånei! Fekk<div>"+textStatus+": "+err+"</div>frå tenaren");
+        }
         $("#serverfault").show();
+        $("#login").show();
         window.localStorage.removeItem("auth");
       },
       dataType: "json"
@@ -93,8 +100,7 @@
 
   var passwordIsOK = function()/*:void*/ {
     // If we got this far, then username and password must be correct:
-    $("#username").hide();
-    $("#password").hide();
+    $("#login").hide();
     window.localStorage["auth"] = basicAuthHeader();
   }
   /**
@@ -110,8 +116,7 @@
                 function(res) {
                   passwordIsOK();
                   squiggle(res.text, res.errs);
-                  // DEBUG:
-                  if($('.error').length > 0) {
+                  if(debug && $('.error').length > 0) {
                     $('.error')[0].click();
                   }
                 });
@@ -281,8 +286,21 @@
     $("#repmenu_tbl").append(tbody);
   };
 
+  var check_on_enter = function (e)/*:bool*/ {
+    if(e.which === 13)
+    {
+      // TODO: In Firefox, this gives NS_ERROR_FAILURE in line 85
+      // (sel.selectAllChildren(el);)
+      $("#check_b").trigger("click");
+      return false;
+    }
+    return true;
+  };
+
   var init = function ()/*:void*/ {
     $("#check_b").click(checkit);
+    $("#username").keypress(check_on_enter);
+    $("#password").keypress(check_on_enter);
     $("#form").click(hiderep);
 
     $(document)
@@ -295,7 +313,9 @@
         $("#form").removeClass("loading");
       });
 
-    $("#check_b").trigger("click"); // DEBUG
+    if(debug) {
+      $("#check_b").trigger("click");
+    }
 
   };
   window.onload=init;
