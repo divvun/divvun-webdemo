@@ -111,7 +111,7 @@
     e.stopPropagation();
     $("#serverfault").hide();
     var plaintext = toPlainText($("#form").get(0));
-    console.log(plaintext);
+    window.localStorage["text"] = plaintext;
     servercheck(plaintext,
                 function(res) {
                   passwordIsOK();
@@ -298,6 +298,11 @@
   };
 
   var init = function ()/*:void*/ {
+    if(window.localStorage["text"] != undefined) {
+      console.log(window.localStorage["text"]);
+      $("#form").text(window.localStorage["text"]);
+    };
+
     $("#check_b").click(checkit);
     $("#username").keypress(check_on_enter);
     $("#password").keypress(check_on_enter);
