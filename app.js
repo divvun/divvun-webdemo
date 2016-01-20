@@ -82,6 +82,11 @@
       .trim();
   };
 
+  var passwordIsOK = function()/*:void*/ {
+    // If we got this far, then username and password must be correct:
+    $("#username").hide();
+    $("#password").hide();
+  }
   /**
    * Gather plaintext, call server, change DOM
    */
@@ -93,9 +98,7 @@
     console.log(plaintext);
     servercheck(plaintext,
                 function(res) {
-                  // If we got this far, then username and password must be correct:
-                  $("#username").hide();
-                  $("#password").hide();
+                  passwordIsOK();
                   squiggle(res.text, res.errs);
                   // DEBUG:
                   if($('.error').length > 0) {
