@@ -23,8 +23,16 @@
   console.log(checkUrl);
 
   var basicAuthHeader = function () {
-    var userpass = $("#username").val() + ":" + $("#password").val();
-    return "Basic " + btoa(userpass);
+    // If we stored a previously successful auth *and* password is
+    // unset, first try that:
+    var prev = window.localStorage["auth"];
+    if($("#password").val()==="" && prev != undefined) {
+      return prev;
+    }
+    else {
+      var userpass = $("#username").val() + ":" + $("#password").val();
+      return "Basic " + btoa(userpass);
+    }
   }
 
   var servercheck = function(plaintext/*:string*/,
@@ -44,6 +52,7 @@
       error: function(jqXHR, textStatus/*:string*/, err/*:string*/) {
         $("#serverfault").html("Ånei! Fekk<div>"+textStatus+": "+err+"</div>frå tenaren");
         $("#serverfault").show();
+        window.localStorage.removeItem("auth");
       },
       dataType: "json"
     });
@@ -86,6 +95,7 @@
     // If we got this far, then username and password must be correct:
     $("#username").hide();
     $("#password").hide();
+    window.localStorage["auth"] = basicAuthHeader();
   }
   /**
    * Gather plaintext, call server, change DOM
