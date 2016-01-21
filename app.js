@@ -12,7 +12,7 @@
   "use strict";
 
   /* :: type reps = Array<string> */
-  /* :: type errlist = Array<[string, number, number, string, Array<string>]> */
+  /* :: type errlist = Array<[string, number, number, string, string, Array<string>]> */
   /* :: type result = {text: string, errs: errlist}                   */
   /* :: type cb = (X:result) => void */
 
@@ -157,7 +157,8 @@
           beg = errors[i][1],
           end = errors[i][2],
           typ = errors[i][3],
-          rep = errors[i][4],
+          msg = errors[i][4],
+          rep = errors[i][5],
           pre = text.slice(done, beg),
           err = text.slice(beg, end),
           span = $(document.createElement('span'));
@@ -172,10 +173,13 @@
       // console.log("!",done,beg,end,typ,pre,"←pre,err→",err);
       appendText(form, pre);
       appendText(span, err);
-      span.click({typ:typ, rep:rep},
+      span.click({typ:typ, msg:msg, rep:rep},
                  function (e) {
                    e.stopPropagation();
-                   return showrep(this, e.data.typ, e.data.rep);
+                   return showrep(this,
+                                  e.data.typ,
+                                  e.data.msg,
+                                  e.data.rep);
                  });
       span.addClass("error");
       form.append(span);
@@ -200,6 +204,7 @@
    */
   var showrep = function(span/*:Node*/,
                          typ/*:string*/,
+                         msg/*:string*/,
                          rep/*:reps*/
                         )/*:void*/  {
     //console.log("showrep");
@@ -215,7 +220,7 @@
       repmenu.show();
       repmenu.offset(newoff);
       if(!at_same_err) {
-        makerepmenu(span, typ, rep);
+        makerepmenu(span, msg, rep);
       }
     }
   };
@@ -226,7 +231,7 @@
    * TODO: ignore-button
    */
   var makerepmenu = function(span/*:Node*/,
-                             typ/*:string*/,
+                             msg/*:string*/,
                              rep/*:reps*/
                             )/*:void*/  {
     // We're looking at a new error, populate the table anew:
@@ -235,7 +240,7 @@
         tr_title =  $(document.createElement('tr')),
         td_title =  $(document.createElement('td')),
         a_title =  $(document.createElement('a'));
-    a_title.text(typ);
+    a_title.text(msg);
     a_title.attr("aria-disabled", "true");
     a_title.attr("role", "option");
     td_title.append(a_title);
