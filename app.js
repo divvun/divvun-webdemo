@@ -17,11 +17,13 @@
   /* :: type cb = (X:result) => void */
 
   var debug = window.location.protocol === "file:";
+  var log = debug ? console.log.bind(window.console) : function() {};
+
   var port/*:number*/ = 8081;
   var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window.location.hostname;
   var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
   var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+"/check";
-  console.log(checkUrl);
+  log(checkUrl);
 
   var basicAuthHeader = function () {
     // If we stored a previously successful auth *and* password is
@@ -63,8 +65,7 @@
       },
       dataType: "json"
     });
-    console.log(res);
-    console.log(res.statusText);
+    log(res);
   };
 
   /**
@@ -108,7 +109,7 @@
    * Gather plaintext, call server, change DOM
    */
   var checkit = function(e)/*:void*/ {
-    //console.log("checkit");
+    //log("checkit");
     e.stopPropagation();
     $("#serverfault").hide();
     var plaintext = toPlainText($("#form").get(0));
@@ -124,15 +125,15 @@
   };
 
   var appendText = function(el, text/*:string*/) {
-    // console.log(text);
+    // log(text);
     var s = text.split(/\n/g);
-    // console.log(s);
+    // log(s);
     for(var i=0; i<s.length; i++) {
       if(i>0) {
-        // console.log("br");
+        // log("br");
         el.append($(document.createElement('br')));
       }
-      // console.log("s",s[i]);
+      // log("s",s[i]);
       el.append($(document.createTextNode(s[i])));
     }
   };
@@ -147,7 +148,7 @@
    * @param {Array} errs
    */
   var squiggle = function(text/*:string*/, errors/*:errlist*/)/*:void*/  {
-    //console.log("squiggle");
+    //log("squiggle");
     // Ensure the first error (by start-offset) is first:
     errors.sort(function(a,b){return a[1] - b[1];});
 
@@ -164,14 +165,14 @@
           err = text.slice(beg, end),
           span = $(document.createElement('span'));
       if(beg < done) {
-        console.log("Overlapping (or unsorted) errors! Skipping error ", errors[i]);
+        log("Overlapping (or unsorted) errors! Skipping error ", errors[i]);
         continue;
       }
       if(end < beg) {
-        console.log("Impossible offsets! Skipping error ", errors[i]);
+        log("Impossible offsets! Skipping error ", errors[i]);
         continue;
       }
-      // console.log("!",done,beg,end,typ,pre,"←pre,err→",err);
+      // log("!",done,beg,end,typ,pre,"←pre,err→",err);
       appendText(form, pre);
       appendText(span, err);
       span.click({typ:typ, msg:msg, rep:rep},
@@ -193,7 +194,7 @@
    * Changes DOM
    */
   var hiderep = function()/*:void*/ {
-    //console.log("hiderep");
+    //log("hiderep");
     var repmenu = $('#repmenu');
     repmenu.offset({top:0, left:0}); // avoid some potential bugs with misplacement
     repmenu.hide();
@@ -208,7 +209,7 @@
                          msg/*:string*/,
                          rep/*:reps*/
                         )/*:void*/  {
-    //console.log("showrep");
+    //log("showrep");
     var spanoff = $(span).offset();
     var newoff = { top:  spanoff.top+20,
                    left: spanoff.left };
@@ -305,7 +306,7 @@
 
   var init = function ()/*:void*/ {
     if(window.localStorage["text"] != undefined) {
-      console.log(window.localStorage["text"]);
+      log(window.localStorage["text"]);
       $("#form").text(window.localStorage["text"]);
     };
 
