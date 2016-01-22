@@ -305,8 +305,13 @@
   };
 
   var init = function ()/*:void*/ {
-    if(window.localStorage["text"] != undefined) {
-      log(window.localStorage["text"]);
+    var exampletext = $("#form").text();
+    if(window.localStorage["exampletext"] != exampletext) {
+      // If the index.html example text changed, we want to show that to the user:
+      $("#form").text(window.localStorage["exampletext"]);
+      window.localStorage["exampletext"] = exampletext;
+    }
+    else if(window.localStorage["text"] != undefined) {
       $("#form").text(window.localStorage["text"]);
     };
 
