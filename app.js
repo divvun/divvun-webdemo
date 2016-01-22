@@ -34,7 +34,7 @@
       var userpass = $("#username").val() + ":" + $("#password").val();
       return "Basic " + btoa(userpass);
     }
-  }
+  };
 
   var servercheck = function(plaintext/*:string*/,
                              cb/*:cb*/
@@ -102,7 +102,8 @@
     // If we got this far, then username and password must be correct:
     $("#login").hide();
     window.localStorage["auth"] = basicAuthHeader();
-  }
+  };
+
   /**
    * Gather plaintext, call server, change DOM
    */
