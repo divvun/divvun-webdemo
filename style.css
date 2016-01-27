@@ -106,16 +106,30 @@ button {
 }
 
 .error {
-    /* Old browsers get this: */
-    text-decoration: underline;
-    /* Modern browsers override to this: */
-    text-decoration-color: #00f;
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
-    -webkit-text-decoration-color: #00f;
-    -webkit-text-decoration-line: underline;
-    -webkit-text-decoration-style: wavy;
     cursor: pointer;
+    position: relative;
+}
+.error::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    left: 0%;
+    top: 100%;
+    border-bottom: 2px dotted blue;
+}
+@supports (text-decoration-style: wavy) {
+    .error {
+        text-decoration-color: #00f;
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+        -webkit-text-decoration-color: #00f;
+        -webkit-text-decoration-line: underline;
+        -webkit-text-decoration-style: wavy;
+    }
+    .error::after {
+        border-bottom: none;
+    }
 }
 
 #repmenu {
