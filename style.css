@@ -112,6 +112,9 @@ button {
     text-decoration-color: #00f;
     text-decoration-line: underline;
     text-decoration-style: wavy;
+    -webkit-text-decoration-color: #00f;
+    -webkit-text-decoration-line: underline;
+    -webkit-text-decoration-style: wavy;
     cursor: pointer;
 }
 
