@@ -284,12 +284,6 @@
     tr_ign.append(td_ign);
     tbody.append(tr_ign);
 
-    // This seems to be similar to what TinyMCE do; but can we do it
-    // safely (cross-browser) with CSS instead? TODO
-    var fontsize = $('#repmenu').css('font-size');
-    var lineheight = Math.floor(parseInt(fontsize.replace('px','')) * 1.5);
-    $('#repmenu').css('height', lineheight * (rep.length + 2));
-
     $("#repmenu_tbl").append(tbody);
   };
 
