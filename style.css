@@ -14,18 +14,34 @@
     vertical-align: baseline;
     width: auto;
     border-collapse: separate;
-    text-align: left;
 }
 
 button#check_b {
-    background-color: #1A36D8;
-    color: #fff;
+    border: 1px solid #CFD6E6;
+    background-color: #F5F6F7;
     font-variant: small-caps;
     padding: 8px;
     cursor: pointer;
 }
+#adc {
+    font-family: sans-serif;
+    font-weight: bold;
+    display: block;
+    color: black;
+}
+#checkmark {
+    margin-top: -20%;
+    margin-bottom: -20%;
+    font-size: 180%;
+    font-weight: bolder;
+    font-family: serif;
+    display: block;
+    text-align: right;
+    width: 100%;
+    color: #729FCF;
+}
 button#check_b:hover {
-    background-color: #152baa;
+    background-color: white;
 }
 
 #login {
@@ -33,6 +49,11 @@ button#check_b:hover {
 }
 input {
     border: 1px solid #777;
+    background-color: white;
+}
+
+body, html {
+    background-color: #F5F6F7;
 }
 
 body, html, button {
@@ -41,24 +62,40 @@ body, html, button {
 }
 
 #outer {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+form, #tools, #serverfault {
+    text-align: center;
+}
+
 button {
-    margin: 10px;
+    margin: 10px auto;
     border-radius: 10px;
 }
 
-div#form {
-    border-style: double;
-    border-color: #abc;
-    border-width: 5px;
-    padding: 1%;
+#formwrap {
     margin: 10%;
     width: 80%;
+    background-color: #D9DADB;
+    padding-top: 0px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    border-top: 1px solid #E8E9E9;
+    border-left: 1px solid #E8E9E9;
+    border-right: 1px solid #E8E9E9;
+    border-bottom: 2px solid #E8E9E9;
+}
+#form {
+    background-color: white;
+    border-style: solid;
+    border-color: #C4C5C6;
+    border-width: 1px;
+    padding: 1%;
     min-height: 7em;
     font-size: 18px;
     line-height: 1.7em;
@@ -129,6 +166,7 @@ div#form {
 
 
 #serverfault {
+    background-color: white;
     border: 1px solid #D4D0C8;
     margin: 1em;
     padding: 0.5em;
