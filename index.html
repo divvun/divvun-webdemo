@@ -1,62 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="nb">
   <head>
     <meta charset="utf-8"/>
     <meta name="description" content="davvisámi grammatihkkadivvun"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>grammáhtalaš divvun</title>
-    <link rel="stylesheet" href="style.css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <link href="quill.snow.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
   </head>
   <body>
-    <div id="outer">
+    <div class="container-fluid">
 
-
-      <div id="spinner">
-      </div>
-
-      <div id="formwrap">
-        <div id="form" tabIndex="1" contentEditable="true" spellcheck="false">
-          Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse
-          mielde, lohká rektor. Muhto mon liikon nieiddade.
-          dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go
-          oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo
-          háliidit oahppat. Ráđđeolmmái jearai jos poasta ii lean
-          beroštan ođđa dieđuid mat ledjet boahtán áššis. Go Davvinásti
-          ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli.
-          Su musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja
-          fiinna. Sin máksu han lei varra seammá ollu maiddái sihke
-          Ruŧŧii ja Ruššii.
-
-          Guollenáhkki lea árbevirolaš materiála mii geavahuvvo sihke
-          čikŋan ja atnu ávnnasin.
-        </div>
-      </div>
-
-      <div id="tools">
-        <div id="serverfault" style="display:none">
-        </div>
-        <form>
+      <div id="login-wrapper">
+        <div id="serverfault"> </div>
+        <form id="loginform" action="">
+          <h4>logge sisa:</h4>
           <fieldset id="login">
-            <input id="username" placeholder="dovddaldat" type="text" required/>
-            <input id="password" placeholder="beassansátni" type="password" required/>
+            <input id="user" placeholder="dovddaldat" autocomplete="username" type="text" required/>
+            <input id="password" placeholder="beassansátni" autocomplete="current-password" type="password" required/>
+            <input type="submit" id="login_b" value="logg sisa"/>
           </fieldset>
-          <!-- Important: type=button to let js handle form: -->
-          <button type="button" id="check_b"><span id="adc">ÁĐČ</span> <span id="checkmark">✓</span></button>
-          <!-- <button type="button" id="check_b">Divo!</button> -->
         </form>
       </div>
 
-      <div id="repmenu" style="display:none" role="listbox">
-        <div style="left: 0px;" id="repmenu_co" role="presentation">
-          <table id="repmenu_tbl" role="presentation" cellspacing="0" border="0" cellpadding="0">
-            <!-- positioned and filled by js -->
-          </table>
-        </div>
-      </div>
+      <div id="content">
 
-    </div>                        <!--outer-->
+        <div id="logout">
+          <button type="button" id="logout_b" class="btn btn-link">logge olggos</button>
+        </div>
+
+        <div id="editor-wrapper">
+          <div id="editor" spellcheck="false">
+          </div>
+        </div>
+
+        <div id="repmenu" style="display:none" role="listbox">
+          <div style="left: 0px;" id="repmenu_co" role="presentation">
+            <table id="repmenu_tbl" role="presentation" cellspacing="0" border="0" cellpadding="0">
+              <!-- positioned and filled by js -->
+            </table>
+          </div>
+        </div>
+
+        <div id="examples-wrapper">
+          <h4></h4>
+          <div class="row" id="examples">
+          </div>
+        </div>
+      </div>                      <!-- /#content -->
+    </div>                        <!-- /.container-fluid -->
+    <script src="lib/quill.min.js" type="text/javascript"></script>
+    <script src="lib/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="lib/app.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,9 +1,10 @@
 [ignore]
+lib/app.js
 
 [include]
-./app.js
 
 [libs]
 interfaces/
+decls/
 
 [options]
