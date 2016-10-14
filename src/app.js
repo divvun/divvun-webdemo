@@ -453,6 +453,8 @@ var onTextChange = function(delta, oldDelta, source) {
 var logout = function (e) {
   showLogin();
   window.localStorage.removeItem("userpass");
+  $('#user').val("");
+  $('#password').val("");
   return false;
 };
 
