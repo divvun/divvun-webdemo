@@ -415,7 +415,10 @@ var readLoginFormStoring = function()/*:userpass*/ {
 };
 
 var loginFromForm = function() {
-  var _ignore = readLoginFormStoring();
+  var userpass = readLoginFormStoring();
+  if(userpass != null) {
+    hideLogin();
+  }
   // Ensure we don't reload the page (due to input type submit):
   return false;
 };
