@@ -77,33 +77,29 @@ class ErrorBlot extends Inline {
     var tbody = $(document.createElement('tbody'));
     tbody.attr("role", "listbox");
 
-    var tr_typ =  $(document.createElement('tr')),
-    td_typ =  $(document.createElement('td')),
-    a_typ =  $(document.createElement('span'));
-    a_typ.text(err.typ);
-    // if(errtypes()[err.typ].length < 2) {
-    //   a_typ.text("Ukjent feiltype");
-    // }
-    // else {
-    //   a_typ.text(errtypes()[err.typ][1]);
-    // }
-    a_typ.attr("aria-disabled", "true");
-    td_typ.append(a_typ);
-    td_typ.addClass("repmenu_typ");
-    tr_typ.append(td_typ);
-    tbody.append(tr_typ);
+    // typ is internal note?
+    // var tr_typ =  $(document.createElement('tr')),
+    // td_typ =  $(document.createElement('td')),
+    // a_typ =  $(document.createElement('span'));
+    // a_typ.text(err.typ);
+    // a_typ.attr("aria-disabled", "true");
+    // td_typ.append(a_typ);
+    // td_typ.addClass("repmenu_typ");
+    // tr_typ.append(td_typ);
+    // tbody.append(tr_typ);
 
-    if(err.msg != "") {
-      var tr_msg =  $(document.createElement('tr')),
-      td_msg =  $(document.createElement('td')),
-      a_msg =  $(document.createElement('span'));
-      a_msg.text(err.msg);
-      a_msg.attr("aria-disabled", "true");
-      td_msg.append(a_msg);
-      td_msg.addClass("repmenu_msg");
-      tr_msg.append(td_msg);
-      tbody.append(tr_msg);
+    if(err.msg == "") {
+      err.msg = "Ukjend feiltype";
     }
+    var tr_msg =  $(document.createElement('tr')),
+    td_msg =  $(document.createElement('td')),
+    a_msg =  $(document.createElement('span'));
+    a_msg.text(err.msg);
+    a_msg.attr("aria-disabled", "true");
+    td_msg.append(a_msg);
+    td_msg.addClass("repmenu_msg");
+    tr_msg.append(td_msg);
+    tbody.append(tr_msg);
 
     err.rep.map(function(r){
       var tr_rep =  $(document.createElement('tr')),

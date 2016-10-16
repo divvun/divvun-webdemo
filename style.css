@@ -125,7 +125,7 @@ button#check_b {
     padding-left: 2%;
 }
 
-.repmenu_typ {
+.repmenu_msg {
     background-color: #eee;
     padding: 2px;
     border-bottom: 1px solid #D4D0C8;
@@ -145,8 +145,7 @@ button#check_b {
 }
 
 .repmenu_ign,
-.repmenu_rep,
-.repmenu_msg {
+.repmenu_rep {
     text-align: left;
 }
 
