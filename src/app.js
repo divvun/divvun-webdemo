@@ -473,6 +473,25 @@ var initSpinner = function() {
 
 };
 
+var safeGetItem = function/*::<T>*/(key/*:string*/, fallback/*:T*/)/*:T*/ {
+  var fromStorage = window.localStorage.getItem(key);
+  if(fromStorage == null) {
+    return fallback;
+  }
+  else {
+    try {
+      var parsed = JSON.parse(fromStorage);
+      if(parsed != null) {
+        return parsed;
+      }
+    }
+    catch(e) {
+      console.log(e);
+    }
+    return fallback;
+  }
+};
+
 var init = function()/*:void*/ {
   if(window.location.protocol == "http:") {
     $('#password').attr("type", "text");
@@ -530,23 +549,3 @@ var init = function()/*:void*/ {
 
 $(document).ready(init);
 
-// TODO: https://github.com/flowtype/flow-typed/issues/382 – keeping
-// this at bottom of file for now, since it messes up js2-mode parsing
-var safeGetItem = function<T>(key:string, fallback:T):T {
-  var fromStorage = window.localStorage.getItem(key);
-  if(fromStorage == null) {
-    return fallback;
-  }
-  else {
-    try {
-      var parsed = JSON.parse(fromStorage);
-      if(parsed != null) {
-        return parsed;
-      }
-    }
-    catch(e) {
-      console.log(e);
-    }
-    return fallback;
-  }
-};
