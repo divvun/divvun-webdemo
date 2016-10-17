@@ -32,6 +32,7 @@ button#check_b {
 /* .ql-check:hover { */
 /*   background-image: url("attachment-hover.svg") !important */
 /* } */
+
 .ql-check::after {
     content: "✓";
     display: inline-block;
@@ -39,6 +40,14 @@ button#check_b {
     border-bottom: 2px dotted green;
     font-size: larger;
     margin-top: -1em;
+}
+
+button.loading-check::after {
+    display: none;
+}
+.ql-snow button.loading-check,
+button.loading-check {
+    padding: 5px;
 }
 
 
@@ -211,3 +220,30 @@ button#check_b {
 }
 
 
+.loading {
+    background-color: #f2f2f2;
+}
+
+
+.glyphicon.spinning {
+    -webkit-animation: spinw 1s infinite linear;
+    -moz-animation: spinm 1s infinite linear;
+    -o-animation: spino 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+@-webkit-keyframes spinw {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spinm {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@-o-keyframes spino {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}

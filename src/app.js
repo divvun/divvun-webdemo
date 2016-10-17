@@ -454,7 +454,26 @@ var logout = function (e) {
   return false;
 };
 
-var init = function() {
+var initSpinner = function() {
+    $("#spinner").hide();
+    $("#editor").removeClass("loading");
+    $(document)
+      .ajaxStart(function () {
+        $("#spinner").show();
+        $("#editor").addClass("loading");
+        $(".ql-check").addClass("glyphicon glyphicon-refresh spinning");
+        $(".ql-check").addClass("loading-check");
+      })
+      .ajaxStop(function () {
+        $("#spinner").hide();
+        $("#editor").removeClass("loading");
+        $(".ql-check").removeClass("glyphicon glyphicon-refresh spinning");
+        $(".ql-check").removeClass("loading-check");
+      });
+
+};
+
+var init = function()/*:void*/ {
   if(window.location.protocol == "http:") {
     $('#password').attr("type", "text");
   }
@@ -465,6 +484,8 @@ var init = function() {
   $('#logout_b').click(logout);
   $("#editor").click(hiderep);
   $("body").click(hiderep);
+
+  initSpinner();
 
   $('#examples-wrapper h4').text("Oavdumearkkat:");
   examples.map(function(ex){
