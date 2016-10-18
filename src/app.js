@@ -348,7 +348,7 @@ var basicAuthHeader = function (userpass) {
   }
 };
 
-
+var checkXHR = null;
 var servercheck = function(userpass/*:userpass*/,
                            text/*:string*/,
                            cb/*:cb*/
@@ -358,7 +358,11 @@ var servercheck = function(userpass/*:userpass*/,
   // TODO: Should this be synchronous? We can't really change the text
   // after the user has typed unless the text still matches what we
   // sent.
-  var res = $.ajax({
+  if(checkXHR != null) {
+    // We only ever want to have the latest check results:
+    checkXHR.abort();
+  }
+  checkXHR = $.ajax({
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
     },
@@ -370,9 +374,13 @@ var servercheck = function(userpass/*:userpass*/,
     success: function(res) {
       cb(text, res);
     },
-    error: function(jqXHR, textStatus/*:string*/, errXHR/*:string*/) {
+    error: function(jqXHR, textStatus/*:string*/, errXHR/*:string*/)/*:void*/ {
       log("error");
-      if(textStatus === "error" && jqXHR.status === 0) {
+      if(textStatus === "abort" && jqXHR.status === 0) {
+        // So the user clicked before the server managed to respond, no problem.
+        return;
+      }
+      else if(textStatus === "error" && jqXHR.status === 0) {
         $("#serverfault").html("Det kan sjå ut som om tenaren er nede, eller du er fråkopla internett. Prøv å lasta sida på nytt.");
         $("#serverfault").show();
       }
@@ -393,7 +401,6 @@ var servercheck = function(userpass/*:userpass*/,
     },
     dataType: "json"
   });
-  log(res);
 };
 
 
