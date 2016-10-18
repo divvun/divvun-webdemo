@@ -262,17 +262,32 @@ var getFText = function() {
     .join('');
 };
 
+// TODO: l10n
+// Oavdumearkkat -> ovdamearkkat
+// norvagismar -> dáromállegat
+// punctuation errors -> čuokkesmeattáhusat
+// congruence errors -> kongrueansameattáhusat
+// case errors -> kásusmeattáhusat
+// lexical errors -> leksikála meattáhusat
+// adjective form errors -> adjektiivvahápmemeattáhusat
+// ekteordsfeil -> čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)
 var examples = [
-  { title: "Ekteordsfeil",
+  { title: "Čállinmeattáhusat",
     delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Muhto mon liikon nieiddade. dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis. Go Davvinásti ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli. Su musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja fiinna. Sin máksu han lei varra seammá ollu maiddái sihke"}]}},
-  { title: "Namnefeil",
-    delta: { ops: [{ insert: "blah meh"}]}},
   { title: "Goallosátnemeattáhus",
-    delta: { ops: [{ insert: "Dán illu boddui lei son čiŋadan sámi gávttiin, ja dasa lassin lei son ivdnehahttán vuovttaid alit fiskadin, nugo juo Álttá ivnnit leat."}]}},
-  { title: "Norvagismar",
-    delta: { ops: [{ insert: "osb."}] }},
-  { title: "Frykteleg fine feil",
-    delta: { ops: [{ insert: "ting"}]}},
+    delta: { ops: [{ insert: "Dán illu boddui lei son čiŋadan sámi gávttiin, ja dasa lassin lei son ivdnehahttán vuovttaid alit fiskadin, nugo juo Álttá ivnnit leat.\nVaikko dálki ii leat nu heitot, de don áibbašat liegga riikii.\n\nBealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná,\nduvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte\nbealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\nSon jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide."}]}},
+  { title: "Dáromállegat",
+    delta: { ops: [{ insert: "osv."}] }},
+  { title: "Čuokkesmeattáhusat",
+    delta: { ops: [{ insert: "\"nu - nu\""}] }},
+  { title: "Kongrueansameattáhusat",
+    delta: { ops: [{ insert: ""}] }},
+  { title: "Kásusmeattáhusat",
+    delta: { ops: [{ insert: ""}] }},
+  { title: "Leksikála meattáhusat",
+    delta: { ops: [{ insert: ""}] }},
+  { title: "Adjektiivvahápmemeattáhusat",
+    delta: { ops: [{ insert: "Eallámušvallji eanan šaddá go gehppesmolláneaddji báktešlájat, ábaida kálkavallji šlájat, váikkuhuvvojit ja nu háddjanit (golladuvvojit)."}]}},
 ];
 
 var searchToObject = function ()
@@ -506,7 +521,7 @@ var init = function()/*:void*/ {
 
   initSpinner();
 
-  $('#examples-wrapper h4').text("Oavdumearkkat:");
+  $('#examples-wrapper h4').text("Ovdamearkkat:");
   examples.map(function(ex){
     var node = $(document.createElement('button'));
     node.text(ex.title);
