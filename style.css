@@ -219,6 +219,9 @@ button.loading-check {
     font-family: monospace;
 }
 
+#examples button {
+    margin-bottom: 0.5em;
+}
 
 .loading {
     background-color: #f2f2f2;
