@@ -246,7 +246,7 @@ var quill = new Quill('#editor', {
     }
   },
   theme: 'snow',
-  placeholder: 'Skriv noe her, eller prøv eksemplene nedenfor'
+  placeholder: 'Čális dása, dahje válljes ovdmearkka dás vuolábealde'
 });
 
 // quill.formatText treats videos/images as having a length of one,
