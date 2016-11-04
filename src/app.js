@@ -1,4 +1,4 @@
-// @flow -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8; -*-
+// @flow -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8; compile-command: "cd .. && make -j" -*-
 /* global $, Quill, history, console, repl, external */
 
 "use strict";
@@ -272,8 +272,8 @@ var getFText = function() {
 // adjective form errors -> adjektiivvahápmemeattáhusat
 // ekteordsfeil -> čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)
 var examples = [
-  { title: "Čállinmeattáhusat",
-    delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Muhto mon liikon nieiddade. dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis. Go Davvinásti ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli. Su musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja fiinna. Sin máksu han lei varra seammá ollu maiddái sihke"}]}},
+  { title: "Čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)",
+    delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Sin máksu han lei varra seammá ollu maiddái sihke"}]}},
   { title: "Goallosátnemeattáhus",
     delta: { ops: [{ insert: "Dán illu boddui lei son čiŋadan sámi gávttiin, ja dasa lassin lei son ivdnehahttán vuovttaid alit fiskadin, nugo juo Álttá ivnnit leat.\nVaikko dálki ii leat nu heitot, de don áibbašat liegga riikii.\n\nBealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná,\nduvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte\nbealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\nSon jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide."}]}},
   { title: "Dáromállegat",
@@ -281,13 +281,15 @@ var examples = [
   { title: "Čuokkesmeattáhusat",
     delta: { ops: [{ insert: "\"nu - nu\""}] }},
   { title: "Kongrueansameattáhusat",
-    delta: { ops: [{ insert: ""}] }},
+    delta: { ops: [{ insert: "Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\nGo Davvinásti ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli."}] }},
+  { title: "Valeansameattáhusat",
+    delta: { ops: [{ insert: "Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat.\nMáŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor.\nDasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat."}] }},
   { title: "Kásusmeattáhusat",
-    delta: { ops: [{ insert: ""}] }},
+    delta: { ops: [{ insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis."}] }},
   { title: "Leksikála meattáhusat",
     delta: { ops: [{ insert: ""}] }},
   { title: "Adjektiivvahápmemeattáhusat",
-    delta: { ops: [{ insert: "Eallámušvallji eanan šaddá go gehppesmolláneaddji báktešlájat, ábaida kálkavallji šlájat, váikkuhuvvojit ja nu háddjanit (golladuvvojit)."}]}},
+    delta: { ops: [{ insert: "Eallámušvallji eanan šaddá go gehppesmolláneaddji báktešlájat, ábaida kálkavallji šlájat, váikkuhuvvojit ja nu háddjanit (golladuvvojit).\nSu musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja fiinna."}]}},
 ];
 
 var searchToObject = function ()
