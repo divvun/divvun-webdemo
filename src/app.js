@@ -273,7 +273,7 @@ var getFText = function() {
 // ekteordsfeil -> čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)
 var examples = [
   { title: "Čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)",
-    delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Sin máksu han lei varra seammá ollu maiddái sihke.\n\nGuttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.\n\n Luohtti fámoleabbo go leat máŋggas.\n Earenoamážit jus ii luohte eannet iežat intuišuvdnii ja jierpmálašvuhtii, de manná duinna hui bures.\n Ja bisošii hal doppe nuppiin bieđagiin ovttas ovtta gaskka – de livččii ráfi ajihustit go dál ii leat čivga ge boŋkime, dat lea vižžojuvvon gávpogii eatnis olbmuid lusa ja galgá orrut muoŧŧás luhtte gitta go eatnis varrostuvvá.\n\nUlbmil lea movttiidahttit lohkamii ja oažžut eambbosiid liikot girjiide."}]}},
+    delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Sin máksu han lei varra seammá ollu maiddái sihke.\n\nGuttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.\n\n Luohtti fámoleabbo go leat máŋggas.\n Earenoamážit jus ii luohte eannet iežat intuišuvdnii ja jierpmálašvuhtii, de manná duinna hui bures.\n Ja bisošii hal doppe nuppiin bieđagiin ovttas ovtta gaskka – de livččii ráfi ajihustit go dál ii leat čivga ge boŋkime, dat lea vižžojuvvon gávpogii eatnis olbmuid lusa ja galgá orrut muoŧŧás luhtte gitta go eatnis varrostuvvá.\n\nUlbmil lea movttiidahttit lohkamii ja oažžut eambbosiid liikot girjiide.\n\n– Moai Aleftina Serginain letne guhkit áiggi čohken  dieđuid Áhkkila sámiid birra ja dál lea munno girjii válmmas, čilge Leif Rantala."}]}},
   { title: "Dáromállegat",
     delta: { ops: [{ insert: "osv."}] }},
   { title: "Čuokkesmeattáhusat",
@@ -283,7 +283,7 @@ var examples = [
   { title: "Valeansameattáhusat",
     delta: { ops: [{ insert: "Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat.\nMáŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor.\n"}] }},
   { title: "Kásusmeattáhusat",
-    delta: { ops: [{ insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis."}] }},
+    delta: { ops: [{ insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\n\nLiikon hirbmadit 1920- logu, ja lean lohkan girjii ja filmma The Great Gatsby, danin šattai Gatsby, muitala Ann."}] }},
   { title: "Leksikála meattáhusat",
     delta: { ops: [{ insert: "jna."}] }},
   { title: "Adjektiivvahápmemeattáhusat",
