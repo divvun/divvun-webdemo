@@ -184,11 +184,6 @@ button.loading-check {
     opacity: 0.5;
 }
 
-.container-fluid {
-    text-align: center;
-    margin: 1em;
-}
-
 .block-view {
     position: absolute;
     top: 10%;
@@ -196,10 +191,6 @@ button.loading-check {
     right: 0;
     bottom: 0;
     z-index: 999;
-}
-
-#logout {
-    text-align: right;
 }
 
 #loginform,
@@ -249,4 +240,15 @@ button.loading-check {
 @keyframes spin {
     from { transform: scale(1) rotate(0deg); }
     to { transform: scale(1) rotate(360deg); }
+}
+
+/* Bootstrap overrides: */
+@media screen and (min-width: 400px) {
+    /* Our navbar is quite short :) */
+    .navbar-header {
+        float: left !important;
+    }
+    .navbar-right {
+        float: right !important;
+    }
 }

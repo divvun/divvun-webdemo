@@ -533,8 +533,7 @@ var init = function()/*:void*/ {
     var node = $(document.createElement('button'));
     node.text(ex.title);
     node.attr("type", "button");
-    node.addClass("btn");
-    node.addClass("btn-default");
+    node.addClass("btn btn-default");
     $(node).click(function () {
       quill.setContents(ex.delta);
       check();

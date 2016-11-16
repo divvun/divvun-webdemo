@@ -12,9 +12,20 @@
   </head>
   <body>
 
-    <div class="container-fluid">
+    <div class="container">
 
-      <div id="login-wrapper">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Grammáhtalaš divvun</a>
+          </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li id="logout"><a id="logout_b" href="#">olggosčálit iežat</a></li>
+            </ul>
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <div id="login-wrapper" class="text-center">
         <div id="serverfault"> </div>
         <form id="loginform" action="">
           <h4>logge sisa:</h4>
@@ -27,10 +38,6 @@
       </div>
 
       <div id="content">
-
-        <div id="logout">
-          <button type="button" id="logout_b" class="btn btn-link">olggosčálit iežat</button>
-        </div>
 
         <p class="lead">
           Stávenkontrolla ii gávnna iežá go sániid mat eai leat sátnegirjjis.
@@ -52,9 +59,9 @@
           </div>
         </div>
 
-        <div id="examples-wrapper">
+        <div id="examples-wrapper" class="text-center">
           <h4></h4>
-          <div class="row" id="examples">
+          <div id="examples">
           </div>
         </div>
 
