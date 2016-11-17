@@ -306,11 +306,11 @@ var searchToObject = function ()
   return obj;
 };
 
-var port/*:string*/ = window.location.protocol === "file:" ? "8081" : "8081"; //window.location.port – running on different servers!
+var port/*:string*/ = window.location.protocol === "file:" ? "2737" : "2737"; //window.location.port – running on different servers!
 var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window.location.hostname;
 var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
 
-var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+"/check";
+var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+"/translateRaw";
 log(checkUrl);
 
 var userLang = function() {
@@ -334,11 +334,17 @@ var showLogin = function () {
   $("#logout").hide();
 };
 
+function utoa(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+        return String.fromCharCode('0x' + p1);
+    }));
+}
+
 var basicAuthHeader = function (userpass) {
   // If we stored a previously successful auth *and* password is
   // unset, first try that:
   if(userpass != null) {
-    return "Basic " + btoa(userpass.u + ":" + userpass.p);
+    return "Basic " + utoa(userpass.u + ":" + userpass.p);
   }
   else {
     $("#serverfault").html("Feil passord?");
@@ -369,13 +375,16 @@ var servercheck = function(userpass/*:userpass*/,
     type: "POST",
     url: checkUrl,
     data: {
+      langpair: "sme|sme_gram", // TODO: UI thingy
       q: text
     },
     success: function(res) {
       cb(text, res);
     },
     error: function(jqXHR, textStatus/*:string*/, errXHR/*:string*/)/*:void*/ {
-      log("error");
+      console.log("error: "+textStatus+"\n"+errXHR);
+      console.log(jqXHR);
+      console.log(jqXHR.status);
       if(textStatus === "abort" && jqXHR.status === 0) {
         // So the user clicked before the server managed to respond, no problem.
         return;
