@@ -445,7 +445,6 @@ var loginFromForm = function() {
   var userpass = readLoginFormStoring();
   if(userpass != null) {
     hideLogin();
-    check();
   }
   // Ensure we don't reload the page (due to input type submit):
   return false;
