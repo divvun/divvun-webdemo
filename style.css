@@ -282,3 +282,40 @@ button.loading-check {
 .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
   content: 'Bajilčála 6';
 }
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: 'Normála';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  content: 'Smávvá';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  content: 'Stuoris';             /* TODO */
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  content: 'Huge';              /* TODO */
+}
+.ql-snow .ql-tooltip::before {
+  content: "Fina URL:s:";
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+  content: 'Rievdda';
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+  content: 'Váldde eret';
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+  content: 'Vurke';
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+  content: "Čális leaŋkka:";
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before {
+  content: "Čális formel:";
+}
+.ql-snow .ql-tooltip[data-mode=video]::before {
+  content: "Lasit video:";
+}
