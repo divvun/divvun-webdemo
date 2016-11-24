@@ -288,21 +288,21 @@ button.loading-check {
 }
 .ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
-  content: 'Smávvá';
+  content: 'Uhci';
 }
 .ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
-  content: 'Stuoris';             /* TODO */
+  content: 'Stuoris';
 }
 .ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
-  content: 'Huge';              /* TODO */
+  content: 'Hui stuoris';
 }
 .ql-snow .ql-tooltip::before {
-  content: "Fina URL:s:";
+  content: "Gallet čujuhusa:";
 }
 .ql-snow .ql-tooltip a.ql-action::after {
-  content: 'Rievdda';
+  content: 'Doaimmat';
 }
 .ql-snow .ql-tooltip a.ql-remove::before {
   content: 'Váldde eret';
@@ -311,7 +311,7 @@ button.loading-check {
   content: 'Vurke';
 }
 .ql-snow .ql-tooltip[data-mode=link]::before {
-  content: "Čális leaŋkka:";
+  content: "Čális liŋkka:";
 }
 .ql-snow .ql-tooltip[data-mode=formula]::before {
   content: "Čális formel:";
