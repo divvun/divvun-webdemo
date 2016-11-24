@@ -272,9 +272,10 @@ var getFText = function() {
 // adjective form errors -> adjektiivvahápmemeattáhusat
 // ekteordsfeil -> čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)
 // særskrivingsfeil -> goallesátnemeattáhusat
+// Vaikko dálki ii leat nu heitot, de don áibbašat liegga riikii.\n\n
 var examples = [
   { title: "Goallesátnemeattáhusat",
-    delta: { ops: [{ insert: "Vaikko dálki ii leat nu heitot, de don áibbašat liegga riikii.\n\nBealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\n\nSon jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide."}]}},
+    delta: { ops: [{ insert: "Bealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\n\nSon jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide."}]}},
   { title: "Čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)",
     delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Sin máksu han lei varra seammá ollu maiddái sihke.\n\nGuttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.\n\n Luohtti fámoleabbo go leat máŋggas.\n Earenoamážit jus ii luohte eannet iežat intuišuvdnii ja jierpmálašvuhtii, de manná duinna hui bures.\n Ja bisošii hal doppe nuppiin bieđagiin ovttas ovtta gaskka – de livččii ráfi ajihustit go dál ii leat čivga ge boŋkime, dat lea vižžojuvvon gávpogii eatnis olbmuid lusa ja galgá orrut muoŧŧás luhtte gitta go eatnis varrostuvvá.\n\nUlbmil lea movttiidahttit lohkamii ja oažžut eambbosiid liikot girjiide.\n\n– Moai Aleftina Serginain letne guhkit áiggi čohken  dieđuid Áhkkila sámiid birra ja dál lea munno girjii válmmas, čilge Leif Rantala."}]}},
   { title: "Dáromállegat",
