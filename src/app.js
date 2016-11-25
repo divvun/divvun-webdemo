@@ -273,11 +273,6 @@ var getFText = function() {
 // ekteordsfeil -> čállinmeattáhusat (njuolga hápmi vearrukonteavsttas)
 // særskrivingsfeil -> goallesátnemeattáhusat
 // Vaikko dálki ii leat nu heitot, de don áibbašat liegga riikii.\n\n
-/*  Dábálaš čállindárkkisteaddji ii divo iežá go sániid mat eai leat
-         sátnegirjjis. Grammáhtalaš dárkkisteaddji geahččá olles cealkaga ja
-         viggá maid divvut sániid mat leat adnojuvvon vearrut  dehe
-         vearrohámis.
-         */
 var examples = [
   { title: "Goallossátnemeattáhusat",
     delta: { ops: [{ insert: "Bealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\n\nSon jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide."}]}},
