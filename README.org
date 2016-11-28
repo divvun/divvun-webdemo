@@ -1,0 +1,22 @@
+#+TITLE: divvun-webdemo
+#+STARTUP: showall
+
+* Description
+  Simple html+js webdemo of Divvun grammar checker using the [[http://quilljs.com/][Quill]]
+  editor.
+
+
+* Prerequisites
+
+- npm
+- apache/nginx/whathaveyou
+
+* Building
+
+#+BEGIN_SRC sh
+make
+#+END_SRC
+
+* TODO [0/1]
+
+- [ ] Strip zero width characters
