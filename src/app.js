@@ -31,7 +31,7 @@ class ErrorBlot extends Inline {
     // else if(errtypes()[err.typ].length >= 3) {
     //   colour = errtypes()[err.typ][2];
     // };
-    node.setAttribute("class", "error error-"+colour);
+    $(node).addClass("class", "error-"+colour);
     return node;
   }
   static formats(node) {
@@ -147,6 +147,7 @@ class ErrorBlot extends Inline {
 }
 ErrorBlot.blotName = 'error';
 ErrorBlot.tagName = 'span';
+ErrorBlot.className = 'error';
 Quill.register(ErrorBlot);
 
 var replaceErr = function(e) {
