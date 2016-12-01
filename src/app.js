@@ -177,14 +177,20 @@ var hiderep = function()/*:void*/
 
 
 var onSelectionChange = function(range, _oldRange, source) {
-  if(range != null && range.length === 0 && source == 'user') {
+  if(range != null && range.length === 0 && source === 'user') {
     var erroroffset = quill.scroll.descendant(ErrorBlot, range.index),
         error = erroroffset[0],
         offset = erroroffset[1];
     if(error != null) {
-      var beg = range.index - offset,
-          len = error.length();
-      error.showrep(beg, len);
+      if($(error.domNode).data("error")) {
+        var beg = range.index - offset,
+            len = error.length();
+        error.showrep(beg, len);
+      }
+      else {
+        console.log("descendant ErrorBlot at", range.index, "had no data, clearing markup");
+        quill.formatText(range.index - offset, error.length(), "error", false);
+      }
     }
   }
 };
