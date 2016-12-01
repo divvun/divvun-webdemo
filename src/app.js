@@ -352,7 +352,7 @@ var basicAuthHeader = function (userpass) {
     return "Basic " + utoa(userpass.u + ":" + userpass.p);
   }
   else {
-    $("#serverfault").html("Feil passord?");
+    $("#serverfault").html("Čállet go beassansáni boastut?");
     $("#serverfault").show();
     showLogin();
     return "Basic TODO";
@@ -395,11 +395,11 @@ var servercheck = function(userpass/*:userpass*/,
         return;
       }
       else if(textStatus === "error" && jqXHR.status === 0) {
-        $("#serverfault").html("Det kan sjå ut som om tenaren er nede, eller du er fråkopla internett. Prøv å lasta sida på nytt.");
+        $("#serverfault").html("Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit.");
         $("#serverfault").show();
       }
       else {
-        $("#serverfault").html("Feil brukarnamn/passord? Fekk feilkode "+jqXHR.status+" med status "+errXHR+"/"+textStatus);
+        $("#serverfault").html("Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáhuskoda "+jqXHR.status+" "+errXHR+"/"+textStatus+" stáhtusiin.");
         $("#serverfault").show();
         showLogin();
         // var userpass = safeGetItem("userpass",
