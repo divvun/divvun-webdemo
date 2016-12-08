@@ -94,7 +94,7 @@ class ErrorBlot extends Inline {
     var tr_msg =  $(document.createElement('tr')),
     td_msg =  $(document.createElement('td')),
     a_msg =  $(document.createElement('span'));
-    a_msg.text(err.msg);
+    a_msg.html(err.msg);
     a_msg.attr("aria-disabled", "true");
     td_msg.append(a_msg);
     td_msg.addClass("repmenu_msg");
