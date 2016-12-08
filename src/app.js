@@ -282,23 +282,58 @@ var getFText = function() {
 // Vaikko dálki ii leat nu heitot, de don áibbašat liegga riikii.\n\n
 var examples = [
   { title: "Goallossátnemeattáhusat",
-    delta: { ops: [{ insert: "Bealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\n\nSon jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide."}]}},
+    delta: { ops: [
+      { insert: "Bealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\n\n" },
+      { insert: "Son jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide.\n\n" }
+    ]}},
   { title: "Čállinmeattáhusat (njuolga hápmi vearrokonteavsttas)",
-    delta: { ops: [{ insert:"Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor. Dušše čohkka ja juga gáfe. Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat. Sin máksu han lei varra seammá ollu maiddái sihke.\n\nGuttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.\n\n Luohtti fámoleabbo go leat máŋggas.\n Earenoamážit jus ii luohte eannet iežat intuišuvdnii ja jierpmálašvuhtii, de manná duinna hui bures.\n Ja bisošii hal doppe nuppiin bieđagiin ovttas ovtta gaskka – de livččii ráfi ajihustit go dál ii leat čivga ge boŋkime, dat lea vižžojuvvon gávpogii eatnis olbmuid lusa ja galgá orrut muoŧŧás luhtte gitta go eatnis varrostuvvá.\n\nUlbmil lea movttiidahttit lohkamii ja oažžut eambbosiid liikot girjiide.\n\n– Moai Aleftina Serginain letne guhkit áiggi čohken  dieđuid Áhkkila sámiid birra ja dál lea munno girjii válmmas, čilge Leif Rantala."}]}},
+    delta: { ops: [
+      { insert: "Dušše čohkka ja juga gáfe. Sin máksu han lei varra seammá ollu maiddái sihke.\n\n" },
+      { insert: "Guttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.\n\n" },
+      { insert: " Luohtti fámoleabbo go leat máŋggas.\n\n" },
+      { insert: " Earenoamážit jus ii luohte eannet iežat intuišuvdnii ja jierpmálašvuhtii, de manná duinna hui bures.\n\n" },
+      { insert: " Ja bisošii hal doppe nuppiin bieđagiin ovttas ovtta gaskka – de livččii ráfi ajihustit go dál ii leat čivga ge boŋkime, dat lea vižžojuvvon gávpogii eatnis olbmuid lusa ja galgá orrut muoŧŧás luhtte gitta go eatnis varrostuvvá.\n\n" },
+      { insert: "Ulbmil lea movttiidahttit lohkamii ja oažžut eambbosiid liikot girjiide.\n\n" },
+      { insert: "– Moai Aleftina Serginain letne guhkit áiggi čohken  dieđuid Áhkkila sámiid birra ja dál lea munno girjii válmmas, čilge Leif Rantala.\n\n" }
+    ]}},
   { title: "Dáromállegat",
-    delta: { ops: [{ insert: "osv."}] }},
+    delta: { ops: [
+      { insert: "osv.\n\n" }
+    ] }},
   { title: "Čuokkesmeattáhusat",
-    delta: { ops: [{ insert: "\"nu - nu\""}] }},
+    delta: { ops: [
+      { insert: "\"nu - nu\"\n\n" }
+    ] }},
   { title: "Kongrueansameattáhusat",
-    delta: { ops: [{ insert: "Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\nGo Davvinásti ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli."}] }},
+    delta: { ops: [
+      { insert: "Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\n\n" },
+      { insert: "Go Davvinásti ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli.\n\n" }
+    ] }},
   { title: "Valeansameattáhusat",
-    delta: { ops: [{ insert: "Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat.\nMáŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor.\n"}] }},
+    delta: { ops: [
+      { insert: "Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat.\n\n" },
+      { insert: "Máŋggas ballet čohkkát busses, eandalii unnit mánát eai áiggo busse mielde, lohká rektor.\n\n" },
+      { insert: "Dasto jearaimet beroštit go oahppat sámegiela buorebut, ja jos nu, de man suorggis ja mo háliidit oahppat.\n\n" }
+    ] }},
   { title: "Kásusmeattáhusat",
-    delta: { ops: [{ insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\n\nLiikon hirbmadit 1920- logu, ja lean lohkan girjii ja filmma The Great Gatsby, danin šattai Gatsby, muitala Ann."}] }},
+    delta: { ops: [
+      { insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\n\n" },
+      { insert: "Liikon hirbmadit 1920- logu, ja lean lohkan girjii ja filmma The Great Gatsby, danin šattai Gatsby, muitala Ann.\n\n" },
+      { insert: "Doppe lei stuorra gorži, mii lei 15 mehter alo, gos mii njuikkodeimmet liegga sevdjnes eahkediin.\n\n" }
+    ] }},
+  { title: "Biehttalanhápmemeattáhusat",
+    delta: { ops: [
+      { insert: "Nu sáhttá interneahtta šaddat sámi mánáide ja nuoraide oahpasnuvvan, gávnnadan, ja oahppogazzanbáikin, ja dan vel eambbo go juo dássá ii lea leamašan.\n\n" }
+    ] }},
   { title: "Leksikála meattáhusat",
-    delta: { ops: [{ insert: "jna."}] }},
+    delta: { ops: [
+      { insert: "jna.\n\n" }
+    ] }},
   { title: "Adjektiivahápmemeattáhusat",
-    delta: { ops: [{ insert: "Eallámušvallji eanan šaddá go gehppesmolláneaddji báktešlájat, ábaida kálkavallji šlájat, váikkuhuvvojit ja nu háddjanit (golladuvvojit).\nSu musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja fiinna."}]}},
+    delta: { ops: [
+      { insert: "Eallámušvallji eanan šaddá go gehppesmolláneaddji báktešlájat, ábaida kálkavallji šlájat, váikkuhuvvojit ja nu háddjanit (golladuvvojit).\n\n" },
+      { insert: "Su musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja fiinna.\n\n" }
+    ]}},
 ];
 
 var searchToObject = function ()
