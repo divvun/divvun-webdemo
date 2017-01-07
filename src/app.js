@@ -284,7 +284,13 @@ var examples = [
   { title: "Goallossátnemeattáhusat",
     delta: { ops: [
       { insert: "Bealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.\n\n" },
-      { insert: "Son jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide.\n\n" }
+      { insert: "Son jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide.\n\n" },
+      { insert: "Otne leat sihke neahtta-bálvalusat ja mobiila atnu prográmmat buotlágan dieđuid nugomat dálkedieđuid ja girdiáiggiid ja busseruvttuid ja gos lagamus falástallanrusttet lea.\n\n" },
+      { insert: "Mannan vuossárga lei illu beaivi Kárášjoga MNP-bearašossodahkii.\n\n" },
+      { insert: "Dat lea illu sáhka midjiide , go juovlamánus bargguhisvuohta Finnmárkkus lea 3,1 proseantta.\n\n" },
+      { insert: "Muhto dattege, vaikke vel dát dieđusge lea illu diehtu sidjiide geat beroštit sámegielat girjiin , de bođii gielddastivrra mearrádus gieskat veahá ártegis vuogi mielde.\n\n" },
+      { insert: "Mis ii gávdnon sátni , mii devddii dan illu dáhpáhusa.\n\n" },
+      { insert: "Njulge kárta dakkár sadjái gokko lea jalgat Bonja kártta nu ahte davvi guovlu kárttas ja kompássa davvi guovlu heiveba oktii Bija kompássaduolbba ravdda nu ahte manná dan báikkis gos leat dál, dohkko gosa áiggut Bonja kompássajorbbá nu ahte sázut jorbbás šaddet dássálaga davvisázuiguin kárttas Heivet kompássa davvinjuola, gáhta sisa Mannannjuolla čájeha gosa galggat mannat\n\n" }
     ]}},
   { title: "Čállinmeattáhusat (njuolga hápmi vearrokonteavsttas)",
     delta: { ops: [
@@ -294,6 +300,7 @@ var examples = [
       { insert: " Earenoamážit jus ii luohte eannet iežat intuišuvdnii ja jierpmálašvuhtii, de manná duinna hui bures.\n\n" },
       { insert: " Ja bisošii hal doppe nuppiin bieđagiin ovttas ovtta gaskka – de livččii ráfi ajihustit go dál ii leat čivga ge boŋkime, dat lea vižžojuvvon gávpogii eatnis olbmuid lusa ja galgá orrut muoŧŧás luhtte gitta go eatnis varrostuvvá.\n\n" },
       { insert: "Ulbmil lea movttiidahttit lohkamii ja oažžut eambbosiid liikot girjiide.\n\n" },
+      { insert: "Don fal muittát man ollu čuoikkat diibmá ledje, ii ballen baljo jaska čohkkat.\n\n" },
       { insert: "– Moai Aleftina Serginain letne guhkit áiggi čohken  dieđuid Áhkkila sámiid birra ja dál lea munno girjii válmmas, čilge Leif Rantala.\n\n" }
     ]}},
   { title: "Dáromállegat",
@@ -319,7 +326,9 @@ var examples = [
     delta: { ops: [
       { insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\n\n" },
       { insert: "Liikon hirbmadit 1920- logu, ja lean lohkan girjii ja filmma The Great Gatsby, danin šattai Gatsby, muitala Ann.\n\n" },
+      { insert: "Viidáset atnu EO lea meroštallan ahte EO ja Norgga almmolaš dieđuid márkanárvu lea sullii 200 miljárdda ruvdno\n\n." },
       { insert: "Doppe lei stuorra gorži, mii lei 15 mehter alo, gos mii njuikkodeimmet liegga sevdjnes eahkediin.\n\n" }
+
     ] }},
   { title: "Biehttalanhápmemeattáhusat",
     delta: { ops: [
@@ -327,7 +336,7 @@ var examples = [
     ] }},
   { title: "Leksikála meattáhusat",
     delta: { ops: [
-      { insert: "jna.\n\n" }
+      { insert: "Vaikko diein leat vallji bohccot. Vaikko diein leat valjit bohccot.\n\n" }
     ] }},
   { title: "Adjektiivahápmemeattáhusat",
     delta: { ops: [
