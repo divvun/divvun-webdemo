@@ -326,7 +326,7 @@ var examples = [
     delta: { ops: [
       { insert: "Muhto mon liikon nieiddade. Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.\n\n" },
       { insert: "Liikon hirbmadit 1920- logu, ja lean lohkan girjii ja filmma The Great Gatsby, danin šattai Gatsby, muitala Ann.\n\n" },
-      { insert: "Viidáset atnu EO lea meroštallan ahte EO ja Norgga almmolaš dieđuid márkanárvu lea sullii 200 miljárdda ruvdno\n\n." },
+      { insert: "Viidáset atnu EO lea meroštallan ahte EO ja Norgga almmolaš dieđuid márkanárvu lea sullii 200 miljárdda ruvdno.\n\n" },
       { insert: "Doppe lei stuorra gorži, mii lei 15 mehter alo, gos mii njuikkodeimmet liegga sevdjnes eahkediin.\n\n" }
 
     ] }},
