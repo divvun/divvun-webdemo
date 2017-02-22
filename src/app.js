@@ -13,6 +13,8 @@
 var debug = window.location.protocol === "file:";
 var log = debug ? console.log.bind(window.console) : function() {};
 
+var DEFAULT_LANG = "sme";
+
 // Define our error underlines as a kind of inline formatting in Quill:
 let Inline = Quill.import('blots/inline');
 class ErrorBlot extends Inline {
@@ -368,11 +370,6 @@ var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : windo
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+"/translateRaw";
 log(checkUrl);
 
-var userLang = function() {
-  // TODO: browser prefs
-  return "sme";
-};
-
 var hideLogin = function () {
   $("#serverfault").hide();
   $("#loginform").hide();
@@ -409,10 +406,15 @@ var basicAuthHeader = function (userpass) {
   }
 };
 
+var langToMode = function(lang/*:string*/)/*:string*/ {
+  return lang + "|" + lang + "_gram";
+};
+
 var checkXHR = null;
 var servercheck = function(userpass/*:userpass*/,
                            text/*:string*/,
-                           cb/*:cb*/
+                           cb/*:cb*/,
+                           lang/*:string*/
                           )/*:void*/
 {
   log("servercheck:");
@@ -430,7 +432,7 @@ var servercheck = function(userpass/*:userpass*/,
     type: "POST",
     url: checkUrl,
     data: {
-      langpair: "sme|sme_gram", // TODO: UI thingy
+      langpair: langToMode(lang), // TODO: UI thingy
       q: text
     },
     success: function(res) {
@@ -452,23 +454,18 @@ var servercheck = function(userpass/*:userpass*/,
         $("#serverfault").html("Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáhuskoda "+jqXHR.status+" "+errXHR+"/"+textStatus+" stáhtusiin.");
         $("#serverfault").show();
         showLogin();
-        // var userpass = safeGetItem("userpass",
-        //                            readLoginFormStoring());
-        // if(userpass === null) {
-        //   showLogin();
-        // }
-        // else {
-        //   console.log("TODO: when can we recheck?");
-        //   // servercheck(userpass, text, cb);
-        // }
       }
     },
     dataType: "json"
   });
 };
 
-
 var check = function() {
+  var search = searchToObject();
+  var lang = DEFAULT_LANG;
+  if(search.lang !== undefined) {
+    lang = search.lang;
+  }
   clearErrs();
   var text = getFText();
   window.localStorage["text"] = JSON.stringify(quill.getContents());
@@ -479,7 +476,7 @@ var check = function() {
     showLogin();
   }
   else {
-    servercheck(userpass, text, applyErrs);
+    servercheck(userpass, text, applyErrs, lang);
   }
 };
 
