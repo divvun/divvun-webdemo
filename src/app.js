@@ -387,8 +387,8 @@ var showLogin = function () {
 };
 
 function utoa(str) {
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-        return String.fromCharCode('0x' + p1);
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1/*:number*/) {
+      return String.fromCharCode(parseInt('0x' + p1));
     }));
 }
 
@@ -616,7 +616,7 @@ var init = function()/*:void*/ {
 
   var search = searchToObject();
   var initText = { ops: [] };
-  if(search.q != undefined) {
+  if(search.q !== undefined) {
     initText = { ops: [{ insert: search.q }]};
     window.location.search = ""; // so a reload doesn't undo the localStorage
   }
