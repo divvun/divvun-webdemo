@@ -349,9 +349,10 @@ var examples = {
   ],
   "fao":   [
 
-    { title: "Sup → Prt",
+    { title: "Sup → Prt/Prs",
       delta: { ops: [
-        { insert: "Harumframt kiksaði ein týdningarmikil útgávukonsert, tí eg fingið ikki neyðuga visumið." }
+        { insert: "Harumframt kiksaði ein týdningarmikil útgávukonsert, tí eg fingið ikki neyðuga visumið.\n\n" },
+        { insert: "Eg farið avstað.\n\n" }
       ]}}
   ]
 };
