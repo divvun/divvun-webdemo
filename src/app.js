@@ -609,7 +609,14 @@ var init = function()/*:void*/ {
   var search = searchToObject();
   var lang = getLang(search);
 
-  $('#examples-wrapper h4').text("Ovdamearkkat:");
+  if(document.l10n === undefined) {
+    console.warn("l20n.js failed?");
+  }
+  else {
+    // $FlowFixMe
+    document.l10n.requestLanguages([lang]);
+  }
+
   examples[lang].map(function(ex){
     var node = $(document.createElement('button'));
     node.text(ex.title);

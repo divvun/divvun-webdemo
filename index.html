@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="nb">
+<html lang="se">
   <head>
     <meta charset="utf-8"/>
     <meta name="description" content="davvisámi grammatihkkadivvun"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>grammáhtalaš divvun</title>
+    <title data-l10n-id="title">grammáhtalaš divvun</title>
     <link href="quill.snow.css" rel="stylesheet"/>
     <link href="style.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <!-- l20n: -->
+    <meta name="defaultLanguage" content="sme">
+    <meta name="availableLanguages" content="sme, fao">
+    <link rel="localization" href="locales/app.{locale}.ftl">
+    <script defer src="./lib/l20n.js"></script>
   </head>
   <body>
 
@@ -17,10 +22,10 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Grammáhtalaš divvun</a>
+            <a class="navbar-brand" href="#" data-l10n-id="navbrand">Grammáhtalaš divvun</a>
           </div>
             <ul class="nav navbar-nav navbar-right">
-              <li id="logout"><a id="logout_b" href="#">olggosčálit iežat</a></li>
+              <li id="logout"><a id="logout_b" href="#" data-l10n-id="logout">olggosčálit iežat</a></li>
             </ul>
         </div><!--/.container-fluid -->
       </nav>
@@ -28,7 +33,7 @@
       <div id="login-wrapper" class="text-center">
         <div id="serverfault"> </div>
         <form id="loginform" action="">
-          <h4>logge sisa:</h4>
+          <h4 data-l10n-id="login">logge sisa:</h4>
           <fieldset id="login">
             <input id="user" placeholder="dovddaldat" autocomplete="username" type="text" required/>
             <input id="password" placeholder="beassansátni" autocomplete="current-password" type="password" required/>
@@ -39,7 +44,7 @@
 
       <div id="content">
 
-        <p class="lead">
+        <p class="lead" data-l10n-id="lead">
           Dábálaš čállindárkkisteaddji ii divo iežá go sániid mat eai leat
           sátnegirjjis. Grammáhtalaš dárkkisteaddji geahččá olles cealkaga ja
           viggá maid divvut sániid mat leat adnojuvvon vearrut  dehe
@@ -60,7 +65,7 @@
         </div>
 
         <div id="examples-wrapper" class="text-center">
-          <h4></h4>
+          <h4 data-l10n-id="examples"></h4>
           <div id="examples">
           </div>
         </div>

@@ -1,5 +1,3 @@
-/* eslint-disable max-len, no-unused-vars */
-
 // Very minimal and loose type checking of Quill API
 
 declare function QuillModule(any:any): void;
