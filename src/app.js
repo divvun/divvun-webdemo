@@ -420,6 +420,8 @@ var langToMode = function(lang/*:string*/)/*:string*/ {
   return lang + "|" + lang + "_gram";
 };
 
+
+
 var checkXHR = null;
 var servercheck = function(userpass/*:userpass*/,
                            text/*:string*/,
@@ -457,11 +459,20 @@ var servercheck = function(userpass/*:userpass*/,
         return;
       }
       else if(textStatus === "error" && jqXHR.status === 0) {
-        $("#serverfault").html("Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit.");
-        $("#serverfault").show();
+        // $FlowFixMe
+        document.l10n.formatValue('serverdown')
+          .then(function(t){
+            $("#serverfault").html(t).show();
+          });
       }
       else {
-        $("#serverfault").html("Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáhuskoda "+jqXHR.status+" "+errXHR+"/"+textStatus+" stáhtusiin.");
+        // $FlowFixMe
+        document.l10n.formatValue('loginfail',
+                                  { errorCode: jqXHR.status + " " + errXHR,
+                                    textStatus: textStatus })
+          .then(function(t){
+            $("#serverfault").html(t).show();
+          });
         $("#serverfault").show();
         showLogin();
       }

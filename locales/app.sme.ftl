@@ -10,3 +10,9 @@ lead = Dábálaš čállindárkkisteaddji ii divo iežá go sániid mat eai leat
 
 title = grammáhtalaš divvun
 
+serverdown = Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit.
+
+loginfail = Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáhuskoda { $errorCode } / { $textStatus } stáhtusiin.
+
+loginfield = <input placeholder="dovddaldat"> <input placeholder="beassansátni"> <input value="sisačálit iežat">
+
