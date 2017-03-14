@@ -19,6 +19,7 @@ declare class Quill {
   formatText(index: number, length: number, format: string|Object, value: any, source?: string): void;
   getContents(): any;
   setContents(delta: Delta): void;
+  setText(str: string): void;
   deleteText(index: number, length: number, source: string): void;
   on(event: string, f: Function): void;
 }

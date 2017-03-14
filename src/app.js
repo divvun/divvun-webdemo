@@ -15,6 +15,14 @@ var log = debug ? console.log.bind(window.console) : function() {};
 
 var DEFAULT_LANG = "sme";
 
+var l10n = function() {
+  if(document.l10n === undefined) {
+    console.error("l20n.js failed?");
+  }
+  // $FlowFixMe
+  return document.l10n;
+};
+
 // Define our error underlines as a kind of inline formatting in Quill:
 let Inline = Quill.import('blots/inline');
 class ErrorBlot extends Inline {
@@ -460,15 +468,13 @@ var servercheck = function(userpass/*:userpass*/,
         return;
       }
       else if(textStatus === "error" && jqXHR.status === 0) {
-        // $FlowFixMe
-        document.l10n.formatValue('serverdown')
+        l10n().formatValue('serverdown')
           .then(function(t){
             $("#serverfault").html(t).show();
           });
       }
       else {
-        // $FlowFixMe
-        document.l10n.formatValue('loginfail',
+        l10n().formatValue('loginfail',
                                   { errorCode: jqXHR.status + " " + errXHR,
                                     textStatus: textStatus })
           .then(function(t){
@@ -604,6 +610,48 @@ var safeGetItem = function/*::<T>*/(key/*:string*/, fallback/*:T*/)/*:T*/ {
   }
 };
 
+var initExamples = function()/*:void*/{
+  // A bit of a hack: the messages example1 through example20 contain
+  // the texts (with example1_title etc. containing the button title).
+  // l20n.js unfortunately can't give us a list of all strings that
+  // exist, so we have a hardcoded max of 20.
+  var req = [],
+      max = 20;
+  for(var i = 1; i <= max; i++) {
+    req.push('example'+i.toString()+'_title');
+    req.push('example'+i.toString());
+  }
+  l10n().formatValues.apply(l10n(), req)
+    .then(function(res) {
+      var titles = [], texts = [];
+      for(var i = 0; i < res.length; i++) {
+        if(i % 2 === 0) {
+          titles.push(res[i]);
+        }
+        else {
+          texts.push(res[i]);
+        }
+      }
+      for(i = 0; i < titles.length; i++) {
+        if(titles[i].match(/^example[0-9]+_title$|^$/)) {
+          // l20n.js just uses the input string as the "untranslated" value :-/
+          continue;
+        }
+        var node = $(document.createElement('button'));
+        node.text(titles[i]);
+        node.attr("type", "button");
+        node.addClass("btn btn-default");
+        $(node).click({ text: texts[i] },
+                      function (e) {
+                        quill.setContents({ ops: [ { insert: e.data.text } ] });
+                        check();
+                      });
+        $('#examples').append(node);
+        $('#examples').append(" ");
+      }
+    });
+};
+
 var init = function()/*:void*/ {
   if(window.location.protocol == "http:") {
     $('#password').attr("type", "text");
@@ -621,26 +669,21 @@ var init = function()/*:void*/ {
   var search = searchToObject();
   var lang = getLang(search);
 
-  if(document.l10n === undefined) {
-    console.warn("l20n.js failed?");
-  }
-  else {
-    // $FlowFixMe
-    document.l10n.requestLanguages([lang]);
-  }
+  l10n().requestLanguages([lang]);
 
-  examples[lang].map(function(ex){
-    var node = $(document.createElement('button'));
-    node.text(ex.title);
-    node.attr("type", "button");
-    node.addClass("btn btn-default");
-    $(node).click(function () {
-      quill.setContents(ex.delta);
-      check();
-    });
-    $('#examples').append(node);
-    $('#examples').append(" ");
-  });
+  // examples[lang].map(function(ex){
+  //   var node = $(document.createElement('button'));
+  //   node.text(ex.title);
+  //   node.attr("type", "button");
+  //   node.addClass("btn btn-default");
+  //   $(node).click(function () {
+  //     quill.setContents(ex.delta);
+  //     check();
+  //   });
+  //   $('#examples').append(node);
+  //   $('#examples').append(" ");
+  // });
+  initExamples();
 
   $.ajaxSetup({
     statusCode: {
