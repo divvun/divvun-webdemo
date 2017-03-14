@@ -16,3 +16,8 @@ loginfail = Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáh
 
 loginfield = <input placeholder="dovddaldat"> <input placeholder="beassansátni"> <input value="sisačálit iežat">
 
+example1_title = Goallesátnemeattáhusat
+example1 =
+  | Bealljeheamit leat, nu movt Norgga Bealljehemiidlihttu oaidná, duvdojuvvon olggobeallai diehtojuohkinservodaga, miidagaha ahte bealljeheamit dávjá ožžot unnit dieđuid servodat dilálašvuođain.
+  | Son jáhkii bártniid liikot buorebut čuvges-vuovttat nieiddaide.
+
