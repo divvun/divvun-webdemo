@@ -671,18 +671,6 @@ var init = function()/*:void*/ {
 
   l10n().requestLanguages([lang]);
 
-  // examples[lang].map(function(ex){
-  //   var node = $(document.createElement('button'));
-  //   node.text(ex.title);
-  //   node.attr("type", "button");
-  //   node.addClass("btn btn-default");
-  //   $(node).click(function () {
-  //     quill.setContents(ex.delta);
-  //     check();
-  //   });
-  //   $('#examples').append(node);
-  //   $('#examples').append(" ");
-  // });
   initExamples();
 
   $.ajaxSetup({
