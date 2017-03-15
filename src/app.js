@@ -652,6 +652,18 @@ var initExamples = function()/*:void*/{
     });
 };
 
+var initL10n = function(lang/*:string*/)/*:void*/ {
+  l10n().requestLanguages([lang]);
+  l10n().formatValue('editor_placeholder')
+    .then(function(t) {
+      $('.ql-editor').attr('data-placeholder', t);
+    });
+  var el = $('<link/>');
+  el.attr('rel', 'stylesheet');
+  el.attr('href', 'locales/'+lang+'.css');
+  $('head').append(el);
+};
+
 var init = function()/*:void*/ {
   if(window.location.protocol == "http:") {
     $('#password').attr("type", "text");
@@ -667,10 +679,7 @@ var init = function()/*:void*/ {
   initSpinner();
 
   var search = searchToObject();
-  var lang = getLang(search);
-
-  l10n().requestLanguages([lang]);
-
+  initL10n(getLang(search));
   initExamples();
 
   $.ajaxSetup({

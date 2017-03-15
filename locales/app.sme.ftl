@@ -16,6 +16,7 @@ loginfail = Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáh
 
 loginfield = <input placeholder="dovddaldat"> <input placeholder="beassansátni"> <input value="sisačálit iežat">
 
+editor_placeholder = Čális dása, dahje válljes ovdmearkka dás vuolábealde
 
 
 

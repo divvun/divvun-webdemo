@@ -16,6 +16,7 @@ loginfail = Innritan miseydnast – fekk { $errorCode } / { $textStatus }.
 
 loginfield = <input placeholder="navn"> <input placeholder="loyniorð"> <input value="rita inn">
 
+editor_placeholder = Tekst her
 
 
 
