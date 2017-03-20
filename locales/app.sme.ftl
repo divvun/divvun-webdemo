@@ -71,11 +71,52 @@ example2 =
 
 example3_title = Dáromállegat
 example3 =
-  | osv.
+  | De lea jearaldat goabbá orru eanemus jierpmálaš.
+  | Heajat lea buot eanemus vuoiggalaš vuohki čájehit kultuvrra.
+  | Danne lea politijuristtaide eanemus praktihkkalaččat vuogas dan dahkat Čáhcesullos.
+  | Eanemus dovddus lea son “Ammul ja alit oarbmælli” mánáidgirjjiin mii ilmmai 1976:s.
+  | Johan Somby gii čohkká guoras muitala ahte Bossogobis dat lei eanemus garas dat sámevašši.
+  | Ovddádusbellodat lea negatiiva dán ovdáneapmái mii duhtada dušše daid eanemus radikála sápmelaččaid.
+  | SNF doaibmá dál juo dego resursaguovddážin.
+  | • Studeanta lea oahppodilis , muhto galgá oasálastit bargodillái dego ovttasbargoguoibmin ja observatevran .
+  | Gili siskkobealde lea oalle friddja čoaggin leamaš , muhto olggobealolbmot leat adnon dego sisabáhkkejeaddjin .
+  | Olbmuin geaidda fállojuvvo fuolahusviessu , leat dávjá unnán vejolašvuohta ieš válljet ásodaga , ja bákkejuvvojit oktasašvuhtii earáiguin maid dávjá vásihit dego smávva-institušuvdnan .
+  | Goit lea bággu lihtodit Sámedikki ekonomálaš rájain dego oassin ráđđehusa ollislaš bušeahttapolitihkas .
+  | Mii fertet árvvoštallat maiddái min gulahallanolbmuid rollaid, ja mun lea gávnnahan buoremussan ahte sii eai oidno eai ge gullo digaštallamis.
+  | Sihke giela ja kultuvrra oktavuođas leat mii ovddasvázzit, ja dainna lágiin mii nannet min sámi identitehta.
+  | Min bargu galgá leat duođalaš ja mii galgat čuovvut čielga etihkalaš njuolggadusaid min bargguin, sihke dalle go vuovdit ja go fállat biergasiid, dadjá Fodstad.
+  | Maŋŋel go dat dáhpáhuvai, de mii gal eat šat lean nu gievrrat ovddos, ja gahčaimet lagabui min moala, dadjá Ásllat Ánte.
+  | Moai ávvudetne munno 50-jagi riegádanbeivviid ovttas ruovttus Láŧevuovddi 28:s Kárášjogas lávvordaga borgemánu 21. beaivvi diibmu 17.00 rájes.
+  | Mii huksejit min árrana ja cahkkehit dola .
+  |Jus dat evttohas dohkkehuvvo eanetlogus , mearkkaša dat ahte teáhter bušeahtta lasihuvvo beliin diimmá ektui , mii 2007:s lei 618_000 ruvdno .
+  | Sámedikki plána- ja finánsalávdegoddi meannudii gaskavahku mot galget geavahit dan 30 miljovnna reanttu mii lea čohkkejuvvon sámefoanddas .
+  | Mii gohčoduvvojit aviisan Mediabearráigeahčus , ja oažžut preassadoarjaga Mediabearráigeahčus Sámedikki bokte .
+
 
 example4_title = Čuokkesmeattáhusat
 example4 =
-  | "nu - nu"
+  | Son livččii gal viššal muhto sus ii leat goassege dilli bargat. 
+  | Olgoriikkas ii oahpa dušše giela muhto ollu eanetge.
+  | Ahte nu galggai geavvat dan ii lean gal oktage árvidan.
+  | Go áhčči boahtá de mii herskkostallat.
+  | Jos mii dalle eat livčče vuolgán ruoktot de gal leimmet gártat vuordit máŋga beaivvi. 
+  | Vaikke ledjege váiban de dat dattetge ain jotke.
+  | Muhtumat lohket earát čállet.
+  | Sii muitaledje maid doppe ledje gullan muhto Ánde gal ii orron jáhkkimin dasa.
+  | Jos mii dalle eat livčče vuolgán ruoktot de gal leimmet gártat vuordit máŋga beaivvi.
+  | Ovdal go mun bohten de vulggii áhčči.
+  | Maŋŋil go áhčči bođii mun vulgen.
+  | Dassá go Niillas boahtá mun vuorddán.
+  | Dan rájes go náitaleigga dat juo leaba juo huksen dálu.
+  | Dalle go mii leimmet mu áhčiin ovtta siiddas mun galgen ieš vuolgit merrii.
+  | Dan botta go mánná oađđá áiggun gohpuid bassat.
+  | Mađe losit siivu dađe njoazebut manná mátki.
+  | Elle bođii mánáinis jo juovlamánus ja earát fas gárte vuordit gitta guovvamánnui.
+  | Mun liikon čuoigat ja Máret fas liiko viehkat.
+  | Máhtte čálii teavstta Elle fas heivehii dan nuhttii.
+  | Máhtte márfu, Elle bassá ja Biera čorge ovdal go mii vuolgit.
+
+
 
 example5_title = Kongrueansameattáhusat
 example5 =
@@ -86,7 +127,7 @@ example5 =
   | Siskkit Gáivuonas lea ollu eanandoallu, ja dáppe lea bivttasgoarrunfitnodagat, gođđinbádji ja ullogárrenfitnodat.
   | Muđui lea ollu eanandoallu Olmmáivákkis, ja dáppe lea maid guollevuostáiváldimat ja guollebiebmanrusttet.
   | Skearru almmuheami maŋŋá leat sis leamaš konsearta sihke Romssas ja Guovdageainnus, dainna lágiin leage repertoára bures vuogáiduvvan.
-        | Dasa lassin leat rasista organisašuvnnaid logo plakáhtain.
+  | Dasa lassin leat rasista organisašuvnnaid logo plakáhtain.
   | Áigut várrogasat geažidit ahte čálalaš sámegiella soaitá leat geanuheabbo servvodagas go njálmmalaš giella, earret eará dan dihte go dasa leat lunddolaš váikkuhus garra dáruiduhttima geažil.
   | Son lea movttet go beassá rápmut ahte máŋga dáin guoktenuppelot kurssain leat ođđa kursa.
   | Boarrásiidsiiddas leat eareliiggánit Davvi Anár- ja nuortasámegielalaš boaris, nu ahte máŋgasii attii olu lonohallat ságaid sámegillii.
@@ -96,9 +137,9 @@ example5 =
   | Sámi kulturbirrasa áddejupmái gullet maid elemeanta mat leat árbevirolaččat adnojuvvon luondduduovddan.
   | Ulbmiljovkui gullet olmmoš, geaidda leat juolludan bargonávccahisvuođapenšuvnna njuolggadusaid mielde, mat ledje fámus ovdal ođđajagimánu 2004.
   | Informántan leat nissonolbmot, guđet duddjo iežaset várás dahje olbmuide.
-        | Šaddoset sii heahpanit ja bilkiduvvot, guđet bivdá mu heakka.
-        | Gáidoset sii eret heahpanemiin, guđet sávvá munnje lihkuhisvuođa.
-        | Mii eat gal buohtastahte dán guokte feastivála, ja veardit dan guovtto, goabbá ánssáše stuorát doarjaga, muhto go doarjjaohcamat eaba mana seamma bušeahtaide, de šaddá dákkár erohus, muitala Pedersen.
+  | Šaddoset sii heahpanit ja bilkiduvvot, guđet bivdá mu heakka.
+  | Gáidoset sii eret heahpanemiin, guđet sávvá munnje lihkuhisvuođa.
+  | Mii eat gal buohtastahte dán guokte feastivála, ja veardit dan guovtto, goabbá ánssáše stuorát doarjaga, muhto go doarjjaohcamat eaba mana seamma bušeahtaide, de šaddá dákkár erohus, muitala Pedersen.
 
 example6_title = Valeansameattáhusat
 example6 =
