@@ -35,7 +35,7 @@ example1 =
   | Muhto dattege, vaikke vel dát dieđusge lea illu diehtu sidjiide geat beroštit sámegielat girjiin , de bođii gielddastivrra mearrádus gieskat veahá ártegis vuogi mielde.
   | Mis ii gávdnon sátni , mii devddii dan illu dáhpáhusa.
   | Njulge kárta dakkár sadjái gokko lea jalgat Bonja kártta nu ahte davvi guovlu kárttas ja kompássa davvi guovlu heiveba oktii Bija kompássaduolbba ravdda nu ahte manná dan báikkis gos leat dál, dohkko gosa áiggut Bonja kompássajorbbá nu ahte sázut jorbbás šaddet dássálaga davvisázuiguin kárttas Heivet kompássa davvinjuola, gáhta sisa Mannannjuolla čájeha gosa galggat mannat
-  | Suoma bealde fas beroštit 	fitnodatoagguma birra , dahje turisma oagguma , ja balahit ahte unnit turistat dagahit unnit dietnasa Suoma davvi giliide , muitala son.
+  | Suoma bealde fas beroštit   fitnodatoagguma birra , dahje turisma oagguma , ja balahit ahte unnit turistat dagahit unnit dietnasa Suoma davvi giliide , muitala son.
   | Eikjok addá ovdamearkan luođi ja borramuš árbevieru.
   | Ávvir finasta sutno ságain ovdalgo sámi nuorat miellačájáhusain čájehit vuosteháguset Suoma mátkeealáhusa goansta gávttiide mannan duorastaga.
   | Hui ollusat leat dušše geavahan luohte oasi ja Sverre Kjelsberg oasi leat guođđán , dadjá Simona Máhtte ja lohká son ii dieđe manne Sverre Kjelsberg ii lean mielde Gylne Tider joavkkus.
@@ -86,7 +86,7 @@ example5 =
   | Siskkit Gáivuonas lea ollu eanandoallu, ja dáppe lea bivttasgoarrunfitnodagat, gođđinbádji ja ullogárrenfitnodat.
   | Muđui lea ollu eanandoallu Olmmáivákkis, ja dáppe lea maid guollevuostáiváldimat ja guollebiebmanrusttet.
   | Skearru almmuheami maŋŋá leat sis leamaš konsearta sihke Romssas ja Guovdageainnus, dainna lágiin leage repertoára bures vuogáiduvvan.
-	| Dasa lassin leat rasista organisašuvnnaid logo plakáhtain.
+        | Dasa lassin leat rasista organisašuvnnaid logo plakáhtain.
   | Áigut várrogasat geažidit ahte čálalaš sámegiella soaitá leat geanuheabbo servvodagas go njálmmalaš giella, earret eará dan dihte go dasa leat lunddolaš váikkuhus garra dáruiduhttima geažil.
   | Son lea movttet go beassá rápmut ahte máŋga dáin guoktenuppelot kurssain leat ođđa kursa.
   | Boarrásiidsiiddas leat eareliiggánit Davvi Anár- ja nuortasámegielalaš boaris, nu ahte máŋgasii attii olu lonohallat ságaid sámegillii.
@@ -96,9 +96,9 @@ example5 =
   | Sámi kulturbirrasa áddejupmái gullet maid elemeanta mat leat árbevirolaččat adnojuvvon luondduduovddan.
   | Ulbmiljovkui gullet olmmoš, geaidda leat juolludan bargonávccahisvuođapenšuvnna njuolggadusaid mielde, mat ledje fámus ovdal ođđajagimánu 2004.
   | Informántan leat nissonolbmot, guđet duddjo iežaset várás dahje olbmuide.
-	| Šaddoset sii heahpanit ja bilkiduvvot, guđet bivdá mu heakka.
-	| Gáidoset sii eret heahpanemiin, guđet sávvá munnje lihkuhisvuođa.
-	| Mii eat gal buohtastahte dán guokte feastivála, ja veardit dan guovtto, goabbá ánssáše stuorát doarjaga, muhto go doarjjaohcamat eaba mana seamma bušeahtaide, de šaddá dákkár erohus, muitala Pedersen.
+        | Šaddoset sii heahpanit ja bilkiduvvot, guđet bivdá mu heakka.
+        | Gáidoset sii eret heahpanemiin, guđet sávvá munnje lihkuhisvuođa.
+        | Mii eat gal buohtastahte dán guokte feastivála, ja veardit dan guovtto, goabbá ánssáše stuorát doarjaga, muhto go doarjjaohcamat eaba mana seamma bušeahtaide, de šaddá dákkár erohus, muitala Pedersen.
 
 example6_title = Valeansameattáhusat
 example6 =
@@ -111,17 +111,17 @@ example6 =
   | Veahá maŋŋá de ii šat beroš dán birra , danin go filmmas lea iežas eallin , ja birge bures okto .
   | – Čájálmas lea buohkaide guhte beroštit davvi guovlluid birra , muitala 0047 hábmejeaddji Øystein Rø .
   | Go leat olu digaštallamat ja beroštupmi sámepolitihkkariid bálkkáid ja honoráraid birra lea dehálaš čájehit ahte mii maiddái beroštit gefiid dili birra .
-	| Sámediggi lea hástalan Sijti Jarnge, Nordlándda fylkkasuohkana ja Aarborte suohkana nammadit bargojoavkku dainna ulbmilin ahte ovddidit Sijti Jarnge nanu sámi ásahussan mii earret eará galgá bargat čuovvovaččat:
-	| Sámedikki ulbmilin lea ahte buot ráfáidahttojuvvon sámi kulturmuittut galget registrerejuvvot Askeladdenis, ja sierra prošeakta lea ge čađahuvvon dainna ulbmilin.
-	| Sámediggi lea ovttasbargan Voksenopplæringsinstituhtain ja Oahpahus- ja dutkandepartemeanttain dainna ulbmilin ahte ásahit ovttasbarggu rávisolbmuidoahpahusa ja oahpponeavvoráhkadeami ektui rávisolbmuide.
-	| Sámediggi vuordá mielas dan ahte bargu boahtá johtui johtilit dainna 	ulbmilin ahte 2008:s boađášii láhkaproposišuvdna.
-	| Otná govva lea govvejuvvon Kárášjogas 1924:s olggobealde gávpeolbmá Berg viesu, dan oktavuođas go su nieida Biret náitalii Mathis Klemetsen Nillukkan Alaskas eret, ja go manaiga Alaskai maŋŋel heajaid.
-	| Lean leamaš boazodolliid ságain, ja lean earret eará maiddái hupman Lars P. Gaupan ja eará Láhtinsiidda boazodolliiguin.
-	| Dovdo dego jeđđehussan diehtit ahte don besset váldit nu lagas, lieggaváimmot ja dovduičuohcci earrodearvvuođaid dainna festiválan man ealjárvuođain leat huksen bajás ja guldaleddjiiguin geaid ieš leat háhkan.
-	| Mo áddet dan ahte nubbi geas don liikot vállje baicce jápmima ovdalgo eallima , du ja su lagamuččaid .
-	| Vieno Länsman ii gáđa go lea vuolgán , vaikko ii liiko gal mearas.
-	| Juohke sorttas lea biras gos liiko buoremusat.
-	| Doppe gos gáibiduvvo ovttasbargu ja searvevuohta , doppe liikot don nai.  
+  | Sámediggi lea hástalan Sijti Jarnge, Nordlándda fylkkasuohkana ja Aarborte suohkana nammadit bargojoavkku dainna ulbmilin ahte ovddidit Sijti Jarnge nanu sámi ásahussan mii earret eará galgá bargat čuovvovaččat:
+  | Sámedikki ulbmilin lea ahte buot ráfáidahttojuvvon sámi kulturmuittut galget registrerejuvvot Askeladdenis, ja sierra prošeakta lea ge čađahuvvon dainna ulbmilin.
+  | Sámediggi lea ovttasbargan Voksenopplæringsinstituhtain ja Oahpahus- ja dutkandepartemeanttain dainna ulbmilin ahte ásahit ovttasbarggu rávisolbmuidoahpahusa ja oahpponeavvoráhkadeami ektui rávisolbmuide.
+  | Sámediggi vuordá mielas dan ahte bargu boahtá johtui johtilit dainna  ulbmilin ahte 2008:s boađášii láhkaproposišuvdna.
+  | Otná govva lea govvejuvvon Kárášjogas 1924:s olggobealde gávpeolbmá Berg viesu, dan oktavuođas go su nieida Biret náitalii Mathis Klemetsen Nillukkan Alaskas eret, ja go manaiga Alaskai maŋŋel heajaid.
+  | Lean leamaš boazodolliid ságain, ja lean earret eará maiddái hupman Lars P. Gaupan ja eará Láhtinsiidda boazodolliiguin.
+  | Dovdo dego jeđđehussan diehtit ahte don besset váldit nu lagas, lieggaváimmot ja dovduičuohcci earrodearvvuođaid dainna festiválan man ealjárvuođain leat huksen bajás ja guldaleddjiiguin geaid ieš leat háhkan.
+  | Mo áddet dan ahte nubbi geas don liikot vállje baicce jápmima ovdalgo eallima , du ja su lagamuččaid .
+  | Vieno Länsman ii gáđa go lea vuolgán , vaikko ii liiko gal mearas.
+  | Juohke sorttas lea biras gos liiko buoremusat.
+  | Doppe gos gáibiduvvo ovttasbargu ja searvevuohta , doppe liikot don nai.  
 
 
 example7_title = Kásusmeattáhusat
@@ -131,37 +131,37 @@ example7 =
   | Viidáset atnu EO lea meroštallan ahte EO ja Norgga almmolaš dieđuid márkanárvu lea sullii 200 miljárdda ruvdno.
   | Doppe lei stuorra gorži, mii lei 15 mehter alo, gos mii njuikkodeimmet liegga sevdjnes eahkediin.
   | Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis , ja namuhii rasfare , ja ahte poastakantuvrii lea sullii 40 kilomehtera , nu ahte šaddá gal menddo guhki fitnat poasta áššiid dahkamin . 
-	| Muhto das eaba loga Lemte Ánte Buljo ja Thor Thrane galgat sámi artisttaid ballat.
-	| Du guoibmi ja muhtin lagas olmmoš soitet duššiid dihte ballat ruhtadili dál ja dál lea ge ollu ruđaid birra sáhka.
+  | Muhto das eaba loga Lemte Ánte Buljo ja Thor Thrane galgat sámi artisttaid ballat.
+  | Du guoibmi ja muhtin lagas olmmoš soitet duššiid dihte ballat ruhtadili dál ja dál lea ge ollu ruđaid birra sáhka.
   | Ja seammas ballat ođđa dieđuiguin.
-	| Okta eaŋgas lihkkudutki, Lord Layard, čállá ahte olbmot geat beroštit earáin, leat gaskamearrálaččat eambbo lihkolaččat og olbmot geat dušše beroštit alcces .
-	| Mun galggan maŋŋá ovddidit ášši áirasiidda, dasa gal veahá aistton balan.
-	| Sámedikki politihkkárat eai galgga maid darbbašit ballat čalmmustahttimin fitnodagaid.
+  | Okta eaŋgas lihkkudutki, Lord Layard, čállá ahte olbmot geat beroštit earáin, leat gaskamearrálaččat eambbo lihkolaččat og olbmot geat dušše beroštit alcces .
+  | Mun galggan maŋŋá ovddidit ášši áirasiidda, dasa gal veahá aistton balan.
+  | Sámedikki politihkkárat eai galgga maid darbbašit ballat čalmmustahttimin fitnodagaid.
   | – Mun sáddejin ohcama ja čállen oanehaččat iežan birra , ja sáddejin velá čállosa globaliserema birra , man birra mun beroštan.
-	| Suoma bealde fas beroštit fitnodatoagguma birra, dahje turisma oagguma, ja balahit ahte unnit turistat dagahit unnit dietnasa Suoma davvi giliide, muitala son.
-	| Boares áhkku nu liikui veahki ovddas, ja attii bárdnái soappi
-	| Ráđđehus luohttá ahte Sámediggi, demokráhtalaš álbmotválljejuvvon orgánan, váfista ahte diekkár vuđolaš demokráhtalaš prinsihpat ja juksanmearit áimmahuššojuvvojit válgaortnega vejolaš earáhuhttimis .
-	| Elina muitalii ahte son lea álo liikon ivnniiguin ja daid son lea málen dávváliin
-	| Gáhkkor liiko buoremusat rabas sajiin.
-	| Son lea luonddu mielde ealli sápmelaš, guhte liiko lieggasis ja friddjavuođas.
-	| Doaivumis ii giige suhta munnje , savkala son vel veaháš baluin , go lea gullan sápmelaččat eai liiko turisttagávttiin.
-	| Liikon čuovgagovvemis ja dán reaissus leat maiddái olu govvamuittut , Daniela lohká.
+  | Suoma bealde fas beroštit fitnodatoagguma birra, dahje turisma oagguma, ja balahit ahte unnit turistat dagahit unnit dietnasa Suoma davvi giliide, muitala son.
+  | Boares áhkku nu liikui veahki ovddas, ja attii bárdnái soappi
+  | Ráđđehus luohttá ahte Sámediggi, demokráhtalaš álbmotválljejuvvon orgánan, váfista ahte diekkár vuđolaš demokráhtalaš prinsihpat ja juksanmearit áimmahuššojuvvojit válgaortnega vejolaš earáhuhttimis .
+  | Elina muitalii ahte son lea álo liikon ivnniiguin ja daid son lea málen dávváliin
+  | Gáhkkor liiko buoremusat rabas sajiin.
+  | Son lea luonddu mielde ealli sápmelaš, guhte liiko lieggasis ja friddjavuođas.
+  | Doaivumis ii giige suhta munnje , savkala son vel veaháš baluin , go lea gullan sápmelaččat eai liiko turisttagávttiin.
+  | Liikon čuovgagovvemis ja dán reaissus leat maiddái olu govvamuittut , Daniela lohká.
 
 
 example8_title = Biehttalanhápmemeattáhusat
 example8 =
   | Nu sáhttá interneahtta šaddat sámi mánáide ja nuoraide oahpasnuvvan, gávnnadan, ja oahppogazzanbáikin, ja dan vel eambbo go juo dássá ii lea leamašan.
-	| - amas ii gullostuvvat sii leat gopmáneamen.
-	| – Amas it bieđaldahttot.
-	| Nieida viehkala bisseheamen amas ii čáhcái spirlat.
-	| Riestista vel ovdda, luoitala amas ii rágudettiin botket.
-	| Gádden dat vuohki válljejuvvui amas ii bovtte vuostehágu.
-	| In mun viša muitalit ahte iešdáhtos lean guođđán girjji amas in dárbbaš lohkat das.
-	| Dása lea dárbu, amas ii geavvat nu, ahte Stuorradiggi dohkkeha lága, man fas maŋŋá gártet divodišgoahtit, lohká Storberget.
-	| Guttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.
-	| Sii geat ledje iežaset árbevirolaš guohtunguovllus, ferteje johttát eret amas eai masttat.
-	| Dat lea dego skuvlašiljus, nu mo Anders Bær ja Lars Jacobsen Hætta muitaleigga, ahte eará mánát cielahedje sudno go leigga viššalat ja čeahpit skuvllas, amas eaba daid earáid heahpašuhttit.
-	| Dalle leage hui dehálaš ahte bivdit devdet juohkebeaivválaččat «Sett elg» -skoviid amas eat boađe dan dillái ahte ealgahivvodat laská nu ahte biergokvalitehta njiedjá.
+  | - amas ii gullostuvvat sii leat gopmáneamen.
+  | – Amas it bieđaldahttot.
+  | Nieida viehkala bisseheamen amas ii čáhcái spirlat.
+  | Riestista vel ovdda, luoitala amas ii rágudettiin botket.
+  | Gádden dat vuohki válljejuvvui amas ii bovtte vuostehágu.
+  | In mun viša muitalit ahte iešdáhtos lean guođđán girjji amas in dárbbaš lohkat das.
+  | Dása lea dárbu, amas ii geavvat nu, ahte Stuorradiggi dohkkeha lága, man fas maŋŋá gártet divodišgoahtit, lohká Storberget.
+  | Guttorm Utsi ballá sákka árbevirolaš sámi duodji sáhttá jávkat 10 jagi geahčes Deanus jos dasa ii dahkkut miige.
+  | Sii geat ledje iežaset árbevirolaš guohtunguovllus, ferteje johttát eret amas eai masttat.
+  | Dat lea dego skuvlašiljus, nu mo Anders Bær ja Lars Jacobsen Hætta muitaleigga, ahte eará mánát cielahedje sudno go leigga viššalat ja čeahpit skuvllas, amas eaba daid earáid heahpašuhttit.
+  | Dalle leage hui dehálaš ahte bivdit devdet juohkebeaivválaččat «Sett elg» -skoviid amas eat boađe dan dillái ahte ealgahivvodat laská nu ahte biergokvalitehta njiedjá.
   | Amma Anne G ii suhttá munnje, jus in čále nu čábbát go áiggošii?
   | Dat ii leat ráđđehusa vuollásaš orgána , ja ráđđehusas ii lea danne ovddasvástádus Sámedikki politihkalaš doaimmas dahje dain politihkalaš mearrádusain maid Sámediggi dahká .
   | Don fertet dušše dohkkehit ahte ii dáhpáhuvvá nu ollu juste dál . 
@@ -175,24 +175,24 @@ example9_title = Leksikála meattáhusat
 example9 =
   | Vaikko diein leat vallji bohccot. Vaikko diein leat valjit bohccot.
   | Jur minuvttaid maŋŋelis Guovdageainnu vuosttaš moala coggagohte Girkonjárgga bártnit Guovdageainnu moallaolbmá , Ole Johan Triumfa gieđaid gaskka .
-  | – Eiseválddiin galggašii oažžut goit eanet báhčinlobiid , go njurjot bohtet dađistaga lasi vutnii , čilgeba Larsen ja Pedersen , geat leaba dássážii bivdán njeallje vahku go luossabivdu mearas han álggii easkka geassemánu álggus , mii lea guokte 	vahku maŋŋelis 	go diibmá .
+  | – Eiseválddiin galggašii oažžut goit eanet báhčinlobiid , go njurjot bohtet dađistaga lasi vutnii , čilgeba Larsen ja Pedersen , geat leaba dássážii bivdán njeallje vahku go luossabivdu mearas han álggii easkka geassemánu álggus , mii lea guokte       vahku maŋŋelis  go diibmá .
   | Riidu čuožžilii go norggabeale eiseválddit adde lobi Romssabeale boazoeaiggádiidda guođohit orohagas daid áigodagaid go Lávnnjetvuomi ja Sárevuomi ealuin ii leat guođohanvuoigatvuohta guovlluin konvenšuvnna vuođul .
   | Diehtojuohkinbargu Černobyl-roasu oktavuođas ii álo áddejuvvon riekta , vaikko erenoamáš biebmoráđiid adde maiddái máttasámegillii .
   | Dasa lassin adde vihtta jagi vearrobeassama sidjiide geat ásaiduvve ámtai .
-  | Dálveguohtumat rittoguovllus lea dábálaš vuohki dán mállet boazodoalus , muhto dan seammás maid 	biddjui 	vuođđun ahte dálvejagi sáhttá maid guođohit riikaráji guora lassin rittoguovllu eatnamiidda .
-  | Dalá árvvoštallan dálvejagi eatnamiid hárrái , lea mihá vuollelis go dat mii maŋŋil 	biddjui 	alimus boazolohkun .
-  | Dan sadjái 	biddjui 	vuođđun 1.800 bohcco Hábmerii // Mørkvatn:i .
-  | Maŋŋil 	biddjui 	alimus boazolohku nu ahte vástida 1,2 bohcco juohke km.
-  | Orohat viiddui das go Glommen orohat 	biddjui 	oassin ođđa orohahkii .
-  | Go rievdaduvvui orohagaid juohkin Nordlánddas , 	biddjui 	vuođđun ahte Helgelándda boazodoallu jođihuvvo dainnalágiin ahte muhtin siiddat johte luksa dálvái ja nuppit fas guođohit riddoeatnamiin davvin // oarjin // allin dálvet , ja nu ledje dálvejagi eatnamat Ruoŧas ja muhtimiin .
-  | DNA-ávdnasiid 	čohket 	SNO lea čohkkemin DNA-ávdnasiid , vuoi lea vejolaš gávdnat gos gumpe lea boahttán .
-  | – Olbmot leat mannan feara guđe guvlui , iige daid leat álki 	čohket 	.
-  | Bargiidbellodat láhpii olles guhtta proseantta , ja livčče válggas 	čohket 	dušše 25,9 proseantta jienain .
-  | Duvka lei 	čohken 	arvečázi , ja dát golggai oaivejietnabeavddi ala .
-  | Ruoŧa girku 	čohke 	olbmuid sihke Ruoŧas ja olgoriikkas geassegirkun , duottargirkun , buohcceviessogirkun , skuvlagirkun , geaidnogirkun , olgoriikkagirkon ja dieđusge dábálaš.
-  | – Garuhedje Iežas lohká liikká nággen vuostá dohko mannamis go sis ledje maiddái bohccot dan áidde siste , earret eará čoavjjet , ja lohká iežas mielas leamaš áibbas dárbbašmeahttumin NRK Sámi filbmajoavkku 	dohkko 	bahkket , go ledje árat beaivvi juo doppe filbmen .
-  | Muhto dat bamse ruohtastii 	dohkko 	su vissui .
-  | Leat čoavdán ja ožžon ruđaid vuolgit 	dohkko 	, nu ahte lea hirbmat somá go mii beassat vuolgit dohko , lohká Ebba Joks .
+  | Dálveguohtumat rittoguovllus lea dábálaš vuohki dán mállet boazodoalus , muhto dan seammás maid     biddjui         vuođđun ahte dálvejagi sáhttá maid guođohit riikaráji guora lassin rittoguovllu eatnamiidda .
+  | Dalá árvvoštallan dálvejagi eatnamiid hárrái , lea mihá vuollelis go dat mii maŋŋil         biddjui         alimus boazolohkun .
+  | Dan sadjái  biddjui         vuođđun 1.800 bohcco Hábmerii // Mørkvatn:i .
+  | Maŋŋil      biddjui         alimus boazolohku nu ahte vástida 1,2 bohcco juohke km.
+  | Orohat viiddui das go Glommen orohat        biddjui         oassin ođđa orohahkii .
+  | Go rievdaduvvui orohagaid juohkin Nordlánddas ,     biddjui         vuođđun ahte Helgelándda boazodoallu jođihuvvo dainnalágiin ahte muhtin siiddat johte luksa dálvái ja nuppit fas guođohit riddoeatnamiin davvin // oarjin // allin dálvet , ja nu ledje dálvejagi eatnamat Ruoŧas ja muhtimiin .
+  | DNA-ávdnasiid       čohket  SNO lea čohkkemin DNA-ávdnasiid , vuoi lea vejolaš gávdnat gos gumpe lea boahttán .
+  | – Olbmot leat mannan feara guđe guvlui , iige daid leat álki        čohket  .
+  | Bargiidbellodat láhpii olles guhtta proseantta , ja livčče válggas  čohket  dušše 25,9 proseantta jienain .
+  | Duvka lei   čohken  arvečázi , ja dát golggai oaivejietnabeavddi ala .
+  | Ruoŧa girku         čohke   olbmuid sihke Ruoŧas ja olgoriikkas geassegirkun , duottargirkun , buohcceviessogirkun , skuvlagirkun , geaidnogirkun , olgoriikkagirkon ja dieđusge dábálaš.
+  | – Garuhedje Iežas lohká liikká nággen vuostá dohko mannamis go sis ledje maiddái bohccot dan áidde siste , earret eará čoavjjet , ja lohká iežas mielas leamaš áibbas dárbbašmeahttumin NRK Sámi filbmajoavkku      dohkko  bahkket , go ledje árat beaivvi juo doppe filbmen .
+  | Muhto dat bamse ruohtastii  dohkko  su vissui .
+  | Leat čoavdán ja ožžon ruđaid vuolgit        dohkko  , nu ahte lea hirbmat somá go mii beassat vuolgit dohko , lohká Ebba Joks .
 
 
 example10_title = Adjektiivahápmemeattáhusat
