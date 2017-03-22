@@ -304,12 +304,14 @@ var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/
 log(checkUrl);
 
 $(document).ready(function() {
-    if(window.location.host.match("^localhost:")) {
-        console.log("Connecting to skewer …");
-        var s = document.createElement('script');
-        s.src = 'http://localhost:38495/skewer';
-        document.body.appendChild(s);
+  if(window.location.host.match("^localhost:")) {
+    console.log("Connecting to skewer …");
+    var s = document.createElement('script');
+    s.src = 'http://localhost:38495/skewer';
+    if(document.body) {
+      document.body.appendChild(s);
     }
+  }
 });
 
 var hideLogin = function () {
@@ -369,12 +371,11 @@ var servercheck = function(userpass/*:userpass*/,
     // We only ever want to have the latest check results:
     checkXHR.abort();
   }
-  checkXHR = $.ajax({
+  checkXHR = $.ajax(checkUrl, {
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
     },
     type: "POST",
-    url: checkUrl,
     data: {
       langpair: langToMode(lang), // TODO: UI thingy
       q: text
@@ -398,8 +399,8 @@ var servercheck = function(userpass/*:userpass*/,
       }
       else {
         l10n().formatValue('loginfail',
-                                  { errorCode: jqXHR.status + " " + errXHR,
-                                    textStatus: textStatus })
+                           { errorCode: jqXHR.status + " " + errXHR,
+                             textStatus: textStatus })
           .then(function(t){
             $("#serverfault").html(t).show();
           });
