@@ -303,6 +303,15 @@ var subdir/*:string*/ = window.location.protocol === "file:" ? "" : "/apy";
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/translateRaw";
 log(checkUrl);
 
+$(document).ready(function() {
+    if(window.location.host.match("^localhost:")) {
+        console.log("Connecting to skewer …");
+        var s = document.createElement('script');
+        s.src = 'http://localhost:38495/skewer';
+        document.body.appendChild(s);
+    }
+});
+
 var hideLogin = function () {
   $("#serverfault").hide();
   $("#loginform").hide();
