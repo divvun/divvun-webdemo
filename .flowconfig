@@ -5,6 +5,7 @@ lib/app.js
 
 [libs]
 interfaces/
+node_modules/iflow-jquery/index.js.flow
 decls/
 
 [options]
