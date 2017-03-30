@@ -214,7 +214,7 @@ example8 =
 
 example9_title = Leksikála meattáhusat
 example9 =
-  | Vaikko diein leat vallji bohccot. Vaikko diein leat valjit bohccot.
+  | Vaikko diein leat vallji bohccot.
   | Jur minuvttaid maŋŋelis Guovdageainnu vuosttaš moala coggagohte Girkonjárgga bártnit Guovdageainnu moallaolbmá , Ole Johan Triumfa gieđaid gaskka .
   | – Eiseválddiin galggašii oažžut goit eanet báhčinlobiid , go njurjot bohtet dađistaga lasi vutnii , čilgeba Larsen ja Pedersen , geat leaba dássážii bivdán njeallje vahku go luossabivdu mearas han álggii easkka geassemánu álggus , mii lea guokte       vahku maŋŋelis  go diibmá .
   | Riidu čuožžilii go norggabeale eiseválddit adde lobi Romssabeale boazoeaiggádiidda guođohit orohagas daid áigodagaid go Lávnnjetvuomi ja Sárevuomi ealuin ii leat guođohanvuoigatvuohta guovlluin konvenšuvnna vuođul .
@@ -260,8 +260,8 @@ example10 =
   | Govva lea oainnát mihá eambbo ivdnái go dat maid son oaidná.
 
 
-example11_title = ""
-example11 = ""
+example11_title = Rihkkomeattáhusat
+example11 = 
 
 example12_title = ""
 example12 = ""
