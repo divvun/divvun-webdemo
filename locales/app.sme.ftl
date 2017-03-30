@@ -62,7 +62,6 @@ example2 =
   | Reivve lei hui persovdnalaš, nu ahte lohkki oččui dan áddejumi ahte justa son dat bidjo eret, lohkká Ellen J. Sara Eira.
   | Leamašan dehálaš čájehit loguid bokte mo oppalohkálaš barggolašvuohta lea čatnon eanadollui davvin, erenomážit dan dihtii go eanadoalohálddášeapmi galgá áiggi mielde sirdojuvvot gielddaide.
   | Dat mii lea oalle sihkar lea ahte Kent ja Biret boahttiba daid buot beakkáneamos sápmelaččaid searvái, muhto dasa ii oro Kent bidjamin nu ollu deattu.
-  | Vuosttas áddejupmi mearkkaša ahte dušše boazoláiddomiid dárbbuid galgá árvvoštallat, nu ahte dušše boazodoalu dárbu lea mearrideddjiin sáhttágo guovllu luobahit.
   | Dán leat dáhttun juo ovdalgo professor guoktá árvvoštallan gearggai, lohká Marthinsen.
   | Fylkkamánni lei dáhttun čuohppat 11 miljovnna njeallje jagi badjel vai balansii boahtá.
   | Vuolab lohká sii áigut lasihit skuvlašilju geahčču .
@@ -260,7 +259,7 @@ example10 =
   | Govva lea oainnát mihá eambbo ivdnái go dat maid son oaidná.
 
 
-example11_title = Rihkkomeattáhusat
+example11_title = ""
 example11 = 
 
 example12_title = ""
