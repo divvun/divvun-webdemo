@@ -295,10 +295,10 @@ var searchToObject = function ()
   return obj;
 };
 
-var port/*:string*/ = window.location.protocol === "file:" ? "2737" : window.location.port; // running on different servers!
 var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window.location.hostname;
-var protocol/*:string*/ = window.location.protocol === "file:" ? "http:" : window.location.protocol;
-var subdir/*:string*/ = window.location.protocol === "file:" ? "" : "/apy";
+var port/*:string*/ = hostname === "localhost" ? "2737" : window.location.port;
+var protocol/*:string*/ = hostname === "localhost" ? "http:" : window.location.protocol;
+var subdir/*:string*/ = hostname === "localhost" ? "" : "/apy";
 
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/translateRaw";
 log(checkUrl);
@@ -307,7 +307,7 @@ $(document).ready(function() {
   if(window.location.host.match("^localhost:")) {
     console.log("Connecting to skewer …");
     var s = document.createElement('script');
-    s.src = 'http://localhost:38495/skewer';
+    s.src = 'https://localhost:38443/skewer';
     if(document.body) {
       document.body.appendChild(s);
     }
