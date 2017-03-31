@@ -1,7 +1,7 @@
 {
-  "name": "divvun-gc",
+  "name": "ckeditor-divvungc",
   "version": "0.1.0",
-  "description": "Quill-based editor for Divvun grammar checkers",
+  "description": "CKEditor plugin for Divvun grammar checkers",
   "license": "GPLv2",
   "private": true,
   "devDependencies": {
@@ -14,5 +14,9 @@
   },
   "scripts": {
     "build": "babel --no-comments src -d lib --source-maps"
+  },
+  "dependencies": {
+    "ckeditor": "^4.6.2",
+    "rangy": "^1.3.0"
   }
 }

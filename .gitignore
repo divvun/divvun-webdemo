@@ -1,3 +1,4 @@
 node_modules/
 src/npm-debug.log
 lib/app.js.map
+**/.tern-port

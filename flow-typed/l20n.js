@@ -1,3 +1,5 @@
+// -*- mode: javascript -*-
+
 declare class DocumentLocalization {
   static constructor(requestBundles?: any, createContext?: any): DocumentLocalization;
   requestLanguages(Array<string>): Promise<Array<Array<string>>>;

@@ -2,8 +2,7 @@
 #+STARTUP: showall
 
 * Description
-  Simple html+js webdemo of Divvun grammar checker using the [[http://quilljs.com/][Quill]]
-  editor.
+  Simple html+js webdemo of Divvun grammar checker using CKEditor.
 
 
 * Prerequisites
@@ -20,3 +19,8 @@ make
 * TODO [0/1]
 
 - [ ] Strip zero width characters
+
+
+Consider using:
+- https://github.com/mythz/jquip
+- https://github.com/millermedeiros/js-signals/wiki/Examples

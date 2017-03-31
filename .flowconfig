@@ -4,8 +4,8 @@ lib/app.js
 [include]
 
 [libs]
-interfaces/
-node_modules/iflow-jquery/index.js.flow
 decls/
+# the one in npm is old:
+# node_modules/iflow-jquery/index.js.flow
 
 [options]
