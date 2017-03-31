@@ -94,11 +94,11 @@ example3 =
 
 example4_title = Čuokkesmeattáhusat
 example4 =
-  | Son livččii gal viššal muhto sus ii leat goassege dilli bargat. 
+  | Son livččii gal viššal muhto sus ii leat goassege dilli bargat.
   | Olgoriikkas ii oahpa dušše giela muhto ollu eanetge.
   | Ahte nu galggai geavvat dan ii lean gal oktage árvidan.
   | Go áhčči boahtá de mii herskkostallat.
-  | Jos mii dalle eat livčče vuolgán ruoktot de gal leimmet gártat vuordit máŋga beaivvi. 
+  | Jos mii dalle eat livčče vuolgán ruoktot de gal leimmet gártat vuordit máŋga beaivvi.
   | Vaikke ledjege váiban de dat dattetge ain jotke.
   | Muhtumat lohket earát čállet.
   | Sii muitaledje maid doppe ledje gullan muhto Ánde gal ii orron jáhkkimin dasa.
@@ -121,7 +121,7 @@ example5_title = Kongrueansameattáhusat
 example5 =
   | Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis.
   | Go Davvinásti ollii 1796 Bergenii, ledje das mielde 2000 viegu goikeguolli.
-  | Sis lea erenoamáš lávlunárbevierut. 
+  | Sis lea erenoamáš lávlunárbevierut.
   | Suohkanis lea rájit Omasvuona suohkanii oarjelulábealde, Ivgu suohkanii orjjábealde, Ráissa suohkanii davábealde, ja Enodaga suohkanii Suomas lulábealde.
   | Siskkit Gáivuonas lea ollu eanandoallu, ja dáppe lea bivttasgoarrunfitnodagat, gođđinbádji ja ullogárrenfitnodat.
   | Muđui lea ollu eanandoallu Olmmáivákkis, ja dáppe lea maid guollevuostáiváldimat ja guollebiebmanrusttet.
@@ -161,7 +161,7 @@ example6 =
   | Mo áddet dan ahte nubbi geas don liikot vállje baicce jápmima ovdalgo eallima , du ja su lagamuččaid .
   | Vieno Länsman ii gáđa go lea vuolgán , vaikko ii liiko gal mearas.
   | Juohke sorttas lea biras gos liiko buoremusat.
-  | Doppe gos gáibiduvvo ovttasbargu ja searvevuohta , doppe liikot don nai.  
+  | Doppe gos gáibiduvvo ovttasbargu ja searvevuohta , doppe liikot don nai.
 
 
 example7_title = Kásusmeattáhusat
@@ -170,7 +170,7 @@ example7 =
   | Liikon hirbmadit 1920- logu, ja lean lohkan girjii ja filmma The Great Gatsby, danin šattai Gatsby, muitala Ann.
   | Viidáset atnu EO lea meroštallan ahte EO ja Norgga almmolaš dieđuid márkanárvu lea sullii 200 miljárdda ruvdno.
   | Doppe lei stuorra gorži, mii lei 15 mehter alo, gos mii njuikkodeimmet liegga sevdjnes eahkediin.
-  | Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis , ja namuhii rasfare , ja ahte poastakantuvrii lea sullii 40 kilomehtera , nu ahte šaddá gal menddo guhki fitnat poasta áššiid dahkamin . 
+  | Ráđđeolmmái jearai jos poasta ii lean beroštan ođđa dieđuid mat ledjet boahtán áššis , ja namuhii rasfare , ja ahte poastakantuvrii lea sullii 40 kilomehtera , nu ahte šaddá gal menddo guhki fitnat poasta áššiid dahkamin .
   | Muhto das eaba loga Lemte Ánte Buljo ja Thor Thrane galgat sámi artisttaid ballat.
   | Du guoibmi ja muhtin lagas olmmoš soitet duššiid dihte ballat ruhtadili dál ja dál lea ge ollu ruđaid birra sáhka.
   | Ja seammas ballat ođđa dieđuiguin.
@@ -204,10 +204,10 @@ example8 =
   | Dalle leage hui dehálaš ahte bivdit devdet juohkebeaivválaččat «Sett elg» -skoviid amas eat boađe dan dillái ahte ealgahivvodat laská nu ahte biergokvalitehta njiedjá.
   | Amma Anne G ii suhttá munnje, jus in čále nu čábbát go áiggošii?
   | Dat ii leat ráđđehusa vuollásaš orgána , ja ráđđehusas ii lea danne ovddasvástádus Sámedikki politihkalaš doaimmas dahje dain politihkalaš mearrádusain maid Sámediggi dahká .
-  | Don fertet dušše dohkkehit ahte ii dáhpáhuvvá nu ollu juste dál . 
+  | Don fertet dušše dohkkehit ahte ii dáhpáhuvvá nu ollu juste dál .
   | Jus dušše veardidivččii sojahangehčosiid bokte , iige válddášii vuhtii stuorit.
   | antesedeanta pro:ii , muhto antesedeanta ii adnošii, go pro almmatge birge dan haga .
-  | Jus bárdni dupmehallet seksualalaš oktavuhttin ja veagalváldin , de sahtta son čohkka giddagassii olles 15 jági , muhttu politi-inspektøra Are Meedbye lohká ahte dat ii lea realistalaš , ja sus ii leat makkarge oaivvil man guhkka raŋggaštus sahtta šaddet . 
+  | Jus bárdni dupmehallet seksualalaš oktavuhttin ja veagalváldin , de sahtta son čohkka giddagassii olles 15 jági , muhttu politi-inspektøra Are Meedbye lohká ahte dat ii lea realistalaš , ja sus ii leat makkarge oaivvil man guhkka raŋggaštus sahtta šaddet .
   | F árvosátni mearkkaša ahte ii lea ceavzán .
   | vehkiin , omd. Digigiissá dahje eará elektrovnnalaš prográmmaid vehkiin Privatistan ii lea vejolašvuohta váldit dán fága.
 
@@ -241,14 +241,14 @@ example10 =
   | Su musihkka lea poehtalaš ja das lea roavis ja ihána čáppa ja fiinna.
   | Du ráhkes orru veaháš eahpesihkar ja váttis dán áigodagas , dan_dihte fertetge jeđđet su , ja de gal buot ordnašuvvá .
   | Ii , ráhkis BB , sáddejehket evttohusaid gulaskuddamii sidjiide geat galget daid čađahit ja váikkuhusaiguin eallit !
-  | Dál orui eambbo {šlundi}, ii lean šat seamma mokta.
-  | Son ii loga diehtit maidege dan birra ahte leat go muhtunmállet čiŋat eambbo {bivnnuhat} go eará ja dan geažil divraseappot.
-  | Dál hástala Nystø gielddaid leat eambbo {hutkái} go geavahit giellaruđaid.
-  | West maid lea vuohttán ahte oahppit dalle leat eambbo {šlieddasat} ja {láikkit}.
-  | Dás lea fáddá teáhter, ja ulbmil lea mánáid oažžut eambbo {duostileabbon} teáhterii ja neavttáduššamii, muitala Frode Grønmo NRK Sámi Rádios.
-  | Mun lean boahtán eambbo galmmihit eatnamiid, ja eambbo {vielgadin} daid ráhkadit.
+  | Dál orui eambbo  šlundi , ii lean šat seamma mokta.
+  | Son ii loga diehtit maidege dan birra ahte leat go muhtunmállet čiŋat eambbo  bivnnuhat  go eará ja dan geažil divraseappot.
+  | Dál hástala Nystø gielddaid leat eambbo  hutkái  go geavahit giellaruđaid.
+  | West maid lea vuohttán ahte oahppit dalle leat eambbo  šlieddasat  ja  láikkit .
+  | Dás lea fáddá teáhter, ja ulbmil lea mánáid oažžut eambbo  duostileabbon  teáhterii ja neavttáduššamii, muitala Frode Grønmo NRK Sámi Rádios.
+  | Mun lean boahtán eambbo galmmihit eatnamiid, ja eambbo  vielgadin  daid ráhkadit.
   | Min moraš lea nu lossat , don boađát álo leat min váimmuin , don ledjet nu ráhkes midjiide .
-  | nu ráhkes don munnje leat 
+  | nu ráhkes don munnje leat
   | Dat go dál eambbo oainnusmáhttojuvvo vierisávdnásiid bearráigeahčču lea maid dehálaš vai sáhttit duođaštit min oastiide ahte guolli boahtá buhtis áhpeguovlluin ja nu lea oadjebas dan borrat , dadjá guolástus- ja riddoministtar Helga Pedersen.
   | Galgat bargat gávdnat dakkár málle mainna buorebut nákce rehkenastit Posten Norge buhtis táhpa dakkár poasta- ja báŋkobálvalusain mat fitnodatekonomalaččat eai leat gánnáhahttit , boahtá ovdan bušeahttaevttohusas .
   | Ahte lea ráinnas ja buhtes.
