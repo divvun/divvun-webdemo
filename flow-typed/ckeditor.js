@@ -55,6 +55,7 @@ declare class CKEDITOR {
   static dialogCommand(name: string): CKDialogCommand;
   static on(event: string, f: (ev: any) => any): void;
   static document: any;
+  static addCss(css: string): void;
 }
 
 declare module 'ckeditor' {

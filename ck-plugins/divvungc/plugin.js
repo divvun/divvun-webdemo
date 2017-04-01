@@ -22,6 +22,10 @@ CKEDITOR.plugins.add('divvungc', {
     console.log("Move more functions out of init1 and into more testable functions like this", arg);
   },
 
+  beforeInit: function(editor) {
+    editor.addContentsCss(this.path + 'styles/divvungc.css');
+  },
+
   loadHandle: function(next) {
     return function(loaded, failed) {
       if(failed instanceof Array && failed.length !== 0) {
@@ -383,10 +387,6 @@ CKEDITOR.plugins.add('divvungc', {
       });
     };
 
-    // This seems to put it on the outer document, not affecting the iframe:
-    // CKEDITOR.document.appendStyleSheet(this.path + 'styles/divvungc.css'); // CKEDITOR.getUrl(CKEDITOR.plugins.get("divvungc").path+"styles")
-    // This sometimes seems to load it too late – can we do it like scriptLoader in init?
-    editor.addContentsCss(this.path + 'styles/divvungc.css');
 
     CKEDITOR.dialog.add( 'gcDialog', this.path + 'dialogs/divvungc.js' );
     editor.addCommand('divvungc', new CKEDITOR.dialogCommand('gcDialog'));
