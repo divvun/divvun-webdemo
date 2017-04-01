@@ -2,25 +2,41 @@
 #+STARTUP: showall
 
 * Description
-  Simple html+js webdemo of Divvun grammar checker using CKEditor.
+  CKEditor plugin for the Divvun grammar checker, with a simple
+  webdemo.
 
 
-* Prerequisites
+* Usage
 
-- npm
-- apache/nginx/whathaveyou
-
-* Building
+If you're serving =/var/www/html= with apache/nginx/whathaveyou, you
+can do e.g.
 
 #+BEGIN_SRC sh
-make
+  sudo mkdir /var/www/html/ck-demo
+  sudo cp -r lib index.html ./*.css locales ck-plugins /var/www/html/ck-demo
 #+END_SRC
 
-* TODO [0/1]
+to have the demo running under =location/ck-demo=.
+
+If you want to use the plugin in your own ck-editor, it should be
+enough to put the =ck-plugins= folder on your server, and 
+
+#+BEGIN_SRC js
+  CKEDITOR.plugins.addExternal('divvungc', window.location.href + '/ck-plugins/divvungc/', 'plugin.js');
+  CKEDITOR.replace( 'ckeditor', {
+    extraPlugins: 'divvungc'
+  });
+#+END_SRC
+(possibly prepending a subdir to the =/ck-plugins/= path if you put it
+in a subdir)
+
+Currently the server wants username/password. The plugin reads it from
+=window.localStorage["userpass"]=. See =src/app.js='s
+readLoginFormStoring on how to set it in localStorage.
+
+
+* TODO [0/3]
 
 - [ ] Strip zero width characters
-
-
-Consider using:
-- https://github.com/mythz/jquip
-- https://github.com/millermedeiros/js-signals/wiki/Examples
+- [ ] Maybe use jquip instead of jquery
+- [ ] Remove all the login/username stuff …

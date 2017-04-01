@@ -380,15 +380,6 @@ CKEDITOR.plugins.add('divvungc', {
       });
     };
 
-
-    CKEDITOR.dialog.add( 'gcDialog', this.path + 'dialogs/divvungc.js' );
-    editor.addCommand('divvungc', new CKEDITOR.dialogCommand('gcDialog'));
-    editor.ui.addButton('divvungc', {
-      label: 'Grammar checker options',
-      command: 'divvungc',
-      toolbar: 'editing'
-    });
-
     if (editor.contextMenu) {
       editor.addMenuGroup('gcGroup');
       editor.contextMenu.addListener(function(element, selection, path) {

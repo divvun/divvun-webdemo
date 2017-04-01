@@ -191,9 +191,7 @@ var initExamples = function()/*:void*/{
         node.addClass("btn btn-default");
         $(node).click({ text: texts[i] },
                       function (e) {
-                        // quill.setContents({ ops: [ { insert: e.data.text } ] });
                         CKEDITOR.instances.ckeditor.setData(e.data.text.replace("\n", "<br>"));
-                        // check();
                       });
         $('#examples').append(node);
         $('#examples').append(" ");
@@ -238,9 +236,6 @@ var init = function()/*:void*/ {
     extraPlugins: 'divvungc'
   });
 
-  // quill.on('text-change', onTextChange);
-  // quill.on('selection-change', onSelectionChange);
-
   var initCKText = "";
   if(search.q !== undefined) {
     initCKText = search.q;
@@ -253,13 +248,8 @@ var init = function()/*:void*/ {
   CKEDITOR.on('instanceCreated', function (e) {
     console.log("instanceCreated");
     e.editor.setData(initCKText);
-    // if(e.editor.name == 'ckeditor') {
-    //   e.editor.setData(initCKText);
-    // }
   });
   CKEDITOR.instances.ckeditor.setData(initCKText);
-  // check();
 };
 $(document).ready(init);
 
-// range.selectCharacters(body, 2, 10);console.log(range.text());range.surroundContents($('<abbr title="hi">')[0])
