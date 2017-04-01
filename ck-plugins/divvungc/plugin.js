@@ -250,16 +250,16 @@ CKEDITOR.plugins.add('divvungc', {
 	  };
 
     var applyErrs/*:cb*/ = function(text, res) {
-      res.errs.forEach(function(x) {
-        var length = x[2] - x[1];
+      res.errs.forEach(function(err) {
+        var length = err[2] - err[1];
         var range = rangy.createRange();
         var body = editor.editable().$;
-        range.selectCharacters(body, x[1], x[2]);
+        range.selectCharacters(body, err[1], err[2]);
         var text = range.text();
         var colour = "blue";
-        if(text != x[0]) {
+        if(text != err[0]) {
           colour = "red";       // Some error somewhere, TODO (shouldn't show such errors to user)
-          console.log("Indexing mismatch", text, "!=", x[0], "where x=", x, "and range=", range);
+          console.log("Indexing mismatch", text, "!=", err[0], "where err=", err, "and range=", range);
         }
         if(!range.canSurroundContents()) {
           console.log("Can't surround contents of", range);
@@ -268,16 +268,9 @@ CKEDITOR.plugins.add('divvungc', {
           var error = $('<span>')
               .addClass("error")
               .addClass("error-" + colour);
-          error.data("error", x);
+          error.data("error", err);
           range.surroundContents(error[0]);
         }
-        //                    str: x[0], // TODO: should we assert that the form is the same?
-        //                    beg: x[1],
-        //                    end: x[2],
-        //                    len: length,
-        //                    typ: x[3],
-        //                    rep: x[5],
-        //                    msg: x[4]
       });
       console.log(res);
     };
@@ -402,15 +395,30 @@ CKEDITOR.plugins.add('divvungc', {
         console.log('context-gclistener', element, selection, path, this);
         if (element.getAscendant(function(el) { return el.hasClass instanceof Function && el.hasClass('error'); },
                                  true)) {
-          var x = $(element.$).data("error");
+          var err = $(element.$).data("error"),
+              str = err[0],
+              beg = err[1],
+              end = err[2],
+              typ = err[3],
+              msg = err[4],
+              rep = err[5];
           var items = {};
-          for(var i = 0; i < x[5].length; i++) {
-            var sugg = x[5][i];
-            var cmd = 'divvungc_suggestion_' + x[1].toString() + "_" + utoa(sugg);
+          var msgcmd = utoa(msg);
+          editor.addCommand(msgcmd, { exec:function() { } });
+          editor.addMenuItem(msgcmd, {
+            label: msg,
+            icon: divvungc.path + 'icons/divvungc.png',
+            command: msgcmd,
+            group: 'gcGroup',
+            order: 0
+          });
+          items[msgcmd] = CKEDITOR.TRISTATE_OFF;
+          for(var i = 0; i < rep.length; i++) {
+            var sugg = rep[i];
+            var cmd = 'divvungc_suggestion_' + beg.toString() + "_" + utoa(sugg);
             editor.addCommand(cmd, makeRepCmd(sugg, element));
             editor.addMenuItem(cmd, {
               label: sugg,
-              icon: divvungc.path + 'icons/divvungc.png',
               command: cmd,
               group: 'gcGroup'
             });
