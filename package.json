@@ -10,7 +10,7 @@
     "babel-preset-es2015": "^6.14.0",
     "flow-bin": "^0.39.0",
     "iflow-jquery": "^1.2.2",
-    "l20n": "^4.0.0-beta.1"
+    "l20n": "^5.0.0"
   },
   "scripts": {
     "build": "babel --no-comments src -d lib --source-maps"

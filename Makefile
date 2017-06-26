@@ -25,7 +25,7 @@ check:
 			 --js_output_file tmp/app.closure.js
 
 
-src/l20n.js: node_modules/l20n/dist/bundle/web/l20n.js
+src/l20n.js: node_modules/l20n/dist/web/l20n.js
 	cp $< $@
 
 # TODO: can I make "anything in this dir" depend on pmdeps?
