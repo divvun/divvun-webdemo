@@ -25,8 +25,8 @@ editor_placeholder = Tekst her
 
 example1_title = Sup → Prt/Prs
 example1 =
-  | Harumframt kiksaði ein týdningarmikil útgávukonsert, tí eg fingið ikki neyðuga visumið.
-  | Eg farið avstað.
+  Harumframt kiksaði ein týdningarmikil útgávukonsert, tí eg fingið ikki neyðuga visumið.
+  Eg farið avstað.
 
 example2_title = ""
 example2 = ""

@@ -87,7 +87,7 @@ example3 =
   Maŋŋel go dat dáhpáhuvai, de mii gal eat šat lean nu gievrrat ovddos, ja gahčaimet lagabui min moala, dadjá Ásllat Ánte.
   Moai ávvudetne munno 50-jagi riegádanbeivviid ovttas ruovttus Láŧevuovddi 28:s Kárášjogas lávvordaga borgemánu 21. beaivvi diibmu 17.00 rájes.
   Mii huksejit min árrana ja cahkkehit dola .
-  |Jus dat evttohas dohkkehuvvo eanetlogus , mearkkaša dat ahte teáhter bušeahtta lasihuvvo beliin diimmá ektui , mii 2007:s lei 618_000 ruvdno .
+  Jus dat evttohas dohkkehuvvo eanetlogus , mearkkaša dat ahte teáhter bušeahtta lasihuvvo beliin diimmá ektui , mii 2007:s lei 618_000 ruvdno .
   Sámedikki plána- ja finánsalávdegoddi meannudii gaskavahku mot galget geavahit dan 30 miljovnna reanttu mii lea čohkkejuvvon sámefoanddas .
   Mii gohčoduvvojit aviisan Mediabearráigeahčus , ja oažžut preassadoarjaga Mediabearráigeahčus Sámedikki bokte .
 
@@ -130,7 +130,7 @@ example5 =
   Áigut várrogasat geažidit ahte čálalaš sámegiella soaitá leat geanuheabbo servvodagas go njálmmalaš giella, earret eará dan dihte go dasa leat lunddolaš váikkuhus garra dáruiduhttima geažil.
   Son lea movttet go beassá rápmut ahte máŋga dáin guoktenuppelot kurssain leat ođđa kursa.
   Boarrásiidsiiddas leat eareliiggánit Davvi Anár- ja nuortasámegielalaš boaris, nu ahte máŋgasii attii olu lonohallat ságaid sámegillii.
-  | Duodji lea sámi identitehta masa gullet symbola, maid ferte diehtit maid mearkkašit.
+  Duodji lea sámi identitehta masa gullet symbola, maid ferte diehtit maid mearkkašit.
   Gárgovári lahkosis gávdno vel nubbi kulturmuitu, masa maid gullet ollu muitalus.
   Davvi-Romssa válgabiirii gullet dát suohkan: Gálsa, Romssá Báhcavuotna, Málatvuopmi, Bearddu, Leaŋgaviika, Birgi, Doasku ja Ránaidsullo gielddat.
   Sámi kulturbirrasa áddejupmái gullet maid elemeanta mat leat árbevirolaččat adnojuvvon luondduduovddan.
