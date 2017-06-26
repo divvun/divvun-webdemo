@@ -20,8 +20,8 @@ editor_placeholder = Tekst her
 
 
 
-### Examples
-# Currently supports up to 20 examples, numbered from 1 to 20:
+// BEGIN Examples
+// Currently supports up to 20 examples, numbered from 1 to 20:
 
 example1_title = Sup → Prt/Prs
 example1 =
@@ -84,3 +84,5 @@ example19 = ""
 
 example20_title = ""
 example20 = ""
+
+// END Examples
