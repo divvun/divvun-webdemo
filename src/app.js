@@ -557,7 +557,7 @@ var initExamples = function()/*:void*/{
         }
       }
       for(i = 0; i < titles.length; i++) {
-        if(titles[i].match(/^example[0-9]+_title$|^$/)) {
+        if(titles[i].match(/^example[0-9]+_title$|^$|^""$/)) {
           // l20n.js just uses the input string as the "untranslated" value :-/
           continue;
         }
