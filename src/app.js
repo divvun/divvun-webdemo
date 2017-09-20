@@ -140,16 +140,25 @@ class ErrorBlot extends Inline {
     });
 
     // TODO: ignores?
-    // var tr_ign =  $(document.createElement('tr')),
-    // td_ign =  $(document.createElement('td')),
-    // a_ign =  $(document.createElement('a'));
-    // a_ign.text("Ignorer feiltypen");
-    // a_ign.attr("role", "option");
-    // td_ign.append(a_ign);
-    // td_ign.addClass("repmenu_ign");
-    // td_ign.addClass("repmenu_nonfirst");
-    // tr_ign.append(td_ign);
-    // tbody.append(tr_ign);
+    var tr_ign =  $(document.createElement('tr')),
+    td_ign =  $(document.createElement('td')),
+    a_ign =  $(document.createElement('a'));
+    a_ign.text("Skjul feiltypen");
+    a_ign.attr("role", "option");
+    td_ign.append(a_ign);
+    td_ign.addClass("repmenu_ign");
+    td_ign.addClass("repmenu_nonfirst");
+    tr_ign.append(td_ign);
+    tbody.append(tr_ign);
+    a_ign.click({ err: err },
+                function(e) {
+                  var err = e.data.err;
+                  var igntyps = safeGetItem("igntyps", new Set());
+                  igntyps.add(err.typ);
+                  safeSetItem("igntyps", igntyps);
+                  updateIgnored();
+                  check();
+                });
 
     $("#repmenu_tbl").append(tbody);
   };
@@ -225,20 +234,64 @@ var clearErrs = function () {
   quill.formatText(0, quill.getLength(), "error", false);
 };
 
+var removeIgnored = function (e) {
+  console.log("remove", e.data.typ);
+  var igntyps = safeGetItem("igntyps", new Set());
+  igntyps.delete(e.data.typ);
+  safeSetItem("igntyps", igntyps);
+  updateIgnored();
+  check();
+};
+
+var updateIgnored = function()/*:void*/
+{
+  var igntyps = safeGetItem("igntyps", new Set());
+  var ign = $('#igntyps');
+  ign.empty();
+  if(igntyps.size > 0) {
+    igntyps.forEach(function(typ){
+      var elt = $(document.createElement('li'));
+      elt.text(typ);
+      var x = $(document.createElement('span'));
+      x.addClass("glyphicon");
+      x.addClass("glyphicon-remove");
+      x.addClass("pull-right");
+      x.click({ typ: typ }, removeIgnored);
+      elt.append(x);
+      ign.append(elt);
+    });
+  }
+  else {
+    var elt = $(document.createElement('li'));
+    elt.text("klikk på eit ord for å skjula feiltypen");
+    ign.append(elt);
+  }
+  $('#igntyps-wrapper button').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate  ');
+  $('#igntyps-wrapper button').removeClass('glyphicon glyphicon-refresh glyphicon-refresh-animate  ');
+};
+
+
 var applyErrs = function(text, res) {
+  var igntyps = safeGetItem("igntyps", new Set());
   res.errs.forEach(function(x) {
     var length = x[2] - x[1];
     log(x);
-    quill.formatText(x[1], length,
-                     "error",{
-                       str: x[0], // TODO: should we assert that the form is the same?
-                       beg: x[1],
-                       end: x[2],
-                       len: length,
-                       typ: x[3],
-                       rep: x[5],
-                       msg: x[4]
-                     });
+    var err = {
+      str: x[0], // TODO: should we assert that the form is the same?
+      beg: x[1],
+      end: x[2],
+      len: length,
+      typ: x[3],
+      rep: x[5],
+      msg: x[4]
+    };
+    if(igntyps.has(err.typ)) {
+      return;
+    }
+    quill.formatText(err.beg,
+                     err.len,
+                     "error",
+                     err);
   });
   log(res);
 };
@@ -299,6 +352,13 @@ var hostname/*:string*/ = window.location.hostname === "" ? "localhost" : window
 var port/*:string*/ = hostname === "localhost" ? "2737" : window.location.port;
 var protocol/*:string*/ = hostname === "localhost" ? "http:" : window.location.protocol;
 var subdir/*:string*/ = hostname === "localhost" ? "" : "/apy";
+
+if(hostname === "localhost") {
+  hostname = "gtweb.uit.no";
+  port = "80";
+  protocol = "http:";
+  subdir = "/apy";
+}
 
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/translateRaw";
 log(checkUrl);
@@ -515,6 +575,16 @@ var initSpinner = function() {
 
 };
 
+var safeSetItem = function/*::<T>*/(key/*:string*/, value/*:T*/)/*:void*/ {
+  if(value && value.constructor && value.constructor.name === "Set") {
+    // $FlowFixMe
+    window.localStorage.setItem(key, JSON.stringify(Array.from(value)));
+  }
+  else {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }
+};
+
 var safeGetItem = function/*::<T>*/(key/*:string*/, fallback/*:T*/)/*:T*/ {
   var fromStorage = window.localStorage.getItem(key);
   if(fromStorage == null) {
@@ -524,7 +594,13 @@ var safeGetItem = function/*::<T>*/(key/*:string*/, fallback/*:T*/)/*:T*/ {
     try {
       var parsed = JSON.parse(fromStorage);
       if(parsed != null) {
-        return parsed;
+        if(fallback && fallback.constructor && fallback.constructor.name === "Set") {
+          // $FlowFixMe
+          return new Set(parsed);
+        }
+        else{
+          return parsed;
+        }
       }
     }
     catch(e) {
@@ -628,6 +704,7 @@ var init = function()/*:void*/ {
   quill.setContents(initText);
   clearErrs();
   hiderep();
+  updateIgnored();
   check();
 };
 
