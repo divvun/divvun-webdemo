@@ -18,10 +18,14 @@ loginfield = <input placeholder="navn"> <input placeholder="loyniorð"> <input v
 
 editor_placeholder = Tekst her
 
-// TODO
+// TODO:
 hide_errtype = Skjul feiltype
 
+// TODO:
 hidden_errtypes = Skjulte feiltypar
+
+// TODO:
+hide_errtype_explanation = Klikk på eit ord for å skjula feiltypen
 
 
 

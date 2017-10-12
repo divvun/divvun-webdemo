@@ -263,7 +263,7 @@ var updateIgnored = function()/*:void*/
   }
   else {
     var elt = $(document.createElement('li'));
-    elt.text("klikk på eit ord for å skjula feiltypen");
+    l10n().formatValue('hide_errtype_explanation').then(function(t){ elt.text(t); });
     ign.append(elt);
   }
   $('#igntyps-wrapper button').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate  ');
