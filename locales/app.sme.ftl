@@ -20,7 +20,7 @@ editor_placeholder = Čális dása, dahje válljes ovdmearkka dás vuolábealde
 
 hide_errtype = Ale merke dakkár meattáhusaid
 
-hidden_errtype = Ale merke:
+hidden_errtypes = Ale merke:
 
 
 // BEGIN Examples
