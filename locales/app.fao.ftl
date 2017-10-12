@@ -21,6 +21,8 @@ editor_placeholder = Tekst her
 // TODO
 hide_errtype = Skjul feiltype
 
+hidden_errtype = Skjulte feiltypar
+
 
 
 // BEGIN Examples

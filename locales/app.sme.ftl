@@ -20,6 +20,8 @@ editor_placeholder = Čális dása, dahje válljes ovdmearkka dás vuolábealde
 
 hide_errtype = Ale merke dakkár meattáhusaid
 
+hidden_errtype = Ale merke:
+
 
 // BEGIN Examples
 // Currently supports up to 20 examples, numbered from 1 to 20:
