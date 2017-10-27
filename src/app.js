@@ -294,6 +294,7 @@ var applyErrs = function(text, res) {
                      err);
   });
   log(res);
+  $("#serverfault").hide();
 };
 
 
@@ -487,6 +488,10 @@ var check = function() {
   var lang = getLang(searchToObject());
   clearErrs();
   var text = getFText();
+  if(text.length > 3800) {
+    $("#serverfault").html("Prøv ei kortare tekst").show();
+    return;
+  }
   window.localStorage["text"] = JSON.stringify(quill.getContents());
 
   var userpass = safeGetItem("userpass",
