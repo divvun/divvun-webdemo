@@ -6,7 +6,7 @@
 /* :: type reps = Array<string> */
 /* :: type errlist = Array<[string, number, number, string, string, Array<string>]> */
 /* :: type result = { text: string, errs: errlist } */
-/* :: type cb = (text: string, X:result) => void */
+/* :: type cb = (text: string, X:result, off: number) => void */
 /* :: type authcb = (text: string) => void */
 /* :: type userpass = {u: string, p: string}|null */
 
@@ -271,15 +271,15 @@ var updateIgnored = function()/*:void*/
 };
 
 
-var applyErrs = function(text, res) {
+var applyErrs = function(text, res/*:result*/, off/*:number*/) {
   var igntyps = safeGetItem("igntyps", new Set());
   res.errs.forEach(function(x) {
     var length = x[2] - x[1];
     log(x);
     var err = {
       str: x[0], // TODO: should we assert that the form is the same?
-      beg: x[1],
-      end: x[2],
+      beg: x[1] + off,
+      end: x[2] + off,
       len: length,
       typ: x[3],
       rep: x[5],
@@ -417,22 +417,19 @@ var langToMode = function(lang/*:string*/)/*:string*/ {
 
 
 
-var checkXHR = null;
+var checkXHR/*:Array<JQueryXHR>*/ = [];
 var servercheck = function(userpass/*:userpass*/,
                            text/*:string*/,
+                           off/*:number*/,
                            cb/*:cb*/,
                            lang/*:string*/
-                          )/*:void*/
+                          )/*:JQueryXHR*/
 {
   log("servercheck:");
   // TODO: Should this be synchronous? We can't really change the text
   // after the user has typed unless the text still matches what we
   // sent.
-  if(checkXHR != null) {
-    // We only ever want to have the latest check results:
-    checkXHR.abort();
-  }
-  checkXHR = $.ajax(checkUrl, {
+  return $.ajax(checkUrl, {
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
     },
@@ -442,7 +439,7 @@ var servercheck = function(userpass/*:userpass*/,
       q: text
     },
     success: function(res) {
-      cb(text, res);
+      cb(text, res, off);
     },
     error: function(jqXHR, textStatus/*:string*/, errXHR/*:string*/)/*:void*/ {
       console.log("error: "+textStatus+"\n"+errXHR);
@@ -484,14 +481,45 @@ var getLang = function(search) {
   }
 };
 
+
+let APYMAXBYTES = 4096; // TODO: APY endpoint to return select.PIPE_BUF ?
+
+var lastSentenceEnd = function(str) {
+  let sep = /[.:!]\s/g;
+  let found = 0;
+  for(let res = sep.exec(str);
+      res !== null;
+      res = sep.exec(str)) {
+    found = res.index + res.length;
+  }
+  return found;
+};
+
+/* Find a length `i` s.t. `str.substr(0, i)` takes less than `max`
+ * bytes when encoded in UTF-8, but more than `max*.8`, and preferably
+ * ends with ". "
+ */
+var textCutOff = function(str/*:string*/, max/*:number*/)/*:number*/ {
+  let len = str.length;
+  // worst-case, str is made up of code points that all take 4 bytes in UTF-8:
+  let maxu8 = max/4;
+  // if it's shorter anyway, this is trivial:
+  if(len < maxu8) {
+    return len;
+  }
+  // we'd like to find a cut-off point that looks like a sentence boundary
+  // but not if that means cutting off too far back, so start
+  // searching near the end:
+  let minu8 = 0.8 * maxu8;
+  let sub = str.substring(minu8, maxu8);
+  let found = lastSentenceEnd(sub);
+  return minu8 + found + 1;     // +1 because we want length, not index
+};
+
 var check = function() {
   var lang = getLang(searchToObject());
   clearErrs();
   var text = getFText();
-  if(text.length > 3800) {
-    $("#serverfault").html("Prøv ei kortare tekst").show();
-    return;
-  }
   window.localStorage["text"] = JSON.stringify(quill.getContents());
 
   var userpass = safeGetItem("userpass",
@@ -500,7 +528,18 @@ var check = function() {
     showLogin();
   }
   else {
-    servercheck(userpass, text, applyErrs, lang);
+    let len = text.length;
+    let off = 0;
+    while(checkXHR.length > 0) {
+      // We only ever want to have the latest check results:
+      checkXHR.pop().abort();
+    }
+    while(off < len) {
+      let max = textCutOff(text.substr(off), APYMAXBYTES);
+      let subtext = text.substr(off, max);
+      checkXHR.push(servercheck(userpass, subtext, off, applyErrs, lang));
+      off += max;
+    }
   }
 };
 
