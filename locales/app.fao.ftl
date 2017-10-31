@@ -12,6 +12,8 @@ title = rættlestur
 
 serverdown = Ambætari svaraði ikki. Kanska tú skuldi roynt aftur.
 
+parserfail = Ambætari svaraði ikki. Kanska tú skuldi roynt aftur. Fekk { $errorCode } / { $textStatus }.
+
 loginfail = Innritan miseydnast – fekk { $errorCode } / { $textStatus }.
 
 loginfield = <input placeholder="navn"> <input placeholder="loyniorð"> <input value="rita inn">
