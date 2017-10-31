@@ -607,18 +607,27 @@ var check = function() {
     showLogin();
   }
   else {
-    let len = text.length;
-    let off = 0;
     while(checkXHR.length > 0) {
       // We only ever want to have the latest check results:
       checkXHR.pop().abort();
     }
-    while(off < len) {
-      let max = textCutOff(text.substr(off), APYMAXBYTES);
-      let subtext = text.substr(off, max);
-      checkXHR.push(servercheck(userpass, subtext, off, applyErrs, lang));
-      off += max;
-    }
+    checkSubText(userpass, text, 0, lang);
+  }
+};
+
+var checkSubText = function(userpass/*:userpass*/, text/*:string*/, off/*:number*/, lang/*:string*/)/*:void*/ {
+  let max = textCutOff(text.substr(off), APYMAXBYTES);
+  let subtext = text.substr(off, max);
+  let next_off = off + max;
+  if(next_off < text.length) {
+    let cont = function(t, res, o) {
+      checkSubText(userpass, text, next_off, lang);
+      applyErrs(t, res, o);
+    };
+    checkXHR.push(servercheck(userpass, subtext, off, cont, lang));
+  }
+  else {
+    checkXHR.push(servercheck(userpass, subtext, off, applyErrs, lang));
   }
 };
 
