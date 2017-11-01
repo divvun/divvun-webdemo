@@ -14,6 +14,7 @@ var debug = window.location.protocol === "file:";
 var log = debug ? console.log.bind(window.console) : function() {};
 
 var DEFAULT_LANG = "sme";
+var DEFAULT_VARIANT= "gram";
 
 var l10n = function() {
   if(document.l10n === undefined) {
@@ -411,8 +412,8 @@ var basicAuthHeader = function (userpass) {
   }
 };
 
-var langToMode = function(lang/*:string*/)/*:string*/ {
-  return lang + "|" + lang + "_gram";
+var langToMode = function(lang/*:string*/, variant/*:string*/)/*:string*/ {
+  return lang + "|" + lang + "_" + variant;
 };
 
 
@@ -422,7 +423,7 @@ var servercheck = function(userpass/*:userpass*/,
                            text/*:string*/,
                            off/*:number*/,
                            cb/*:cb*/,
-                           lang/*:string*/
+                           mode/*:string*/
                           )/*:JQueryXHR*/
 {
   log("servercheck:");
@@ -435,7 +436,7 @@ var servercheck = function(userpass/*:userpass*/,
     },
     type: "POST",
     data: {
-      langpair: langToMode(lang), // TODO: UI thingy
+      langpair: mode,
       q: text
     },
     success: function(res) {
@@ -486,6 +487,15 @@ var getLang = function(search) {
   }
   else {
     return DEFAULT_LANG;
+  }
+};
+
+var getVariant = function(search) {
+  if(search.variant !== undefined) {
+    return search.variant;
+  }
+  else {
+    return DEFAULT_VARIANT;
   }
 };
 
@@ -596,7 +606,8 @@ var textCutOff = function(str/*:string*/, max_B/*:number*/)/*:number*/ {
 };
 
 var check = function() {
-  var lang = getLang(searchToObject());
+  var mode = langToMode(getLang(searchToObject()),
+                        getVariant(searchToObject()));
   clearErrs();
   var text = getFText();
   window.localStorage["text"] = JSON.stringify(quill.getContents());
@@ -611,23 +622,23 @@ var check = function() {
       // We only ever want to have the latest check results:
       checkXHR.pop().abort();
     }
-    checkSubText(userpass, text, 0, lang);
+    checkSubText(userpass, text, 0, mode);
   }
 };
 
-var checkSubText = function(userpass/*:userpass*/, text/*:string*/, off/*:number*/, lang/*:string*/)/*:void*/ {
+var checkSubText = function(userpass/*:userpass*/, text/*:string*/, off/*:number*/, mode/*:string*/)/*:void*/ {
   let max = textCutOff(text.substr(off), APYMAXBYTES);
   let subtext = text.substr(off, max);
   let next_off = off + max;
   if(next_off < text.length) {
     let cont = function(t, res, o) {
-      checkSubText(userpass, text, next_off, lang);
+      checkSubText(userpass, text, next_off, mode);
       applyErrs(t, res, o);
     };
-    checkXHR.push(servercheck(userpass, subtext, off, cont, lang));
+    checkXHR.push(servercheck(userpass, subtext, off, cont, mode));
   }
   else {
-    checkXHR.push(servercheck(userpass, subtext, off, applyErrs, lang));
+    checkXHR.push(servercheck(userpass, subtext, off, applyErrs, mode));
   }
 };
 
