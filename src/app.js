@@ -273,6 +273,7 @@ var updateIgnored = function()/*:void*/
 
 
 var applyErrs = function(text, res/*:result*/, off/*:number*/) {
+  log(off);
   var igntyps = safeGetItem("igntyps", new Set());
   res.errs.forEach(function(x) {
     var length = x[2] - x[1];
@@ -362,11 +363,14 @@ if(hostname === "localhost") {
   subdir = "/apy";
 }
 
+// TODO: apy should have an endpoint for grammar checkers, and expect its modes files in a separate dir!
+// (endpoint both for listing and "translate")
+var modesUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/listPairs";
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/translateRaw";
 log(checkUrl);
 
 $(document).ready(function() {
-  if(window.location.host.match("^localhost:")) {
+  if(window.location.host.match("^localhost:") || window.location.protocol === "file:") {
     console.log("Connecting to skewer …");
     var s = document.createElement('script');
     s.src = 'https://localhost:38443/skewer';
@@ -477,6 +481,49 @@ var servercheck = function(userpass/*:userpass*/,
     },
     dataType: "json"
   });
+};
+
+var groupBy = function/*::<T:Object>*/(coll/*:Array<T>*/, prop/*:string*/)/*:Array<{ key: string, elts: Array<T> }>*/ {
+  var group = [];
+  coll.forEach(function (i) {
+    var grouped = false;
+    group.forEach(function (j) {
+      if (j.key === i[prop]) {
+        j.elts.push(i);
+        grouped = true;
+      }
+    });
+    if (!grouped) {
+      group.push({ key: i[prop], elts: [ i ] });
+    };
+  });
+  return group;
+};
+
+var modes = {};
+
+var getModes = function()/*: void*/ {
+  let _xhr = $.ajax(modesUrl, {
+    type: "GET",
+    data: {},
+    success: function(res){
+      let modelist = res.responseData.map(function(m) {
+        let src = m.sourceLanguage;
+        let trg = m.targetLanguage;
+        let trgsuff = trg.replace(/^[^_]*_/, "");
+        let trglang = trg.replace(/_.*/, "");
+        return { src: src, trglang: trglang, trgsuff: trgsuff };
+      }).filter(function(mm) {
+        return mm.src == mm.trglang && mm.trgsuff.match(/^gram/);
+      });
+      // skewer.log(modes);
+      groupBy(modelist, "src").map(function(m){
+        modes[m.key] = m.elts;
+      });
+    },
+    dataType: "json"
+  });
+
 };
 
 var supportedLangs = ["sme", "fao"]; // TODO: validate in getLang
@@ -820,6 +867,8 @@ var init = function()/*:void*/ {
   $("body").click(hiderep);
 
   initSpinner();
+
+  getModes();
 
   var search = searchToObject();
   initL10n(getLang(search));

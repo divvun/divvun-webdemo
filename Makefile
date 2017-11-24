@@ -30,3 +30,6 @@ src/l20n.js: node_modules/l20n/dist/web/l20n.js
 
 # TODO: can I make "anything in this dir" depend on pmdeps?
 node_modules/l20n/dist/bundle/web/l20n.js: node_modules
+
+watch:
+	git ls-files |grep -v ^lib | entr -rc make

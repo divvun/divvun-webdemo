@@ -31,7 +31,7 @@
       </nav>
 
       <div id="login-wrapper" class="text-center">
-        <div id="serverfault"> </div>
+        <div id="serverfault" class="ma3"> </div>
         <form id="loginform" action="">
           <h4 data-l10n-id="login">logge sisa:</h4>
           <fieldset id="login" data-l10n-id="loginfield">
@@ -42,9 +42,17 @@
         </form>
       </div>
 
+      <div id="modes-wrapper" class="pull-right dropdown ml3">
+        <button class="btn btn-default dropdown-toggle" type="button" id="modes-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span data-l10n-id="mode">Variant:</span>&nbsp;<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="modes-btn" id="modes">
+        </ul>
+      </div>
+
       <div id="igntyps-wrapper" class="pull-right dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="igntyps-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <span data-l10n-id="hidden_errtypes">Ale merke:</span><span class="caret"></span>
+          <span data-l10n-id="hidden_errtypes">Ale merke:</span>&nbsp;<span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="igntyps-btn" id="igntyps">
         </ul>
@@ -59,7 +67,7 @@
           vearrohámis.
         </p>
 
-        <div id="editor-wrapper">
+        <div id="editor-wrapper" class="mv3 mh0">
           <div id="editor" spellcheck="false">
           </div>
         </div>
