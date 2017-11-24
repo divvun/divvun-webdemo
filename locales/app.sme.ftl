@@ -20,6 +20,8 @@ loginfield = <input placeholder="dovddaldat"> <input placeholder="beassansátni"
 
 editor_placeholder = Čális dása, dahje válljes ovdmearkka dás vuolábealde
 
+variant = Variánta
+
 hide_errtype = Ale merke dakkár meattáhusaid
 
 // TODO:

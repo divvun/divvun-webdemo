@@ -9,6 +9,7 @@
 /* :: type cb = (text: string, X:result, off: number) => void */
 /* :: type authcb = (text: string) => void */
 /* :: type userpass = {u: string, p: string}|null */
+/* :: type mode = { src: string, trglang: string, trgsuff: string } */
 
 var debug = window.location.protocol === "file:";
 var log = debug ? console.log.bind(window.console) : function() {};
@@ -251,14 +252,13 @@ var updateIgnored = function()/*:void*/
   ign.empty();
   if(igntyps.size > 0) {
     igntyps.forEach(function(typ){
-      var elt = $(document.createElement('li'));
-      elt.text(typ);
-      var x = $(document.createElement('span'));
-      x.addClass("glyphicon");
-      x.addClass("glyphicon-remove");
-      x.addClass("pull-right");
-      x.click({ typ: typ }, removeIgnored);
-      elt.append(x);
+      let a =
+          $('<a class="glyphicon glyphicon-remove pull-right">')
+          .click({ typ: typ }, removeIgnored);
+      let elt =
+          $('<li class="ma2">')
+          .text(typ)
+          .append(a);
       ign.append(elt);
     });
   }
@@ -500,14 +500,14 @@ var groupBy = function/*::<T:Object>*/(coll/*:Array<T>*/, prop/*:string*/)/*:Arr
   return group;
 };
 
-var modes = {};
+var modes/*:{ [string]: Array<mode>}*/ = {};
 
 var getModes = function()/*: void*/ {
   let _xhr = $.ajax(modesUrl, {
     type: "GET",
     data: {},
     success: function(res){
-      let modelist = res.responseData.map(function(m) {
+      let modelist/*:Array<mode>*/ = res.responseData.map(function(m) {
         let src = m.sourceLanguage;
         let trg = m.targetLanguage;
         let trgsuff = trg.replace(/^[^_]*_/, "");
@@ -519,11 +519,24 @@ var getModes = function()/*: void*/ {
       // skewer.log(modes);
       groupBy(modelist, "src").map(function(m){
         modes[m.key] = m.elts;
+        m.elts.forEach(modeToDropdown);
       });
     },
     dataType: "json"
   });
+};
 
+var modeToDropdown = function(m/*:mode*/)/*:void*/ {
+  let a =
+      $('<a>')
+      .text(m.src + "_" + m.trgsuff)
+      .on('click', function(_ev) {
+        window.location.search = '?lang=' + m.src + "&variant=" + m.trgsuff;
+      });
+  let li =
+      $('<li class="mode ma2">')
+      .append(a);
+  $('#modes').append(li);
 };
 
 var supportedLangs = ["sme", "fao"]; // TODO: validate in getLang
@@ -901,4 +914,3 @@ var init = function()/*:void*/ {
 };
 
 $(document).ready(init);
-

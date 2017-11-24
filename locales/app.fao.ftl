@@ -21,6 +21,9 @@ loginfield = <input placeholder="navn"> <input placeholder="loyniorð"> <input v
 editor_placeholder = Tekst her
 
 // TODO:
+variant = Variant
+
+// TODO:
 hide_errtype = Skjul feiltype
 
 // TODO:
