@@ -37,7 +37,7 @@ button#check_b {
     content: "✓";
     display: inline-block;
     width: 100%;
-    border-bottom: 2px dotted green;
+    border-bottom: 2px dotted blue;
     font-size: larger;
     margin-top: -1em;
 }
