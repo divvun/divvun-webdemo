@@ -89,7 +89,6 @@ button.loading-check {
         -webkit-text-decoration-color: red;
         text-decoration-color: red;
     }
-    .ql-check::after,
     .error-green {
         -webkit-text-decoration-color: green;
         text-decoration-color: green;
