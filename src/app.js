@@ -295,7 +295,6 @@ var mergeErrs = function(errs/*:errlist*/)/*:errlist*/ {
 };
 
 var applyErrs = function(text, res/*:result*/, off/*:number*/) {
-  log(off);
   var igntyps = safeGetItem("igntyps", new Set());
   let mergedErrs = mergeErrs(res.errs);
   mergedErrs.forEach((x) => {
@@ -510,23 +509,6 @@ var servercheck = function(userpass/*:userpass*/,
   });
 };
 
-var groupByStr = function/*::<T:Object>*/(coll/*:Array<T>*/, prop/*:string*/)/*:Array<{ key: string, elts: Array<T> }>*/ {
-  var group = [];
-  coll.forEach((i) => {
-    var grouped = false;
-    group.forEach((j) => {
-      if (j.key === i[prop]) {
-        j.elts.push(i);
-        grouped = true;
-      }
-    });
-    if (!grouped) {
-      group.push({ key: i[prop], elts: [ i ] });
-    };
-  });
-  return group;
-};
-
 var groupBy = function/*::<T:any, K:any>*/(list/*:Array<T>*/, keyGetter/*:(T => K)*/)/*:Map<K, Array<T>>*/ {
     const map = new Map();
     list.forEach((item) => {
@@ -558,9 +540,9 @@ var getModes = function()/*: void*/ {
         return mm.src == mm.trglang && mm.trgsuff.match(/^gram/);
       });
       // skewer.log(modes);
-      groupByStr(modelist, "src").map(function(m){
-        modes[m.key] = m.elts;
-        m.elts.forEach(modeToDropdown);
+      Array.from(groupBy(modelist, (m) => { return m["src"]; }).entries()).map(function([k, elts]){
+        modes[k] = elts;
+        elts.forEach(modeToDropdown);
       });
     },
     dataType: "json"
