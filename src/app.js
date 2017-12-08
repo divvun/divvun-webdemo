@@ -279,7 +279,7 @@ var applyErrs = function(text, res/*:result*/, off/*:number*/) {
     var length = x[2] - x[1];
     // log(x);
     var err = {
-      str: x[0], // TODO: should we assert that the form is the same?
+      str: x[0], 
       beg: x[1] + off,
       end: x[2] + off,
       len: length,
@@ -289,6 +289,10 @@ var applyErrs = function(text, res/*:result*/, off/*:number*/) {
     };
     if(igntyps.has(err.typ)) {
       return;
+    }
+    if(err.str !== text.substr(err.beg, err.len)) {
+      // TODO: should we fail/skip if form differs?
+      console.warn("Unexpected difference between error string '" + err.str + "' and text at error indices '" + text.substr(err.beg, err.len) + "'");
     }
     quill.formatText(err.beg,
                      err.len,
