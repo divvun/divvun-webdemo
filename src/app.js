@@ -271,11 +271,34 @@ var updateIgnored = function()/*:void*/
   $('#igntyps-wrapper button').removeClass('glyphicon glyphicon-refresh glyphicon-refresh-animate  ');
 };
 
+var mergeErrs = function(errs/*:errlist*/)/*:errlist*/ {
+  let byIndices = groupBy(errs, (x) => {
+    return x[1].toString() + "→" + x[2].toString(); // beg→end
+  });
+  return Array.from(byIndices.values()).map((val) => {
+    if(val.length > 1) {
+      return val.reduce((x1, x2) => {
+        // TODO: What's the best way of representing overlapping errors here?
+        return [x1[0],
+                x1[1],
+                x1[2],
+                x1[3] + "/" + x2[3],
+                x1[4] + "\n / \n" + x2[4],
+                x1[5].concat(x2[5])
+               ];
+      });
+    }
+    else {
+      return val[0];
+    }
+  });
+};
 
 var applyErrs = function(text, res/*:result*/, off/*:number*/) {
   log(off);
   var igntyps = safeGetItem("igntyps", new Set());
-  res.errs.forEach(function(x) {
+  let mergedErrs = mergeErrs(res.errs);
+  mergedErrs.forEach((x) => {
     var length = x[2] - x[1];
     // log(x);
     var err = {
@@ -487,11 +510,11 @@ var servercheck = function(userpass/*:userpass*/,
   });
 };
 
-var groupBy = function/*::<T:Object>*/(coll/*:Array<T>*/, prop/*:string*/)/*:Array<{ key: string, elts: Array<T> }>*/ {
+var groupByStr = function/*::<T:Object>*/(coll/*:Array<T>*/, prop/*:string*/)/*:Array<{ key: string, elts: Array<T> }>*/ {
   var group = [];
-  coll.forEach(function (i) {
+  coll.forEach((i) => {
     var grouped = false;
-    group.forEach(function (j) {
+    group.forEach((j) => {
       if (j.key === i[prop]) {
         j.elts.push(i);
         grouped = true;
@@ -502,6 +525,20 @@ var groupBy = function/*::<T:Object>*/(coll/*:Array<T>*/, prop/*:string*/)/*:Arr
     };
   });
   return group;
+};
+
+var groupBy = function/*::<T:any, K:any>*/(list/*:Array<T>*/, keyGetter/*:(T => K)*/)/*:Map<K, Array<T>>*/ {
+    const map = new Map();
+    list.forEach((item) => {
+        const key = keyGetter(item);
+        const collection = map.get(key);
+        if (!collection) {
+            map.set(key, [item]);
+        } else {
+            collection.push(item);
+        }
+    });
+    return map;
 };
 
 var modes/*:{ [string]: Array<mode>}*/ = {};
@@ -521,7 +558,7 @@ var getModes = function()/*: void*/ {
         return mm.src == mm.trglang && mm.trgsuff.match(/^gram/);
       });
       // skewer.log(modes);
-      groupBy(modelist, "src").map(function(m){
+      groupByStr(modelist, "src").map(function(m){
         modes[m.key] = m.elts;
         m.elts.forEach(modeToDropdown);
       });
