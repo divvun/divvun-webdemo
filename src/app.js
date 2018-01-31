@@ -394,6 +394,7 @@ if(hostname === "localhost") {
 var modesUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/listPairs";
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/translateRaw";
 log(checkUrl);
+var hunUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/hunspell";
 
 $(document).ready(function() {
   if(window.location.host.match("^localhost:") || window.location.protocol === "file:") {
@@ -460,15 +461,24 @@ var servercheck = function(userpass/*:userpass*/,
   // TODO: Should this be synchronous? We can't really change the text
   // after the user has typed unless the text still matches what we
   // sent.
-  return $.ajax(checkUrl, {
+  let url = checkUrl;
+  let data = {
+      langpair: mode,
+      q: text
+  };
+  if(getVariant(searchToObject()) === "hunspell") {
+    url = hunUrl;
+    data = {
+      lang: getLang(searchToObject()),
+      q: text
+    };
+  }
+  return $.ajax(url, {
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
     },
     type: "POST",
-    data: {
-      langpair: mode,
-      q: text
-    },
+    data: data,
     success: function(res) {
       cb(text, res, off);
     },
@@ -547,6 +557,7 @@ var getModes = function()/*: void*/ {
     },
     dataType: "json"
   });
+  modeToDropdown({ src: "se_NO", trglang: "se_NO", trgsuff: "hunspell" });
 };
 
 var modeToDropdown = function(m/*:mode*/)/*:void*/ {
