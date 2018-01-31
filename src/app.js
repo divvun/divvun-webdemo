@@ -547,7 +547,7 @@ var getModes = function()/*: void*/ {
         let trglang = trg.replace(/_.*/, "");
         return { src: src, trglang: trglang, trgsuff: trgsuff };
       }).filter(function(mm) {
-        return mm.src == mm.trglang && mm.trgsuff.match(/^gram/);
+        return mm.src == mm.trglang && mm.trgsuff.match(/^(gram|spell)/);
       });
       // skewer.log(modes);
       Array.from(groupBy(modelist, (m) => { return m["src"]; }).entries()).map(function([k, elts]){
