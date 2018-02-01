@@ -668,12 +668,21 @@ var assert = function(condition, message) {
 let APYMAXBYTES = 4096; // TODO: APY endpoint to return select.PIPE_BUF ?
 
 var lastSentenceEnd = function(str) {
-  let sep = /[.:!]\s/g;
+  let sep = /[.:!?]\s/g;
   let found = 0;
   for(let res = sep.exec(str);
       res !== null;
       res = sep.exec(str)) {
     found = res.index + res.length;
+  }
+  if (found === 0) {
+    let lastSpace = str.lastIndexOf(" ");
+    if(lastSpace !== -1) {
+      return lastSpace;
+    }
+    else {
+      return str.length - 1;
+    }
   }
   return found;
 };
