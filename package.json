@@ -13,6 +13,6 @@
     "l20n": "^5.0.0"
   },
   "scripts": {
-    "build": "babel --no-comments src -d lib --source-maps"
+    "build": "./node_modules/.bin/babel --no-comments src -d lib --source-maps"
   }
 }
