@@ -547,7 +547,7 @@ var getModes = function()/*: void*/ {
         let trglang = trg.replace(/_.*/, "");
         return { src: src, trglang: trglang, trgsuff: trgsuff };
       }).filter(function(mm) {
-        return mm.src == mm.trglang && mm.trgsuff.match(/^(gram|spell)/);
+        return mm.src == mm.trglang && mm.trgsuff.match(/(gram|spell)/);
       });
       // skewer.log(modes);
       Array.from(groupBy(modelist, (m) => { return m["src"]; }).entries()).map(function([k, elts]){
@@ -572,8 +572,6 @@ var modeToDropdown = function(m/*:mode*/)/*:void*/ {
       .append(a);
   $('#modes').append(li);
 };
-
-var supportedLangs = ["sme", "fao"]; // TODO: validate in getLang
 
 var getLang = function(search) {
   if(search.lang !== undefined) {
