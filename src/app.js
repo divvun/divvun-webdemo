@@ -744,7 +744,7 @@ var check = function() {
       variant = getVariant(search),
       mode = langToMode(lang, variant);
   if(!allModes.has(mode)) {
-    console.warn("Mode was not in listPairs ", lang, variant);
+    console.warn("Mode was not in listPairs (or getModes not run yet) ", lang, variant);
   }
   clearErrs();
   let text = getFText();
