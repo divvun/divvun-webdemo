@@ -1,5 +1,5 @@
 // @flow -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8; compile-command: "cd .. && make -j" -*-
-/* global $, Quill, history, console, repl, external */
+/* global $, Quill, history, console, repl, external, btoa */
 
 "use strict";
 
@@ -504,6 +504,13 @@ var servercheck = function(userpass/*:userpass*/,
             $("#serverfault").html(t).show();
           });
       }
+      else if(jqXHR.status === 400) {
+        l10n().formatValue('serverdown')
+          .then(function(t){
+            let modemissing = allModes.has(mode) ? "" : " (mode missing?)";
+            $("#serverfault").html(t + modemissing).show();
+          });
+      }
       else {
         l10n().formatValue('loginfail',
                            { errorCode: jqXHR.status + " " + errXHR,
@@ -533,7 +540,8 @@ var groupBy = function/*::<T:any, K:any>*/(list/*:Array<T>*/, keyGetter/*:(T => 
     return map;
 };
 
-var modes/*:{ [string]: Array<mode>}*/ = {};
+var modesByLanguage/*:{ [string]: Array<mode>}*/ = {}; // TODO: nicer dropdown using this?
+var allModes = new Set([]);
 
 var getModes = function()/*: void*/ {
   let _xhr = $.ajax(modesUrl, {
@@ -551,8 +559,11 @@ var getModes = function()/*: void*/ {
       });
       // skewer.log(modes);
       Array.from(groupBy(modelist, (m) => { return m["src"]; }).entries()).map(function([k, elts]){
-        modes[k] = elts;
+        modesByLanguage[k] = elts;
         elts.forEach(modeToDropdown);
+        elts.forEach(function(m) {
+          allModes.add(langToMode(m.src, m.trgsuff));
+        });
       });
     },
     dataType: "json"
@@ -729,6 +740,9 @@ var check = function() {
       lang = getLang(search),
       variant = getVariant(search),
       mode = langToMode(lang, variant);
+  if(!allModes.has(mode)) {
+    console.warn("Mode was not in listPairs ", lang, variant);
+  }
   updateVariantDropdown(lang, variant);
   clearErrs();
   let text = getFText();
