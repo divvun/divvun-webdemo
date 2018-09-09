@@ -12,6 +12,8 @@ title = rættlestur
 
 serverdown = Ambætari svaraði ikki. Kanska tú skuldi roynt aftur.
 
+modemissing = Server responded with error. Mode/variant missing?
+
 parserfail = Ambætari svaraði ikki. Kanska tú skuldi roynt aftur. Fekk { $errorCode } / { $textStatus }.
 
 loginfail = Innritan miseydnast – fekk { $errorCode } / { $textStatus }.

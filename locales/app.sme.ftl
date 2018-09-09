@@ -12,6 +12,8 @@ title = grammáhtalaš divvun
 
 serverdown = Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit.
 
+modemissing = Server responded with error. Mode/variant missing?
+
 parserfail = Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit. Oaččui meattáhuskoda { $errorCode } / { $textStatus } stáhtusiin.
 
 loginfail = Čállet go geavaheaddjinama/beassansáni boastut? Oaččui meattáhuskoda { $errorCode } / { $textStatus } stáhtusiin.

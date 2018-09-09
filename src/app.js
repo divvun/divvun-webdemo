@@ -504,11 +504,10 @@ var servercheck = function(userpass/*:userpass*/,
             $("#serverfault").html(t).show();
           });
       }
-      else if(jqXHR.status === 400) {
-        l10n().formatValue('serverdown')
+      else if(!allModes.has(mode)) {
+        l10n().formatValue('modemissing')
           .then(function(t){
-            let modemissing = allModes.has(mode) ? "" : " (mode missing?)";
-            $("#serverfault").html(t + modemissing).show();
+            $("#serverfault").html(t).show();
           });
       }
       else {
