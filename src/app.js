@@ -15,7 +15,7 @@ var debug = window.location.protocol === "file:";
 var log = debug ? console.log.bind(window.console) : function() {};
 
 var DEFAULT_LANG = "sme";
-var DEFAULT_VARIANT= "gram";
+var DEFAULT_VARIANT= "smegram";
 
 var l10n = function() {
   if(document.l10n === undefined) {
