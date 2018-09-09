@@ -1,5 +1,5 @@
 // @flow -*- indent-tabs-mode: nil; tab-width: 2; js2-basic-offset: 2; coding: utf-8; compile-command: "cd .. && make -j" -*-
-/* global $, Quill, history, console, repl, external */
+/* global $, Quill, history, console, repl, external, btoa */
 
 "use strict";
 
@@ -15,7 +15,7 @@ var debug = window.location.protocol === "file:";
 var log = debug ? console.log.bind(window.console) : function() {};
 
 var DEFAULT_LANG = "sme";
-var DEFAULT_VARIANT= "gram";
+var DEFAULT_VARIANT= "smegram";
 
 var l10n = function() {
   if(document.l10n === undefined) {
@@ -504,6 +504,12 @@ var servercheck = function(userpass/*:userpass*/,
             $("#serverfault").html(t).show();
           });
       }
+      else if(!allModes.has(mode)) {
+        l10n().formatValue('modemissing')
+          .then(function(t){
+            $("#serverfault").html(t).show();
+          });
+      }
       else {
         l10n().formatValue('loginfail',
                            { errorCode: jqXHR.status + " " + errXHR,
@@ -533,7 +539,8 @@ var groupBy = function/*::<T:any, K:any>*/(list/*:Array<T>*/, keyGetter/*:(T => 
     return map;
 };
 
-var modes/*:{ [string]: Array<mode>}*/ = {};
+var modesByLanguage/*:{ [string]: Array<mode>}*/ = {}; // TODO: nicer dropdown using this?
+var allModes = new Set([]);
 
 var getModes = function()/*: void*/ {
   let _xhr = $.ajax(modesUrl, {
@@ -551,9 +558,16 @@ var getModes = function()/*: void*/ {
       });
       // skewer.log(modes);
       Array.from(groupBy(modelist, (m) => { return m["src"]; }).entries()).map(function([k, elts]){
-        modes[k] = elts;
+        modesByLanguage[k] = elts;
         elts.forEach(modeToDropdown);
+        elts.forEach(function(m) {
+          allModes.add(langToMode(m.src, m.trgsuff));
+        });
       });
+      let search = searchToObject(),
+          lang = getLang(search),
+          variant = getVariant(search);
+      updateVariantDropdown(lang, variant);
     },
     dataType: "json"
   });
@@ -561,15 +575,20 @@ var getModes = function()/*: void*/ {
 };
 
 var modeToDropdown = function(m/*:mode*/)/*:void*/ {
+  let lang = m.src,
+      variant = m.trgsuff;
   let a =
       $('<a>')
-      .text(m.src + "_" + m.trgsuff)
+      .text(lang + " " + variant)
       .on('click', function(_ev) {
-        window.location.search = '?lang=' + m.src + "&variant=" + m.trgsuff;
+        window.location.search = '?lang=' + lang + "&variant=" + variant;
+        updateVariantDropdown(lang, variant);
       });
   let li =
       $('<li class="mode ma2">')
-      .append(a);
+      .append(a)
+      .data("lang", lang)
+      .data("variant", variant);
   $('#modes').append(li);
 };
 
@@ -706,14 +725,32 @@ var textCutOff = function(str/*:string*/, max_B/*:number*/)/*:number*/ {
   return minu8 + found + 1;     // +1 because we want length, not index
 };
 
+var updateVariantDropdown = function(lang/*:string*/, variant/*:string*/)/*:void*/ {
+  $('#the-variant').text(lang + " " + variant);
+  $('#modes').find('li.mode').map(function(i, li){
+    let $li = $(li);
+    if($li.data("lang") === lang && $li.data("variant") === variant) {
+      $li.addClass("mode-selected");
+    }
+    else {
+      $li.removeClass("mode-selected");
+    }
+  });
+};
+
 var check = function() {
-  var mode = langToMode(getLang(searchToObject()),
-                        getVariant(searchToObject()));
+  let search = searchToObject(),
+      lang = getLang(search),
+      variant = getVariant(search),
+      mode = langToMode(lang, variant);
+  if(!allModes.has(mode)) {
+    console.warn("Mode was not in listPairs ", lang, variant);
+  }
   clearErrs();
-  var text = getFText();
+  let text = getFText();
   window.localStorage["text"] = JSON.stringify(quill.getContents());
 
-  var userpass = safeGetItem("userpass",
+  let userpass = safeGetItem("userpass",
                              readLoginFormStoring());
   if(userpass == null) {
     showLogin();
