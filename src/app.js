@@ -561,15 +561,20 @@ var getModes = function()/*: void*/ {
 };
 
 var modeToDropdown = function(m/*:mode*/)/*:void*/ {
+  let lang = m.src,
+      variant = m.trgsuff;
   let a =
       $('<a>')
-      .text(m.src + "_" + m.trgsuff)
+      .text(lang + " " + variant)
       .on('click', function(_ev) {
-        window.location.search = '?lang=' + m.src + "&variant=" + m.trgsuff;
+        window.location.search = '?lang=' + lang + "&variant=" + variant;
+        updateVariantDropdown(lang, variant);
       });
   let li =
       $('<li class="mode ma2">')
-      .append(a);
+      .append(a)
+      .data("lang", lang)
+      .data("variant", variant);
   $('#modes').append(li);
 };
 
@@ -706,14 +711,30 @@ var textCutOff = function(str/*:string*/, max_B/*:number*/)/*:number*/ {
   return minu8 + found + 1;     // +1 because we want length, not index
 };
 
+var updateVariantDropdown = function(lang/*:string*/, variant/*:string*/)/*:void*/ {
+  $('#the-variant').text(lang + " " + variant);
+  $('#modes').find('li.mode').map(function(i, li){
+    let $li = $(li);
+    if($li.data("lang") === lang && $li.data("variant") === variant) {
+      $li.addClass("mode-selected");
+    }
+    else {
+      $li.removeClass("mode-selected");
+    }
+  });
+};
+
 var check = function() {
-  var mode = langToMode(getLang(searchToObject()),
-                        getVariant(searchToObject()));
+  let search = searchToObject(),
+      lang = getLang(search),
+      variant = getVariant(search),
+      mode = langToMode(lang, variant);
+  updateVariantDropdown(lang, variant);
   clearErrs();
-  var text = getFText();
+  let text = getFText();
   window.localStorage["text"] = JSON.stringify(quill.getContents());
 
-  var userpass = safeGetItem("userpass",
+  let userpass = safeGetItem("userpass",
                              readLoginFormStoring());
   if(userpass == null) {
     showLogin();
