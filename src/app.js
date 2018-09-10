@@ -9,12 +9,12 @@
 /* :: type cb = (text: string, X:result, off: number) => void */
 /* :: type authcb = (text: string) => void */
 /* :: type userpass = {u: string, p: string}|null */
-/* :: type mode = { src: string, trglang: string, trgsuff: string } */
+/* :: type mode = { specLanguage: string, specLanguage3: string, pipeLanguage: string, pipeLanguage3: string, pipename: string } */
 
 var debug = window.location.protocol === "file:";
 var log = debug ? console.log.bind(window.console) : function() {};
 
-var DEFAULT_LANG = "sme";
+var DEFAULT_LANG = "se";
 var DEFAULT_VARIANT= "smegram";
 
 var l10n = function() {
@@ -391,8 +391,8 @@ if(hostname === "localhost") {
 
 // TODO: apy should have an endpoint for grammar checkers, and expect its modes files in a separate dir!
 // (endpoint both for listing and "translate")
-var modesUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/listPairs";
-var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/translateRaw";
+var modesUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/list?q=checkers";
+var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/checker";
 log(checkUrl);
 var hunUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/hunspell";
 
@@ -443,8 +443,14 @@ var basicAuthHeader = function (userpass) {
   }
 };
 
-var langToMode = function(lang/*:string*/, variant/*:string*/)/*:string*/ {
-  return lang + "|" + lang + "_" + variant;
+var langToMode = function(lang/*:string*/, variant/*:string*/)/*:mode*/ {
+  return {
+    specLanguage: lang,
+    specLanguage3: lang,
+    pipeLanguage: lang,
+    pipeLanguage3: lang,
+    pipename: variant
+  };
 };
 
 
@@ -463,16 +469,18 @@ var servercheck = function(userpass/*:userpass*/,
   // sent.
   let url = checkUrl;
   let data = {
-      langpair: mode,
+      lang: mode.specLanguage,
+      pipename: mode.pipename,
       q: text
   };
   if(getVariant(searchToObject()) === "hunspell") {
     url = hunUrl;
     data = {
-      lang: getLang(searchToObject()),
+      lang: mode.specLanguage,
       q: text
     };
   }
+  console.log(url, data);
   return $.ajax(url, {
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
@@ -547,21 +555,13 @@ var getModes = function()/*: void*/ {
     type: "GET",
     data: {},
     success: function(res){
-      let modelist/*:Array<mode>*/ = res.responseData.map(function(m) {
-        let src = m.sourceLanguage;
-        let trg = m.targetLanguage;
-        let trgsuff = trg.replace(/^[^_]*_/, "");
-        let trglang = trg.replace(/_.*/, "");
-        return { src: src, trglang: trglang, trgsuff: trgsuff };
-      }).filter(function(mm) {
-        return mm.src == mm.trglang && mm.trgsuff.match(/(gram|spell)/);
-      });
+      let modelist/*:Array<mode>*/ = res.responseData;
       // skewer.log(modes);
-      Array.from(groupBy(modelist, (m) => { return m["src"]; }).entries()).map(function([k, elts]){
+      Array.from(groupBy(modelist, (m) => { return m["specLanguage"]; }).entries()).map(function([k, elts]){
         modesByLanguage[k] = elts;
         elts.forEach(modeToDropdown);
         elts.forEach(function(m) {
-          allModes.add(langToMode(m.src, m.trgsuff));
+          allModes.add(m);
         });
       });
       let search = searchToObject(),
@@ -571,12 +571,12 @@ var getModes = function()/*: void*/ {
     },
     dataType: "json"
   });
-  modeToDropdown({ src: "se_NO", trglang: "se_NO", trgsuff: "hunspell" });
+  modeToDropdown({ specLanguage: "se_NO", specLanguage3: "sme", pipeLanguage: "se", pipeLanguage3: "sme", pipename: "hunspell" } );
 };
 
 var modeToDropdown = function(m/*:mode*/)/*:void*/ {
-  let lang = m.src,
-      variant = m.trgsuff;
+  let lang = m.specLanguage,
+      variant = m.pipename;
   let a =
       $('<a>')
       .text(lang + " " + variant)
