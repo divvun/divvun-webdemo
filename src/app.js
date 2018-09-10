@@ -443,8 +443,14 @@ var basicAuthHeader = function (userpass) {
   }
 };
 
-var langToMode = function(lang/*:string*/, variant/*:string*/)/*:string*/ {
-  return lang + "|" + lang + "_" + variant;
+var langToMode = function(lang/*:string*/, variant/*:string*/)/*:mode*/ {
+  return {
+    specLanguage: lang,
+    specLanguage3: lang,
+    pipeLanguage: lang,
+    pipeLanguage3: lang,
+    pipename: variant
+  };
 };
 
 
