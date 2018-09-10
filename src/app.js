@@ -470,7 +470,7 @@ var servercheck = function(userpass/*:userpass*/,
   if(getVariant(searchToObject()) === "hunspell") {
     url = hunUrl;
     data = {
-      lang: getLang(searchToObject()),
+      lang: mode.specLanguage,
       q: text
     };
   }
@@ -564,8 +564,7 @@ var getModes = function()/*: void*/ {
     },
     dataType: "json"
   });
-  // TODO: hunspell
-  // modeToDropdown({ src: "se_NO", trglang: "se_NO", trgsuff: "hunspell" });
+  modeToDropdown({ specLanguage: "se_NO", specLanguage3: "sme", pipeLanguage: "se", pipeLanguage3: "sme", pipename: "hunspell" } );
 };
 
 var modeToDropdown = function(m/*:mode*/)/*:void*/ {
