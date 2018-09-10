@@ -474,6 +474,7 @@ var servercheck = function(userpass/*:userpass*/,
       q: text
     };
   }
+  console.log(url, data);
   return $.ajax(url, {
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
