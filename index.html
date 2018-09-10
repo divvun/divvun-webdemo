@@ -50,12 +50,28 @@
         </ul>
       </div>
 
-      <div id="modes-wrapper" class="pull-right dropdown ml3">
-        <button class="btn btn-default dropdown-toggle" type="button" id="modes-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <span data-l10n-id="variant">Variant</span>:&nbsp;<span id="the-variant"></span>&nbsp;<span class="caret"></span>
+      <div id="show-ignorables" class="pull-right ml3">
+        <button class="btn btn-default" type="button" id="ignshow-btn" aria-haspopup="true" aria-expanded="true">
+          <span data-l10n-id="show_error_types">Show all error types</span>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="modes-btn" id="modes">
-        </ul>
+      </div>
+
+      <div id="ignorables-modal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 data-l10n-id="available_error_types" class="modal-title">Available error types:</h4>
+            </div>
+            <div class="modal-body">
+              <ul id="ignorables-list"></ul>
+            </div>
+            <div class="modal-footer">
+              <button data-l10n-id="close" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button data-l10n-id="save" type="button" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="content">

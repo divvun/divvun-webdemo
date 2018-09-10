@@ -395,6 +395,7 @@ var modesUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/
 var checkUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/checker";
 log(checkUrl);
 var hunUrl/*:string*/ = protocol+"//"+hostname+":"+(port.toString())+subdir+"/hunspell";
+var errXmlUrl/*:string*/ = protocol+"//"+hostname+window.location.pathname+"/errors/";
 
 $(document).ready(function() {
   if(window.location.host.match("^localhost:") || window.location.protocol === "file:") {
@@ -945,6 +946,30 @@ var initL10n = function(lang/*:string*/)/*:void*/ {
   $('head').append(el);
 };
 
+var showIgnorables = function() {
+  let search = searchToObject(),
+      variant = getVariant(search),
+      lang = getLang(search),
+      url = errXmlUrl + "/" + lang + ".xml";
+  $.ajax(url, {
+    success: function(res) {
+      let ul = $("#ignorables-list");
+      ul.html("");
+      let errors = $(res.activeElement).find('error');
+      errors.each(function(i, e) {
+        let t = $(e).find('header title[xml\\:lang="se"]').text();
+        ul.append($("<li>").addClass("error-doc").addClass("list-unstyled").text(t));
+      });
+      console.log(errors);
+      $('#ignorables-modal').modal('show');
+    },
+    error: function(jqXHR, textStatus/*:string*/, errXHR/*:string*/)/*:void*/ {
+      console.warn("Error getting pipespec from " + url, jqXHR, textStatus, errXHR);
+    },
+    dataType: "xml"
+  });
+};
+
 var init = function()/*:void*/ {
   if(window.location.protocol == "http:") {
     $('#password').attr("type", "text");
@@ -989,6 +1014,7 @@ var init = function()/*:void*/ {
   hiderep();
   updateIgnored();
   check();
+  $('#ignshow-btn').click(showIgnorables);
 };
 
 $(document).ready(init);

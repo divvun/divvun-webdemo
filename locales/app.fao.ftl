@@ -12,6 +12,7 @@ title = rættlestur
 
 serverdown = Ambætari svaraði ikki. Kanska tú skuldi roynt aftur.
 
+// TODO:
 modemissing = Server responded with error. Mode/variant missing?
 
 parserfail = Ambætari svaraði ikki. Kanska tú skuldi roynt aftur. Fekk { $errorCode } / { $textStatus }.
@@ -29,10 +30,22 @@ variant = Variant
 hide_errtype = Skjul feiltype
 
 // TODO:
+show_error_types = Show error types
+
+// TODO:
+available_error_types = Available error types:
+
+// TODO:
 hidden_errtypes = Skjulte feiltypar
 
 // TODO:
 hide_errtype_explanation = Klikk på eit ord for å skjula feiltypen
+
+// TODO:
+cancel = Cancel
+
+// TODO:
+save = Save
 
 
 

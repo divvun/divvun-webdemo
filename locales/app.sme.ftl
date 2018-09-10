@@ -12,6 +12,7 @@ title = grammáhtalaš divvun
 
 serverdown = Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit.
 
+// TODO:
 modemissing = Server responded with error. Mode/variant missing?
 
 parserfail = Bálvá ii oro doaibmamin, dahje don it leat neahtas. Geahččal viežžat siiddu ođđasit. Oaččui meattáhuskoda { $errorCode } / { $textStatus } stáhtusiin.
@@ -27,10 +28,22 @@ variant = Variánta
 hide_errtype = Ale merke dakkár meattáhusaid
 
 // TODO:
+show_error_types = Show error types
+
+// TODO:
+available_error_types = Available error types:
+
+// TODO:
 hidden_errtypes = Ale merke:
 
 // TODO:
 hide_errtype_explanation = Klikk på eit ord for å skjula feiltypen
+
+// TODO:
+cancel = Cancel
+
+// TODO:
+save = Save
 
 
 // BEGIN Examples
