@@ -8,8 +8,8 @@ type Delta = { ops: Array<{retain:number}|{insert:string|{}}|{delete:number}> };
 
 declare class Quill {
   static constructor(container: string, properties?: {}): Quill;
-  static import(module: string): QuillModule;
-  static register(module: QuillModule): void;
+  static import(module: string): typeof QuillModule;
+  static register(module: typeof QuillModule): void;
   updateContents(delta: Delta, source: string): void;
   focus(): void;
   blur(): void;

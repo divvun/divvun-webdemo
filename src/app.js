@@ -12,7 +12,7 @@
 /* :: type mode = { specLanguage: string, specLanguage3: string, pipeLanguage: string, pipeLanguage3: string, pipename: string } */
 
 var debug = window.location.protocol === "file:";
-var log = debug ? console.log.bind(window.console) : function() {};
+var log = debug ? console.log.bind(window.console) : function(_ignore) {};
 
 var DEFAULT_LANG = "se";
 var DEFAULT_VARIANT= "smegram";
@@ -301,7 +301,7 @@ var applyErrs = function(text, res/*:result*/, off/*:number*/) {
     var length = x[2] - x[1];
     // log(x);
     var err = {
-      str: x[0], 
+      str: x[0],
       beg: x[1] + off,
       end: x[2] + off,
       len: length,
@@ -461,7 +461,7 @@ var servercheck = function(userpass/*:userpass*/,
                            text/*:string*/,
                            off/*:number*/,
                            cb/*:cb*/,
-                           mode/*:string*/
+                           mode/*:mode*/
                           )/*:JQueryXHR*/
 {
   log("servercheck:");
@@ -765,7 +765,7 @@ var check = function() {
   }
 };
 
-var checkSubText = function(userpass/*:userpass*/, text/*:string*/, off/*:number*/, mode/*:string*/)/*:void*/ {
+var checkSubText = function(userpass/*:userpass*/, text/*:string*/, off/*:number*/, mode/*:mode*/)/*:void*/ {
   let max = textCutOff(text.substr(off), APYMAXBYTES);
   let subtext = text.substr(off, max);
   let next_off = off + max;
