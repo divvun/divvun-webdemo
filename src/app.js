@@ -4,7 +4,7 @@
 "use strict";
 
 /* :: type reps = Array<string> */
-/* :: type errlist = Array<[string, number, number, string, string, Array<string>]> */
+/* :: type errlist = Array<[string, number, number, string, string, Array<string>, string]> */
 /* :: type result = { text: string, errs: errlist } */
 /* :: type cb = (text: string, X:result, off: number) => void */
 /* :: type authcb = (text: string) => void */
@@ -284,7 +284,8 @@ var mergeErrs = function(errs/*:errlist*/)/*:errlist*/ {
                 x1[2],
                 x1[3] + "/" + x2[3],
                 x1[4] + "\n / \n" + x2[4],
-                x1[5].concat(x2[5])
+                x1[5].concat(x2[5]),
+                x1[6] + "\n / \n" + x2[6]
                ];
       });
     }
@@ -1018,3 +1019,4 @@ var init = function()/*:void*/ {
 };
 
 $(document).ready(init);
+
