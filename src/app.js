@@ -408,6 +408,8 @@ $(document).ready(function() {
   }
 });
 
+const requireLogin = false;
+
 var hideLogin = function () {
   $("#serverfault").hide();
   $("#loginform").hide();
@@ -416,8 +418,11 @@ var hideLogin = function () {
   $("#logout").show();
 };
 
-var showLogin = function () {
-  // caller decides whether to show #serverfault
+var showLogin = function showLogin() {
+  if(!requireLogin) {
+    hideLogin();
+    return;
+  }
   $("#loginform").show();
   $("#content").addClass("blur");
   $("#login-wrapper").addClass("block-view");
@@ -484,7 +489,9 @@ var servercheck = function(userpass/*:userpass*/,
   console.log(url, data);
   return $.ajax(url, {
     beforeSend: function(xhr) {
-      xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
+      if(requireLogin) {
+        xhr.setRequestHeader("Authorization", basicAuthHeader(userpass));
+      }
     },
     type: "POST",
     data: data,
@@ -753,7 +760,7 @@ var check = function() {
 
   let userpass = safeGetItem("userpass",
                              readLoginFormStoring());
-  if(userpass == null) {
+  if (requireLogin && userpass == null) {
     showLogin();
   }
   else {
